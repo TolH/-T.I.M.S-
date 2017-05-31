@@ -186,7 +186,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			_spawnGroup7 = [[getMarkerPos "Missionmarker1" select 0, getMarkerPos "Missionmarker1" select 1], 270, "O_Heli_Light_02_F", East] call Bis_fnc_spawnvehicle;
 			nul_script7 = [(_spawnGroup7 select 2), (getMarkerPos "Missionmarker1"), 1000] call HELI_PATROL;	//BIS_fnc_taskPatrol;
 			HELI_AI_1 = _spawnGroup7 select 0;
-				//CREATE VEHICLE MARKER IS OPTION SELECTED
+				//CREATE VEHICLE MARKER IF OPTION ENABLED
 				if (VEHICLE_MARKER isEqualTo 1) then
 				{
 				_VehicleMarker2 = createMarker ["Heli_1", getPos HELI_AI_1];
