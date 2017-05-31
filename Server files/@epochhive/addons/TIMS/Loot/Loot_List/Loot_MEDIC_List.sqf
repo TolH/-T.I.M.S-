@@ -7,22 +7,23 @@
 //============================================////============================================//
 LOOT_FOOD = 
 [
-	"Exile_Item_EMRE",
-	"Exile_Item_GloriousKnakworst",
-	"Exile_Item_Surstromming",
-	"Exile_Item_SausageGravy",
-	"Exile_Item_Catfood",
-	"Exile_Item_ChristmasTinner",
-	"Exile_Item_BBQSandwich",
-	"Exile_Item_Dogfood",
-	"Exile_Item_BeefParts",
-	"Exile_Item_Cheathas",
-	"Exile_Item_Noodles",
-	"Exile_Item_SeedAstics",
-	"Exile_Item_Raisins",
-	"Exile_Item_Moobar",
-	"Exile_Item_InstantCoffee",
-	"Exile_Item_Can_Empty"
+	"FoodBioMeat",
+	"FoodMeeps",
+	"FoodSnooter",
+	"FoodWalkNSons",
+	"sardines_epoch",
+	"meatballs_epoch",
+	"scam_epoch",
+	"sweetcorn_epoch",
+	"honey_epoch",
+	"CookedSheep_EPOCH",
+	"CookedGoat_EPOCH",
+	"SnakeMeat_EPOCH",
+	"CookedRabbit_EPOCH",
+	"CookedChicken_EPOCH",
+	"ItemTrout",
+	"ItemSeaBass",
+	"ItemTuna"
 ];
 
 //============================================////============================================//
@@ -30,16 +31,12 @@ LOOT_FOOD =
 //============================================////============================================//
 LOOT_DRINKS = 
 [
-	"Exile_Item_PlasticBottleCoffee",
-	"Exile_Item_PowerDrink",
-	"Exile_Item_PlasticBottleFreshWater",
-	"Exile_Item_WaterCanisterEmpty",
-	"Exile_Item_WaterCanisterDirtyWater",
-	"Exile_Item_Beer",
-	"Exile_Item_EnergyDrink",
-	"Exile_Item_ChocolateMilk",
-	"Exile_Item_MountainDupe",
-	"Exile_Item_PlasticBottleEmpty"
+	"WhiskeyNoodle",
+	"ItemSodaOrangeSherbet",
+	"ItemSodaPurple",
+	"ItemSodaMocha",
+	"ItemSodaBurst",
+	"ItemSodaRbull"
 ];
 
 //============================================////============================================//
@@ -47,10 +44,13 @@ LOOT_DRINKS =
 //============================================////============================================//
 LOOT_FIRST_AID = 
 [
-	"Exile_Item_InstaDoc",
-	"Exile_Item_Vishpirin",
-	"Exile_Item_Bandage",
-	"Exile_Item_Heatpack"
-	//Exile_Item_Defibrillator"
+	"EnergyPack",
+	"EnergyPackLg",
+	"Heal_EPOCH",
+	"Defib_EPOCH",
+	"FAK",
+	"Towelette",
+	"HeatPack",
+	"ColdPack"
 ];
 
