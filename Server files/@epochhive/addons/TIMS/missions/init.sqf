@@ -10,7 +10,7 @@ if (!isDedicated) exitWith {};
 			_playerCount = {alive _x} count playableUnits;
 			if ((_playerCount >= ONLINE_PLAYERS) && (MISSION_ISRUNNING == 0)) then 
 			{
-				mission_script1 = [] execVM "NorryMissions\missions\Missions\Town_Invasion.sqf";
+				mission_script1 = [] execVM "TIMS\missions\Missions\Town_Invasion.sqf";
 				waitUntil {uiSleep 5; scriptDone mission_script1};
 			}
 			else
@@ -19,7 +19,7 @@ if (!isDedicated) exitWith {};
 				{
 					if (DEBUG_RPT == 1) then 
 					{
-						diag_log "-=NORRY=-: NOT ENOUGH PLAYER TO START A MISSION, AT LEAST 1 PLAYER IS NEEDED. Rechecking in 1 minutes...";
+						diag_log "-=T.I.M.S=-: NOT ENOUGH PLAYER TO START A MISSION, AT LEAST 1 PLAYER IS NEEDED. Rechecking in 1 minutes...";
 					};
 				};
 			};
