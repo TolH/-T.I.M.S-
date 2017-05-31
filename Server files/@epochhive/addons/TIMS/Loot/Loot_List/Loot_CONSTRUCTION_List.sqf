@@ -12,6 +12,7 @@ LOOT_CONSTRUCTION =
 	"ItemScraps",
 	"ItemCorrugated",
 	"ItemCorrugatedLg",
+	"ItemLockbox",
 	"PartPlankPack",
 	"WoodLog_EPOCH",
 	"KitStudWall",
