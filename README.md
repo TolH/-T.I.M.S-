@@ -25,7 +25,7 @@ Once the 2 bunkers are captured and most of the ai cleaned up, loot is then dist
 
 # CREDITS:
 
-* VB [AWOL] Invade and Annex
+* ahoyworld Invade and Annex
 
 *
 
