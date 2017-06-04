@@ -7,6 +7,7 @@
 		waitUntil {scriptDone config_script};
 		diag_log "=======================================================================";
 		diag_log "-=T.I.M.S=-: config File Loaded!";
+		diag_log "=======================================================================";
 	//CALL LOOT LIST
 		call compile preprocessFileLineNumbers "TIMS\Loot\Loot_List\Loot_WEAPONS_List.sqf";
 		call compile preprocessFileLineNumbers "TIMS\Loot\Loot_List\Loot_MEDIC_List.sqf";
@@ -22,6 +23,7 @@
 		{
 			if (DEBUG_RPT isEqualTo 1) then 
 			{
+				diag_log "=======================================================================";
 				diag_log "-=T.I.M.S=-: !!!MISSION SYSTEM ENABLED FROM CONFIG!!! STARTING MISSION...";
 				diag_log "=======================================================================";
 			};
@@ -33,6 +35,7 @@
 			if (DEBUG_RPT isEqualTo 1 && SPAM_STOP isEqualTo 1) then 
 			{
 				//MISSION SYSTEM DISABLED
+				diag_log "===============================================================";
 				diag_log "-=T.I.M.S=-: !!!MISSION SYSTEM DISABLED FROM CONFIG!!! EXITING...";
 				diag_log "===============================================================";
 				SPAM_STOP = 0;

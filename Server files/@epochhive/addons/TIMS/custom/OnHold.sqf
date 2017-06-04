@@ -32,7 +32,7 @@
 		while {ANIMEMARKER isEqualTo 1} do 
 		{
 		  _degree = _degree + 6;
-		  _PlayerAround = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getMarkerPos _MarkerPOS < _radius)} count allunits);
+		  _PlayerAround = ({alive _x AND (side _x) isEqualTo EAST AND (_x distance getMarkerPos _MarkerPOS < _radius)} count allunits);
 		  "OnHold" setMarkerDir _degree;
 		  uiSleep 0.04;
 			//MADE A COMPLETE ROTATION RESTARTING AT ZERO DEGREE

@@ -5,7 +5,9 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 //============================================////============================================//
 	//MISSION RUNNING CHECK
 		MISSION_ISRUNNING = 1;
+		diag_log "=======================================================================";
 		diag_log "-=T.I.M.S=-: Mission -Invasion.sqf- Started";
+		diag_log "=======================================================================";
 	//SELECT A LOCATION
 		_towns = nearestLocations [position player, ["NameVillage","NameCity","NameCityCapital"], 40000];
 		_RandomTownPosition = position (_towns select (floor (random (count _towns))));
@@ -93,7 +95,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			_bunker2POS = getPos _SPWbunker2;
 			//_Type_FuelTank = "B_Slingload_01_Fuel_F";
 			_Type_AmmoBox = "B_CargoNet_01_ammo_F";
-			_Type_ExileBox = "Exile_Container_SupplyBox";
+			_Type_ExileBox = "B_CargoNet_01_ammo_F";
 		//CRATE #1
 			_supplyBox1 = createVehicle [_Type_ExileBox, _bunker1POS, [], 0, "CAN_COLLIDE"];
 			_supplyBox1 allowDamage false;
@@ -126,13 +128,6 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			"Crate_2" setMarkerColor "ColorKhaki";
 			"Crate_2" setMarkerType "respawn_para";
 			"Crate_2" setMarkerText "";		//Weapons loot
-	//CREATE TEST LOOT
-		//_Crate_1
-			[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
-		//_Crate_2
-			[_supplyBox2,"WEAPONS"] ExecVM HIGH_Loot_Setup;
-		//_Crate_2
-			[_supplyBox2,"MEDIC"] ExecVM LOW_Loot_Setup;
 //============================================////============================================//
 	//MESSAGE
 		showNotification = ["NewMain", "Capture the Town Started!"]; publicVariable "showNotification";
@@ -143,32 +138,33 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//ADDING AI TO RADIOTOWER
 		//GROUP #1
 			_Tower = getPos _SPWradioTower;
-			_spawnGroup1 = [[(_Tower select 0) + 10,(_Tower select 1) - 10, 0], EAST, AI_DEFEND_TOWER] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup1 = [[(_Tower select 0) + 10,(_Tower select 1) - 10, 0], resistance, AI_DEFEND_TOWER] call CUSTOM_FN_SPAWNGROUP;
 			nul_script1 = [_spawnGroup1, getpos _SPWradioTower, 50] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI TO BUNKER1
 		//GROUP #9
 			_BunkerPOS1 = getPos _SPWbunker1;
-			_spawnGroup9 = [[(_BunkerPOS1 select 0) + 200,(_BunkerPOS1 select 1) - 75, 0], EAST, AI_DEFEND_BUNKER_1] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup9 = [[(_BunkerPOS1 select 0) + 200,(_BunkerPOS1 select 1) - 75, 0], resistance, AI_DEFEND_BUNKER_1] call CUSTOM_FN_SPAWNGROUP;
 			nul_script9 = [_spawnGroup9, getpos _SPWbunker1, 40] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI TO BUNKER2
 		//GROUP #15
 			_BunkerPOS2 = getPos _SPWbunker2;
-			_spawnGroup15 = [[(_BunkerPOS2 select 0) + 100,(_BunkerPOS2 select 1) - 300, 0], EAST, AI_DEFEND_BUNKER_2] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup15 = [[(_BunkerPOS2 select 0) + 100,(_BunkerPOS2 select 1) - 300, 0], resistance, AI_DEFEND_BUNKER_2] call CUSTOM_FN_SPAWNGROUP;
 			nul_script15 = [_spawnGroup15, getpos _SPWbunker2, 40] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI AROUND MAP
 		//GROUP #3
-			_spawnGroup3 = [_kRandSpawnPos2, EAST, 4] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup3 = [_kRandSpawnPos2, resistance, 4] call CUSTOM_FN_SPAWNGROUP;
 			nul_script3 = [_spawnGroup3, _kRandSpawnPos2, 50] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 		//GROUP #4
-			_spawnGroup4 = [_kRandSpawnPos2, EAST, 4] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup4 = [_kRandSpawnPos2, resistance, 4] call CUSTOM_FN_SPAWNGROUP;
 			nul_script4 = [_spawnGroup4, _kRandSpawnPos2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI NEAR CENTER TOWN
 		//GROUP #5
-			_spawnGroup5 = [_kRandSpawnPos4, EAST, 5] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup5 = [_kRandSpawnPos4, resistance, 5] call CUSTOM_FN_SPAWNGROUP;
 			nul_script5 = [_spawnGroup5, _kRandSpawnPos4, 70] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING GROUND PATROL
 		//GROUP #6
-			_spawnGroup6 = [_kRandSpawnPos5, 180, "O_G_Offroad_01_armed_F", EAST] call bis_fnc_spawnvehicle;
+			_spawnGroup6 = [_kRandSpawnPos5, 180, "O_G_Offroad_01_armed_F", resistance] call bis_fnc_spawnvehicle;
+			//_spawnGroup6 call EPOCH_server_setVToken;
 			nul_script6 = [(_spawnGroup6 select 2), (getMarkerPos "Missionmarker1"), 1000] call VEHICLE_PATROL;	//BIS_fnc_taskPatrol;
 			TANK_AI_1 = _spawnGroup6 select 0;
 				//CREATE VEHICLE MARKER IS OPTION SELECTED
@@ -183,7 +179,8 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				};
 	//ADDING FLYING PATROL
 		//GROUP #7
-			_spawnGroup7 = [[getMarkerPos "Missionmarker1" select 0, getMarkerPos "Missionmarker1" select 1], 270, "O_Heli_Light_02_F", East] call Bis_fnc_spawnvehicle;
+			_spawnGroup7 = [[getMarkerPos "Missionmarker1" select 0, getMarkerPos "Missionmarker1" select 1], 270, "O_Heli_Light_02_F", resistance] call Bis_fnc_spawnvehicle;
+			//_spawnGroup7 call EPOCH_server_setVToken;
 			nul_script7 = [(_spawnGroup7 select 2), (getMarkerPos "Missionmarker1"), 1000] call HELI_PATROL;	//BIS_fnc_taskPatrol;
 			HELI_AI_1 = _spawnGroup7 select 0;
 				//CREATE VEHICLE MARKER IF OPTION ENABLED
@@ -215,19 +212,19 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		_BunkerRadius = 60;		//_PlCount RADIUS
 	//START TRACKING CRATE MARKERS
 		//CRATETRACKING = 1;
-		//[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
+		[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 //============================================////============================================//
 	//START MISSION
 		while {_AiCounter isEqualTo 1} do 
 		{
 		  //AICOUNTER
-		  _AiCount = ({alive _x AND (side _x) isEqualTo east AND (_x distance getMarkerPos "Missionmarker1" < _radius)} count allunits);
+		  _AiCount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getMarkerPos "Missionmarker1" < _radius)} count allunits);
 		  //BUNKER #1 COUNTER
-		  _Bunker1PLCount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getPos _SPWbunker1 < _BunkerRadius)} count allunits);
-		  _Bunker1AICount = ({alive _x AND (side _x) isEqualTo east AND (_x distance getPos _SPWbunker1 < _BunkerRadius)} count allunits);
+		  _Bunker1PLCount = ({alive _x AND (side _x) isEqualTo east AND (_x distance getPos _SPWbunker1 < _BunkerRadius)} count allunits);
+		  _Bunker1AICount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getPos _SPWbunker1 < _BunkerRadius)} count allunits);
 		  //BUNKER #2 COUNTER
-		  _Bunker2PLCount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getPos _SPWbunker2 < _BunkerRadius)} count allunits);
-		  _Bunker2AICount = ({alive _x AND (side _x) isEqualTo east AND (_x distance getPos _SPWbunker2 < _BunkerRadius)} count allunits);
+		  _Bunker2PLCount = ({alive _x AND (side _x) isEqualTo east AND (_x distance getPos _SPWbunker2 < _BunkerRadius)} count allunits);
+		  _Bunker2AICount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getPos _SPWbunker2 < _BunkerRadius)} count allunits);
 		  uiSleep 4;
 		  //CREATE AI_COUNTER MARKER
 		  "AI_COUNTER" setMarkerText format ["(Ennemies left: (%1)", _AiCount];
@@ -303,7 +300,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			if (Bunker1_AI_GROUP1 isEqualTo 1) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #1. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";	
-				_spawnGroup22 = [[(_bunker1POS select 0) + 300,(_bunker1POS select 1) - 180, 0], EAST, AI_WAVE_1] call CUSTOM_FN_SPAWNGROUP;
+				_spawnGroup22 = [[(_bunker1POS select 0) + 300,(_bunker1POS select 1) - 180, 0], resistance, AI_WAVE_1] call CUSTOM_FN_SPAWNGROUP;
 				nul_script22 = [_spawnGroup22, getpos _SPWbunker1, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker1_AI_GROUP1 = 0;
 			};
@@ -311,7 +308,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			if (Bunker1_AI_GROUP1 isEqualTo 2) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #1. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup23 = [[(_bunker1POS select 0) + 190,(_bunker1POS select 1) - 300, 0], EAST, AI_WAVE_2] call CUSTOM_FN_SPAWNGROUP;
+				_spawnGroup23 = [[(_bunker1POS select 0) + 190,(_bunker1POS select 1) - 300, 0], resistance, AI_WAVE_2] call CUSTOM_FN_SPAWNGROUP;
 				nul_script23 = [_spawnGroup23, getpos _SPWbunker1, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker1_AI_GROUP1 = 0;
 			};
@@ -319,7 +316,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			if (Bunker1_AI_GROUP1 isEqualTo 3) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #1. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup33 = [[(_bunker1POS select 0) + 90,(_bunker1POS select 1) - 300, 0], EAST, AI_WAVE_3] call CUSTOM_FN_SPAWNGROUP;
+				_spawnGroup33 = [[(_bunker1POS select 0) + 90,(_bunker1POS select 1) - 300, 0], resistance, AI_WAVE_3] call CUSTOM_FN_SPAWNGROUP;
 				nul_script33 = [_spawnGroup33, getpos _SPWbunker1, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker1_AI_GROUP1 = 0;
 			};
@@ -327,7 +324,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			if (Bunker2_AI_GROUP2 isEqualTo 1) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #2. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";	
-				_spawnGroup47 = [[(_bunker2POS select 0) + 300,(_bunker2POS select 1) - 180, 0], EAST, AI_WAVE_1] call CUSTOM_FN_SPAWNGROUP;
+				_spawnGroup47 = [[(_bunker2POS select 0) + 300,(_bunker2POS select 1) - 180, 0], resistance, AI_WAVE_1] call CUSTOM_FN_SPAWNGROUP;
 				nul_script47 = [_spawnGroup47, getpos _SPWbunker2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker2_AI_GROUP2 = 0;
 			};
@@ -335,7 +332,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			if (Bunker2_AI_GROUP2 isEqualTo 2) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #2. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup32 = [[(_bunker2POS select 0) + 190,(_bunker2POS select 1) - 300, 0], EAST, AI_WAVE_2] call CUSTOM_FN_SPAWNGROUP;
+				_spawnGroup32 = [[(_bunker2POS select 0) + 190,(_bunker2POS select 1) - 300, 0], resistance, AI_WAVE_2] call CUSTOM_FN_SPAWNGROUP;
 				nul_script32 = [_spawnGroup32, getpos _SPWbunker2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker2_AI_GROUP2 = 0;
 			};
@@ -343,7 +340,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			if (Bunker2_AI_GROUP2 isEqualTo 3) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #2. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup55 = [[(_bunker2POS select 0) + 90,(_bunker2POS select 1) - 300, 0], EAST, AI_WAVE_3] call CUSTOM_FN_SPAWNGROUP;
+				_spawnGroup55 = [[(_bunker2POS select 0) + 90,(_bunker2POS select 1) - 300, 0], resistance, AI_WAVE_3] call CUSTOM_FN_SPAWNGROUP;
 				nul_script55 = [_spawnGroup55, getpos _SPWbunker2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker2_AI_GROUP2 = 0;
 			};
@@ -355,6 +352,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				_Tank1Alive = 0;
 				//ADD BONUS LOOT IF TANK_AI_1 KILLED
 				_BonusLoot1 = createVehicle ["O_G_Offroad_01_armed_F", _kRandSpawnPos6, [], 0, "CAN_COLLIDE"];
+				_BonusLoot1 call EPOCH_server_setVToken;
 				//MARKER AT VEHICLE
 				_BonusLoot1Marker = createMarker ["BonusLoot1", getPos _BonusLoot1];
 				"BonusLoot1" setMarkerSize [0.8,0.8];
@@ -374,6 +372,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				_Heli1Alive = 0;
 				//ADD BONUS LOOT IF HELI_AI_1 KILLED
 				_BonusLoot2 = createVehicle ["O_Heli_Light_02_F", _kRandSpawnPos7, [], 0, "CAN_COLLIDE"];
+				_BonusLoot2 call EPOCH_server_setVToken;
 				//MARKER AT VEHICLE
 				_BonusLoot2Marker = createMarker ["BonusLoot2", getPos _BonusLoot2];
 				"BonusLoot2" setMarkerSize [0.8,0.8];
@@ -403,10 +402,17 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//MESSAGE
 		showNotification = ["CompletedMain", "You have taken back the town!"]; publicVariable "showNotification";
 		"Missionmarker1" setMarkerColor "ColorGreen";
+	//CREATE LOOT IF INVASION COMPLETED THEN START A SMOKE GRENADE
+		//_Crate_1
+		[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
+		//_Crate_2
+		[_supplyBox2,"WEAPONS"] ExecVM HIGH_Loot_Setup;
+		//_Crate_2
+		[_supplyBox2,"MEDIC"] ExecVM LOW_Loot_Setup;
 //============================================////============================================//
 	//WAIT X SECONDS BEFORE DELETING EVERYTHING FOR NOW
 		uiSleep MISSION_CLEAN_TIME;
-		//CRATETRACKING = 0;
+		CRATETRACKING = 0;
 		//DELETE SPECIALS
 			if (!alive _SPWradioTower) then
 			{
