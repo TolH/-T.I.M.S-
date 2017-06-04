@@ -12,7 +12,7 @@
 	_colorDifficulty = _this select 2;	//THIRD ELEMENT == THE COLOR OF THE MARKER REPRESENT THE VISUAL DIFFICULTY OF THE MISSION (Green, Yellow, Red)
 //============================================////============================================//
 	//SEND MESSAGE TO PLAYER THAT A RANDOM MISSION HAS STARTED
-		showNotification = ["NewMain", "A new mission has started! Check your map for the location."]; publicVariable "showNotification";
+		showNotification = ["NewMain", "A town will soon be invaded! Check your map for the location."]; publicVariable "showNotification";
 	//VAR
 		ANIMEMARKER = 1;
 		_degree = 0;
@@ -46,7 +46,7 @@
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				showNotification = ["NewMain", "Player nearby invasion zone! Starting in 10 seconds. Good Luck..."]; publicVariable "showNotification";
+				showNotification = ["NewMain", "Player detected near targeted town! Starting invasion in 10 seconds. Good hunting..."]; publicVariable "showNotification";
 				uiSleep 10;
 				ANIMEMARKER = 0;
 			};

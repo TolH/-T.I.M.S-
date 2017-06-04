@@ -31,7 +31,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		"Missionmarker3" setMarkerSize [1300,1300];
 		"Missionmarker3" setMarkerAlpha 1.0;
 	//PAUSE MISSION UNTIL PLAYER ARE AT LEAST 1250m OF MARKER
-		["Missionmarker1", 1250, "ColorYellow"] ExecVM PAUSE_MISSION;
+		["Missionmarker1", 1250, "ColorRed"] ExecVM PAUSE_MISSION;
 		waitUntil {uiSleep 3; ANIMEMARKER isEqualTo 0};
 		deleteMarker "Missionmarker3";
 //============================================////============================================//
@@ -95,13 +95,12 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			_bunker2POS = getPos _SPWbunker2;
 			//_Type_FuelTank = "B_Slingload_01_Fuel_F";
 			_Type_AmmoBox = "B_CargoNet_01_ammo_F";
-			_Type_ExileBox = "B_CargoNet_01_ammo_F";
 		//CRATE #1
-			_supplyBox1 = createVehicle [_Type_ExileBox, _bunker1POS, [], 0, "CAN_COLLIDE"];
+			_supplyBox1 = createVehicle [_Type_AmmoBox, _bunker1POS, [], 0, "CAN_COLLIDE"];
 			_supplyBox1 allowDamage false;
 			_supplyBox1 enableSimulation true;
 		//CRATE #2
-			_supplyBox2 = createVehicle [_Type_ExileBox, _bunker2POS, [], 0, "CAN_COLLIDE"];
+			_supplyBox2 = createVehicle [_Type_AmmoBox, _bunker2POS, [], 0, "CAN_COLLIDE"];
 			_supplyBox2 allowDamage false;
 			_supplyBox2 enableSimulation true;
 	//CLEAR CRATE ITEMS
@@ -152,14 +151,14 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			nul_script15 = [_spawnGroup15, getpos _SPWbunker2, 40] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI AROUND MAP
 		//GROUP #3
-			_spawnGroup3 = [_kRandSpawnPos2, resistance, 4] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup3 = [_kRandSpawnPos2, resistance, 10] call CUSTOM_FN_SPAWNGROUP;
 			nul_script3 = [_spawnGroup3, _kRandSpawnPos2, 50] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 		//GROUP #4
 			_spawnGroup4 = [_kRandSpawnPos2, resistance, 4] call CUSTOM_FN_SPAWNGROUP;
 			nul_script4 = [_spawnGroup4, _kRandSpawnPos2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI NEAR CENTER TOWN
 		//GROUP #5
-			_spawnGroup5 = [_kRandSpawnPos4, resistance, 5] call CUSTOM_FN_SPAWNGROUP;
+			_spawnGroup5 = [_kRandSpawnPos4, resistance, 10] call CUSTOM_FN_SPAWNGROUP;
 			nul_script5 = [_spawnGroup5, _kRandSpawnPos4, 70] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING GROUND PATROL
 		//GROUP #6
@@ -247,7 +246,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			//BUNKER #1 CAPTURED BY AI
 			if ((_Bunker1AICount > _Bunker1PLCount) && (_Bunker1OwnedByAI isEqualTo 0)) then
 			{
-				showNotification = ["BunkerTakenByAI", "Bunker #1 captured by AI."]; publicVariable "showNotification";
+				showNotification = ["BunkerTakenByAI", "Bunker #1 captured by AI's."]; publicVariable "showNotification";
 				"Bunker1" setMarkerColor "ColorRed";
 				//"Bunker1" setMarkerText " (Captured by: (AI)";
 				_Bunker1OwnedByAI = 1;
@@ -257,7 +256,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			//BUNKER #1 CAPTURED BY PLAYER
 			if ((_Bunker1PLCount > _Bunker1AICount) && (_Bunker1OwnedByPlayer isEqualTo 0)) then
 			{
-				showNotification = ["BunkerTakenByPlayer", "Bunker #1 captured by PLAYER."]; publicVariable "showNotification";
+				showNotification = ["BunkerTakenByPlayer", "Bunker #1 captured by PLAYERS."]; publicVariable "showNotification";
 				"Bunker1" setMarkerColor "ColorBlue";
 				//"Bunker1" setMarkerText " (Captured by: (Players)";
 				_Bunker1OwnedByAI = 0;
@@ -272,7 +271,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			//BUNKER #2 CAPTURED BY AI
 			if ((_Bunker2AICount > _Bunker2PLCount) && (_Bunker2OwnedByAI isEqualTo 0)) then
 			{
-				showNotification = ["BunkerTakenByAI", "Bunker #2 captured by AI."]; publicVariable "showNotification";
+				showNotification = ["BunkerTakenByAI", "Bunker #2 captured by AI's."]; publicVariable "showNotification";
 				"Bunker2" setMarkerColor "ColorRed";
 				//"Bunker1" setMarkerText " (Captured by: (AI)";
 				_Bunker2OwnedByAI = 1;
@@ -412,7 +411,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		//_Crate_2
 		[_supplyBox2,"MEDIC"] ExecVM LOW_Loot_Setup;
 //============================================////============================================//
-	//WAIT X SECONDS BEFORE DELETING EVERYTHING FOR NOW
+	//WAIT X SECONDS BEFORE DELETING EVERYTHING
 		uiSleep MISSION_CLEAN_TIME;
 		CRATETRACKING = 0;
 		//DELETE SPECIALS
