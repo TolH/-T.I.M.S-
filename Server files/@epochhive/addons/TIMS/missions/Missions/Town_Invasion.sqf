@@ -163,8 +163,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			nul_script5 = [_spawnGroup5, _kRandSpawnPos4, 70] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING GROUND PATROL
 		//GROUP #6
-			_spawnGroup6 = [_kRandSpawnPos5, 180, "O_G_Offroad_01_armed_F", resistance] call bis_fnc_spawnvehicle;
-			//_spawnGroup6 call EPOCH_server_setVToken;
+			_spawnGroup6 = [_kRandSpawnPos5, 180, "O_G_Offroad_01_armed_F", resistance] call CUSTOM_FNC_SPAWNVEHICLE; //bis_fnc_spawnvehicle;
 			nul_script6 = [(_spawnGroup6 select 2), (getMarkerPos "Missionmarker1"), 1000] call VEHICLE_PATROL;	//BIS_fnc_taskPatrol;
 			TANK_AI_1 = _spawnGroup6 select 0;
 				//CREATE VEHICLE MARKER IS OPTION SELECTED
@@ -179,8 +178,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				};
 	//ADDING FLYING PATROL
 		//GROUP #7
-			_spawnGroup7 = [[getMarkerPos "Missionmarker1" select 0, getMarkerPos "Missionmarker1" select 1], 270, "O_Heli_Light_02_F", resistance] call Bis_fnc_spawnvehicle;
-			//_spawnGroup7 call EPOCH_server_setVToken;
+			_spawnGroup7 = [[getMarkerPos "Missionmarker1" select 0, getMarkerPos "Missionmarker1" select 1], 270, "O_Heli_Light_02_F", resistance] call CUSTOM_FNC_SPAWNVEHICLE; //bis_fnc_spawnvehicle;
 			nul_script7 = [(_spawnGroup7 select 2), (getMarkerPos "Missionmarker1"), 1000] call HELI_PATROL;	//BIS_fnc_taskPatrol;
 			HELI_AI_1 = _spawnGroup7 select 0;
 				//CREATE VEHICLE MARKER IF OPTION ENABLED
@@ -211,7 +209,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		_radius = 1250;			//_AiCount RADIUS
 		_BunkerRadius = 60;		//_PlCount RADIUS
 	//START TRACKING CRATE MARKERS
-		//CRATETRACKING = 1;
+		CRATETRACKING = 1;
 		[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 //============================================////============================================//
 	//START MISSION
@@ -405,8 +403,12 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//CREATE LOOT IF INVASION COMPLETED THEN START A SMOKE GRENADE
 		//_Crate_1
 		[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
+		//SMOKE_1
+		
 		//_Crate_2
 		[_supplyBox2,"WEAPONS"] ExecVM HIGH_Loot_Setup;
+		//SMOKE_2
+		
 		//_Crate_2
 		[_supplyBox2,"MEDIC"] ExecVM LOW_Loot_Setup;
 //============================================////============================================//
