@@ -17,7 +17,7 @@ While capturing the bunkers, Waves of AI will try and defend the bunker to take 
 
 Once the 2 bunkers are captured and most of the ai cleaned up, loot is then distributed around the bunkers/town marked on your map.
 
-*This is still a work in progress and the goal is to get a militarized town invasion on hard difficulty with more idea to be added.
+***This is still a work in progress and the goal is to get a militarized town invasion on hard difficulty with more idea to be added. When not building a base and bored, why not just go to war...
 
 # Installation:
 
