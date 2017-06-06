@@ -129,7 +129,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			"Crate_2" setMarkerText "";		//Weapons loot
 //============================================////============================================//
 	//MESSAGE
-		showNotification = ["NewMain", "Capture the Town Started!"]; publicVariable "showNotification";
+		showNotification = ["NewMain", "Town Invasion Started!"]; publicVariable "showNotification";
 	//WAIT 15 SECONDS BEFORE SENDING NEXT MESSAGE
 		uiSleep 15;
 		showNotification = ["NewSub", "Destroy the RadioTower to avoid Bunker reinforcements!"]; publicVariable "showNotification";	

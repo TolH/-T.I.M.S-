@@ -250,17 +250,17 @@ CUSTOM_FN_SPAWNGROUP = {
 				if (_playerCountPL <= 5) then 
 				{
 					_unit setUnitAbility 0.30;
-					diag_log "setUnitAbility 0.30";
+					//diag_log "setUnitAbility 0.30";
 				};
 				if (_playerCountPL >= 6) then 
 				{
 					_unit setUnitAbility 0.45;
-					diag_log "setUnitAbility 0.45";
+					//diag_log "setUnitAbility 0.45";
 				};
 				if (_playerCountPL >= 10) then 
 				{
 					_unit setUnitAbility 0.65;
-					diag_log "setUnitAbility 0.65";
+					//diag_log "setUnitAbility 0.65";
 				};
 			};
 			//If a range was given, set a random ammo count.

@@ -46,7 +46,7 @@
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				showNotification = ["NewMain", "Player detected near targeted town! Starting invasion in 10 seconds. Good hunting..."]; publicVariable "showNotification";
+				showNotification = ["NewMain", "Player detected near targeted town! Starting invasion in 10 seconds..."]; publicVariable "showNotification";
 				uiSleep 10;
 				ANIMEMARKER = 0;
 			};
