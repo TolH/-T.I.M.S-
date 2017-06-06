@@ -122,7 +122,7 @@ CUSTOM_FN_SPAWNGROUP = {
 	_positions = _this param [3, [], [[]]];
 	_ranks = _this param [4, [], [[]]];
 	_skillRange = _this param [5, [0.25], [[]]];
-	_skillSet = 0.25;
+	_skillSet = 0.30;
 	_ammoRange = _this param [6, [], [[]]];
 	_randomControls = _this param [7, [-1, 1], [[]]];
 	_precisePosition = _this param [9,true,[true]];
@@ -174,7 +174,7 @@ CUSTOM_FN_SPAWNGROUP = {
 		};
 	};
 
-	private ["_grp","_vehicles","_isMan","_type"];
+	private ["_grp","_vehicles","_isMan","_type","_playerCountPL"];
 	_grp = createGroup _side;
 	_vehicles = 0;		//spawned vehicles count
 
@@ -240,11 +240,29 @@ CUSTOM_FN_SPAWNGROUP = {
 			};
 
 			//If a range was given, set a random skill.
-			if (_skillSet > 0.00) then
+			_playerCountPL = {alive _x} count playableUnits;
+			if (AI_SKILLS_DYN isEqualTo 0) then
 			{
 				_unit setUnitAbility AI_SKIILS;
+			}
+			else
+			{
+				if (_playerCountPL <= 5) then 
+				{
+					_unit setUnitAbility 0.30;
+					diag_log "setUnitAbility 0.30";
+				};
+				if (_playerCountPL >= 6) then 
+				{
+					_unit setUnitAbility 0.45;
+					diag_log "setUnitAbility 0.45";
+				};
+				if (_playerCountPL >= 10) then 
+				{
+					_unit setUnitAbility 0.65;
+					diag_log "setUnitAbility 0.65";
+				};
 			};
-
 			//If a range was given, set a random ammo count.
 			if ((count _ammoRange) > 0) then
 			{
