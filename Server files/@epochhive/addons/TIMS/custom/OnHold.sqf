@@ -34,7 +34,7 @@
 		  _degree = _degree + 6;
 		  _PlayerAround = ({alive _x AND (side _x) isEqualTo EAST AND (_x distance getMarkerPos _MarkerPOS < _radius)} count allunits);
 		  "OnHold" setMarkerDir _degree;
-		  uiSleep 0.04;
+		  uiSleep 0.05;
 			//MADE A COMPLETE ROTATION RESTARTING AT ZERO DEGREE
 			if (_degree isEqualTo 360) then
 			{
