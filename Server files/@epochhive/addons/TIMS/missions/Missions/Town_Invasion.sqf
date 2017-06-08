@@ -132,38 +132,39 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		showNotification = ["NewMain", "Town Invasion Started!"]; publicVariable "showNotification";
 	//WAIT 15 SECONDS BEFORE SENDING NEXT MESSAGE
 		uiSleep 15;
-		showNotification = ["NewSub", "Destroy the RadioTower to avoid Bunker reinforcements!"]; publicVariable "showNotification";	
+		showNotification = ["NewSub", "Destroy the RadioTower."]; publicVariable "showNotification";	
 //============================================////============================================//
 	//ADDING AI TO RADIOTOWER
 		//GROUP #1
-			_Tower = getPos _SPWradioTower;
-			_spawnGroup1 = [[(_Tower select 0) + 10,(_Tower select 1) - 10, 0], resistance, AI_DEFEND_TOWER] call CUSTOM_FN_SPAWNGROUP;
-			nul_script1 = [_spawnGroup1, getpos _SPWradioTower, 50] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+			_LVgroup1 = ["Missionmarker1",3,1100,[true,true],[true,true,true],false,[50,0],[3,0],0.3,nil,nil,1,true,true,["ALL"]] execVM "TIMS\LV\militarize.sqf";
+			//_Tower = getPos _SPWradioTower;
+			//_spawnGroup1 = [[(_Tower select 0) + 10,(_Tower select 1) - 10, 0], resistance, AI_DEFEND_TOWER] ExecVM CUSTOM_FN_SPAWNGROUP;
+			//nul_script1 = [_spawnGroup1, getpos _SPWradioTower, 50] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI TO BUNKER1
 		//GROUP #9
-			_BunkerPOS1 = getPos _SPWbunker1;
-			_spawnGroup9 = [[(_BunkerPOS1 select 0) + 200,(_BunkerPOS1 select 1) - 75, 0], resistance, AI_DEFEND_BUNKER_1] call CUSTOM_FN_SPAWNGROUP;
-			nul_script9 = [_spawnGroup9, getpos _SPWbunker1, 40] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+			//_BunkerPOS1 = getPos _SPWbunker1;
+			//_spawnGroup9 = [[(_BunkerPOS1 select 0) + 200,(_BunkerPOS1 select 1) - 75, 0], resistance, AI_DEFEND_BUNKER_1] ExecVM CUSTOM_FN_SPAWNGROUP;
+			//nul_script9 = [_spawnGroup9, getpos _SPWbunker1, 40] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI TO BUNKER2
 		//GROUP #15
-			_BunkerPOS2 = getPos _SPWbunker2;
-			_spawnGroup15 = [[(_BunkerPOS2 select 0) + 100,(_BunkerPOS2 select 1) - 300, 0], resistance, AI_DEFEND_BUNKER_2] call CUSTOM_FN_SPAWNGROUP;
-			nul_script15 = [_spawnGroup15, getpos _SPWbunker2, 40] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+			//_BunkerPOS2 = getPos _SPWbunker2;
+			//_spawnGroup15 = [[(_BunkerPOS2 select 0) + 100,(_BunkerPOS2 select 1) - 300, 0], resistance, AI_DEFEND_BUNKER_2] ExecVM CUSTOM_FN_SPAWNGROUP;
+			//nul_script15 = [_spawnGroup15, getpos _SPWbunker2, 40] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI AROUND MAP
 		//GROUP #3
-			_spawnGroup3 = [_kRandSpawnPos2, resistance, 10] call CUSTOM_FN_SPAWNGROUP;
-			nul_script3 = [_spawnGroup3, _kRandSpawnPos2, 50] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+			//_spawnGroup3 = [_kRandSpawnPos2, resistance, 10] ExecVM CUSTOM_FN_SPAWNGROUP;
+			//nul_script3 = [_spawnGroup3, _kRandSpawnPos2, 50] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 		//GROUP #4
-			_spawnGroup4 = [_kRandSpawnPos2, resistance, 4] call CUSTOM_FN_SPAWNGROUP;
-			nul_script4 = [_spawnGroup4, _kRandSpawnPos2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+			//_spawnGroup4 = [_kRandSpawnPos2, resistance, 4] ExecVM CUSTOM_FN_SPAWNGROUP;
+			//nul_script4 = [_spawnGroup4, _kRandSpawnPos2, 25] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING AI NEAR CENTER TOWN
 		//GROUP #5
-			_spawnGroup5 = [_kRandSpawnPos4, resistance, 10] call CUSTOM_FN_SPAWNGROUP;
-			nul_script5 = [_spawnGroup5, _kRandSpawnPos4, 70] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+			//_spawnGroup5 = [_kRandSpawnPos4, resistance, 10] ExecVM CUSTOM_FN_SPAWNGROUP;
+			//nul_script5 = [_spawnGroup5, _kRandSpawnPos4, 70] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 	//ADDING GROUND PATROL
 		//GROUP #6
-			_spawnGroup6 = [_kRandSpawnPos5, 180, "O_G_Offroad_01_armed_F", resistance] call CUSTOM_FNC_SPAWNVEHICLE; //bis_fnc_spawnvehicle;
-			nul_script6 = [(_spawnGroup6 select 2), (getMarkerPos "Missionmarker1"), 1000] call VEHICLE_PATROL;	//BIS_fnc_taskPatrol;
+			//_spawnGroup6 = [_kRandSpawnPos5, 180, "O_G_Offroad_01_armed_F", resistance] ExecVM CUSTOM_FNC_SPAWNVEHICLE; //bis_fnc_spawnvehicle;
+			//nul_script6 = [(_spawnGroup6 select 2), (getMarkerPos "Missionmarker1"), 1000] ExecVM VEHICLE_PATROL;	//BIS_fnc_taskPatrol;
 			TANK_AI_1 = _spawnGroup6 select 0;
 				//CREATE VEHICLE MARKER IS OPTION SELECTED
 				if (VEHICLE_MARKER isEqualTo 1) then
@@ -177,8 +178,8 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				};
 	//ADDING FLYING PATROL
 		//GROUP #7
-			_spawnGroup7 = [[getMarkerPos "Missionmarker1" select 0, getMarkerPos "Missionmarker1" select 1], 270, "O_Heli_Light_02_F", resistance] call CUSTOM_FNC_SPAWNVEHICLE; //bis_fnc_spawnvehicle;
-			nul_script7 = [(_spawnGroup7 select 2), (getMarkerPos "Missionmarker1"), 1000] call HELI_PATROL;	//BIS_fnc_taskPatrol;
+			//_spawnGroup7 = [[getMarkerPos "Missionmarker1" select 0, getMarkerPos "Missionmarker1" select 1], 270, "O_Heli_Light_02_F", resistance] ExecVM CUSTOM_FNC_SPAWNVEHICLE; //bis_fnc_spawnvehicle;
+			//nul_script7 = [(_spawnGroup7 select 2), (getMarkerPos "Missionmarker1"), 1000] ExecVM HELI_PATROL;	//BIS_fnc_taskPatrol;
 			HELI_AI_1 = _spawnGroup7 select 0;
 				//CREATE VEHICLE MARKER IF OPTION ENABLED
 				if (VEHICLE_MARKER isEqualTo 1) then
@@ -297,48 +298,48 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			if (Bunker1_AI_GROUP1 isEqualTo 1) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #1. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";	
-				_spawnGroup22 = [[(_bunker1POS select 0) + 300,(_bunker1POS select 1) - 180, 0], resistance, AI_WAVE_1] call CUSTOM_FN_SPAWNGROUP;
-				nul_script22 = [_spawnGroup22, getpos _SPWbunker1, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+				//_spawnGroup22 = [[(_bunker1POS select 0) + 300,(_bunker1POS select 1) - 180, 0], resistance, AI_WAVE_1] ExecVM CUSTOM_FN_SPAWNGROUP;
+				//nul_script22 = [_spawnGroup22, getpos _SPWbunker1, 25] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker1_AI_GROUP1 = 0;
 			};
 			//ADD BUNKER #1 REINFORCMENT AFTER A WHILE FOR Bunker1_AI_GROUP1
 			if (Bunker1_AI_GROUP1 isEqualTo 2) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #1. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup23 = [[(_bunker1POS select 0) + 190,(_bunker1POS select 1) - 300, 0], resistance, AI_WAVE_2] call CUSTOM_FN_SPAWNGROUP;
-				nul_script23 = [_spawnGroup23, getpos _SPWbunker1, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+				//_spawnGroup23 = [[(_bunker1POS select 0) + 190,(_bunker1POS select 1) - 300, 0], resistance, AI_WAVE_2] ExecVM CUSTOM_FN_SPAWNGROUP;
+				//nul_script23 = [_spawnGroup23, getpos _SPWbunker1, 25] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker1_AI_GROUP1 = 0;
 			};
 			//ADD BUNKER #1 REINFORCMENT AFTER A WHILE FOR Bunker1_AI_GROUP1
 			if (Bunker1_AI_GROUP1 isEqualTo 3) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #1. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup33 = [[(_bunker1POS select 0) + 90,(_bunker1POS select 1) - 300, 0], resistance, AI_WAVE_3] call CUSTOM_FN_SPAWNGROUP;
-				nul_script33 = [_spawnGroup33, getpos _SPWbunker1, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+				//_spawnGroup33 = [[(_bunker1POS select 0) + 90,(_bunker1POS select 1) - 300, 0], resistance, AI_WAVE_3] ExecVM CUSTOM_FN_SPAWNGROUP;
+				//nul_script33 = [_spawnGroup33, getpos _SPWbunker1, 25] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker1_AI_GROUP1 = 0;
 			};
 			//ADD BUNKER #2 REINFORCMENT AFTER A WHILE FOR Bunker2_AI_GROUP2
 			if (Bunker2_AI_GROUP2 isEqualTo 1) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #2. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";	
-				_spawnGroup47 = [[(_bunker2POS select 0) + 300,(_bunker2POS select 1) - 180, 0], resistance, AI_WAVE_1] call CUSTOM_FN_SPAWNGROUP;
-				nul_script47 = [_spawnGroup47, getpos _SPWbunker2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+				//_spawnGroup47 = [[(_bunker2POS select 0) + 300,(_bunker2POS select 1) - 180, 0], resistance, AI_WAVE_1] ExecVM CUSTOM_FN_SPAWNGROUP;
+				//nul_script47 = [_spawnGroup47, getpos _SPWbunker2, 25] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker2_AI_GROUP2 = 0;
 			};
 			//ADD BUNKER #2 REINFORCMENT AFTER A WHILE FOR Bunker2_AI_GROUP2
 			if (Bunker2_AI_GROUP2 isEqualTo 2) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #2. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup32 = [[(_bunker2POS select 0) + 190,(_bunker2POS select 1) - 300, 0], resistance, AI_WAVE_2] call CUSTOM_FN_SPAWNGROUP;
-				nul_script32 = [_spawnGroup32, getpos _SPWbunker2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+				//_spawnGroup32 = [[(_bunker2POS select 0) + 190,(_bunker2POS select 1) - 300, 0], resistance, AI_WAVE_2] ExecVM CUSTOM_FN_SPAWNGROUP;
+				//nul_script32 = [_spawnGroup32, getpos _SPWbunker2, 25] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker2_AI_GROUP2 = 0;
 			};
 			//ADD BUNKER #2 REINFORCMENT AFTER A WHILE FOR Bunker2_AI_GROUP2
 			if (Bunker2_AI_GROUP2 isEqualTo 3) then
 			{
 				showNotification = ["OptionalFailed", "Sending troops to Bunker #2. Destroy the RadioTower to avoid reinforcement."]; publicVariable "showNotification";
-				_spawnGroup55 = [[(_bunker2POS select 0) + 90,(_bunker2POS select 1) - 300, 0], resistance, AI_WAVE_3] call CUSTOM_FN_SPAWNGROUP;
-				nul_script55 = [_spawnGroup55, getpos _SPWbunker2, 25] call UNITS_PATROL;	//BIS_fnc_taskPatrol;
+				//_spawnGroup55 = [[(_bunker2POS select 0) + 90,(_bunker2POS select 1) - 300, 0], resistance, AI_WAVE_3] ExecVM CUSTOM_FN_SPAWNGROUP;
+				//nul_script55 = [_spawnGroup55, getpos _SPWbunker2, 25] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
 				Bunker2_AI_GROUP2 = 0;
 			};
 			//TANK_AI_1 KILLED
