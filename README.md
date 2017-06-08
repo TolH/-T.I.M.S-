@@ -2,7 +2,7 @@
 
 For Arma 3 Epoch: https://epochmod.com/forum/
 
-Required addons: @CUP_Terrains_Core, @CUP_Terrains_Maps, @CUP_Units, @CUP_Vehicles, @CUP_Weapons
+Required addons:  @CUP_Units, @CUP_Vehicles, @CUP_Weapons
 
 # Info:
 
