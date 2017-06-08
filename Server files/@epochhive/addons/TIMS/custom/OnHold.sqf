@@ -4,7 +4,7 @@
 									 Mission On Hold.
 					Usage: 	
 					["marker",  radius, "colordifficulty"] ExecVM PAUSE_MISSION;
-	This will put a rotating marker on map pausing mission so no ai spawn until a player is a certain distance.
+	This will put a rotating marker on map pausing mission so no ai spawn until a player is near the location between the green and red circle.
 */
 //============================================////============================================//
 	_MarkerPOS = _this select 0;	// first ELEMENT == MARKER POSITION TO PUT MARKER
@@ -12,7 +12,7 @@
 	_colorDifficulty = _this select 2;	//THIRD ELEMENT == THE COLOR OF THE MARKER REPRESENT THE VISUAL DIFFICULTY OF THE MISSION (Green, Yellow, Red)
 //============================================////============================================//
 	//SEND MESSAGE TO PLAYER THAT A RANDOM MISSION HAS STARTED
-		showNotification = ["NewMain", "A town will soon be invaded! Check your map for the location."]; publicVariable "showNotification";
+		showNotification = ["NewMain", "A new mission is on hold. Scout the area to see what it is."]; publicVariable "showNotification";
 	//VAR
 		ANIMEMARKER = 1;
 		_degree = 0;
@@ -46,7 +46,7 @@
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				showNotification = ["NewMain", "Player detected near targeted town! Starting invasion in 10 seconds..."]; publicVariable "showNotification";
+				showNotification = ["NewMain", "A Player scouted the area! Starting Hostage Rescue mission..."]; publicVariable "showNotification";
 				uiSleep 10;
 				ANIMEMARKER = 0;
 			};
