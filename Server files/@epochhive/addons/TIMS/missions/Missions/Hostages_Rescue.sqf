@@ -92,7 +92,7 @@ private ["_towns","_RandomTownPosition","_Missionmarker1","_Missionmarker2","_Mi
 		deleteMarker "Missionmarker2";
 		deleteMarker "AI_COUNTER";
 		//DELETE AI GROUP LVgroup1
-		nul = [1300,LVgroup1] execVM "TIMS\LV\LV_fnc_removeDead.sqf";
+		nul = [500,LVgroup1] execVM "TIMS\LV\LV_fnc_removeDead.sqf";
 		nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 //============================================////============================================//
 	//MISSION ENDED
