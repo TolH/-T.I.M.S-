@@ -1,9 +1,9 @@
 /*
 										-=TolH=- 
-								(markers_tracking_mission1.sqf)
+								(Loot_Crate_Markers.sqf)
 								  Track mission loot markers.
 					Usage: 
-					CRATETRACKING = 1;
+					LOOT_TRACKER = 1;
 					[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 */
 //============================================////============================================//
@@ -16,7 +16,7 @@
 	_CRATE2_TRACKING = 1;
 //============================================////============================================//
 	//START TRACKING
-	while {CRATETRACKING isEqualTo 1} do 
+	while {LOOT_TRACKER isEqualTo 1} do 
 	{
 	  //MOVE MARKER EVERY 5 SECONDS
 	  uiSleep 5;
@@ -42,7 +42,7 @@
 		if ((_CRATE1_TRACKING isEqualTo 0) && (_CRATE2_TRACKING isEqualTo 0)) then
 		{
 			//STOP TRACKING
-			CRATETRACKING = 0;
+			LOOT_TRACKER = 0;
 		};
 	};
 //============================================////============================================//

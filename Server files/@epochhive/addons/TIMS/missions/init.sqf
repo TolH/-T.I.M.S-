@@ -10,8 +10,8 @@ if (!isDedicated) exitWith {};
 			_playerCount = {alive _x} count playableUnits;
 			if ((_playerCount >= ONLINE_PLAYERS) && (MISSION_ISRUNNING == 0)) then 
 			{
-				//mission_script1 = [] execVM "TIMS\missions\Missions\Town_Invasion.sqf";
-				mission_script1 = [] execVM "TIMS\missions\Missions\Hostages_Rescue.sqf";
+				mission_script1 = [] execVM "TIMS\missions\Missions\Town_Invasion.sqf";
+				//mission_script1 = [] execVM "TIMS\missions\Missions\Hostages_Rescue.sqf";
 				waitUntil {uiSleep 5; scriptDone mission_script1};
 			}
 			else
