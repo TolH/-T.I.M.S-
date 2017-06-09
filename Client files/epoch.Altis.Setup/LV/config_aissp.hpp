@@ -6,25 +6,24 @@ class config_aissp
 	};
 	class classPresets
 	{
-		
 		///CUSTOM CLASSES - You can copy-paste more customClasses and fill them as you will
-		class customClass1
+		//IND CUSTOM
+		class TOHL
 		{
 			side = 3; //0 = CIV, 1 = BLU, 2 = OPF, 3 = IND
-			men[] = {""};
-			men2[] = {""};
-			men3[] = {""};
-			menSF[] = {""};
-			divers[] = {""};
-			cars[] = {""};
-			tanks[] = {""};
-			helicopters[] = {""};
-			planes[] = {""};
-			ships[] = {""};
+			men[] = {"I_Soldier_02_F","I_Soldier_03_F","I_Soldier_04_F","I_soldier_F","I_Soldier_lite_F","I_Soldier_A_F","I_Soldier_GL_F","I_Soldier_AR_F","I_Soldier_SL_F","I_Soldier_TL_F","I_Soldier_M_F","I_Soldier_LAT_F","I_Soldier_AT_F","I_Soldier_AA_F","I_medic_F","I_Soldier_repair_F","I_Soldier_exp_F","I_engineer_F","I_crew_F","I_helipilot_F","I_pilot_F","I_helicrew_F","I_officer_F","I_Story_Colonel_F","I_soldier_UAV_F","I_Spotter_F","I_Sniper_F","I_Soldier_AAR_F","I_Soldier_AAT_F","I_Soldier_AAA_F","I_support_MG_F","I_support_GMG_F","I_support_Mort_F","I_support_AMG_F","I_support_AMort_F","I_ghillie_lsh_F","I_ghillie_sard_F","I_ghillie_ard_F"};
+			men2[] = {"I_Soldier_02_F","I_Soldier_03_F","I_Soldier_04_F","I_soldier_F","I_Soldier_lite_F","I_Soldier_A_F","I_Soldier_GL_F","I_Soldier_AR_F","I_Soldier_SL_F","I_Soldier_TL_F","I_Soldier_M_F","I_Soldier_LAT_F","I_Soldier_AT_F","I_Soldier_AA_F","I_medic_F","I_Soldier_repair_F","I_Soldier_exp_F","I_engineer_F","I_crew_F","I_helipilot_F","I_pilot_F","I_helicrew_F","I_officer_F","I_Story_Colonel_F","I_soldier_UAV_F","I_Spotter_F","I_Sniper_F","I_Soldier_AAR_F","I_Soldier_AAT_F","I_Soldier_AAA_F","I_support_MG_F","I_support_GMG_F","I_support_Mort_F","I_support_AMG_F","I_support_AMort_F","I_ghillie_lsh_F","I_ghillie_sard_F","I_ghillie_ard_F"};
+			men3[] = {"I_Soldier_02_F","I_Soldier_03_F","I_Soldier_04_F","I_soldier_F","I_Soldier_lite_F","I_Soldier_A_F","I_Soldier_GL_F","I_Soldier_AR_F","I_Soldier_SL_F","I_Soldier_TL_F","I_Soldier_M_F","I_Soldier_LAT_F","I_Soldier_AT_F","I_Soldier_AA_F","I_medic_F","I_Soldier_repair_F","I_Soldier_exp_F","I_engineer_F","I_crew_F","I_helipilot_F","I_pilot_F","I_helicrew_F","I_officer_F","I_Story_Colonel_F","I_soldier_UAV_F","I_Spotter_F","I_Sniper_F","I_Soldier_AAR_F","I_Soldier_AAT_F","I_Soldier_AAA_F","I_support_MG_F","I_support_GMG_F","I_support_Mort_F","I_support_AMG_F","I_support_AMort_F","I_ghillie_lsh_F","I_ghillie_sard_F","I_ghillie_ard_F"};
+			menSF[] = {"I_Soldier_02_F","I_Soldier_03_F","I_Soldier_04_F","I_soldier_F","I_Soldier_lite_F","I_Soldier_A_F","I_Soldier_GL_F","I_Soldier_AR_F","I_Soldier_SL_F","I_Soldier_TL_F","I_Soldier_M_F","I_Soldier_LAT_F","I_Soldier_AT_F","I_Soldier_AA_F","I_medic_F","I_Soldier_repair_F","I_Soldier_exp_F","I_engineer_F","I_crew_F","I_helipilot_F","I_pilot_F","I_helicrew_F","I_officer_F","I_Story_Colonel_F","I_soldier_UAV_F","I_Spotter_F","I_Sniper_F","I_Soldier_AAR_F","I_Soldier_AAT_F","I_Soldier_AAA_F","I_support_MG_F","I_support_GMG_F","I_support_Mort_F","I_support_AMG_F","I_support_AMort_F","I_ghillie_lsh_F","I_ghillie_sard_F","I_ghillie_ard_F"};
+			divers[] = {"I_diver_F","I_diver_exp_F","I_diver_TL_F"};
+			cars[] = {"I_Quadbike_01_F","I_MRAP_03_F","I_MRAP_03_hmg_F","I_MRAP_03_gmg_F","I_Truck_02_covered_F","I_Truck_02_transport_F","I_Truck_02_ammo_F","I_Truck_02_box_F","I_Truck_02_medical_F","I_Truck_02_fuel_F","I_APC_Wheeled_03_cannon_F","I_UGV_01_F","I_UGV_01_rcws_F"};
+			tanks[] = {"I_APC_tracked_03_cannon_F","I_MBT_03_cannon_F"};
+			helicopters[] = {"ParachuteG","I_Heli_Transport_02_F","I_Parachute_02_F","I_Heli_light_03_F"};
+			planes[] = {"I_Plane_Fighter_03_CAS_F","I_Plane_Fighter_03_AA_F","I_UAV_02_F","I_UAV_02_CAS_F"};
+			ships[] = {"I_Boat_Armed_01_minigun_F","I_SDV_01_F"};
 		};
-		
 		//DEFAULT TEMPLATES. Modify only if you know what you do.
-		class CIV
+	/*	class CIV
 		{
 			side = 0;
 			cars[] = {"C_Offroad_01_F","C_Offroad_01_repair_F","C_Offroad_01_red_F","C_Offroad_01_sand_F","C_Offroad_01_white_F","C_Offroad_01_blue_F","C_Offroad_01_darkred_F","C_Offroad_01_bluecustom_F","C_Offroad_luxe_F","C_Offroad_default_F","C_Offroad_stripped_F","C_Quadbike_01_F","C_Quadbike_01_black_F","C_Quadbike_01_blue_F","C_Quadbike_01_red_F","C_Quadbike_01_white_F","C_Truck_02_covered_F","C_Truck_02_transport_F","C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Hatchback_01_grey_F","C_Hatchback_01_green_F","C_Hatchback_01_blue_F","C_Hatchback_01_bluecustom_F","C_Hatchback_01_beigecustom_F","C_Hatchback_01_yellow_F","C_Hatchback_01_white_F","C_Hatchback_01_black_F","C_Hatchback_01_dark_F","C_Hatchback_01_sport_red_F","C_Hatchback_01_sport_blue_F","C_Hatchback_01_sport_orange_F","C_Hatchback_01_sport_white_F","C_Hatchback_01_sport_grey_F","C_Hatchback_01_sport_green_F","C_SUV_01_F","SUV_01_base_red_F","SUV_01_base_black_F","SUV_01_base_grey_F","SUV_01_base_orange_F","C_Truck_02_fuel_F","C_Truck_02_box_F","C_Van_01_transport_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_white_F","C_Van_01_transport_red_F","C_Van_01_box_white_F","C_Van_01_box_red_F","C_Van_01_fuel_white_F","C_Van_01_fuel_red_F","C_Van_01_fuel_white_v2_F","C_Van_01_fuel_red_v2_F","C_Offroad_02_unarmed_F","C_Offroad_02_unarmed_black_F","C_Offroad_02_unarmed_blue_F","C_Offroad_02_unarmed_green_F","C_Offroad_02_unarmed_orange_F","C_Offroad_02_unarmed_red_F","C_Offroad_02_unarmed_white_F"};
@@ -138,6 +137,6 @@ class config_aissp
 			men2[] = {"O_V_Soldier_ghex_F","O_V_Soldier_TL_ghex_F","O_V_Soldier_Exp_ghex_F","O_V_Soldier_Medic_ghex_F","O_V_Soldier_M_ghex_F","O_V_Soldier_LAT_ghex_F","O_V_Soldier_JTAC_ghex_F"};
 			divers[] = {"O_T_Diver_F","O_T_Diver_Exp_F","O_T_Diver_TL_F"};
 		};
-
+	*/
 	};
 };

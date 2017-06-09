@@ -105,7 +105,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//ADDING AI TO RADIOTOWER
 		//GROUP_1 [LVgroup1]
 			_Tower = getPos _SPWradioTower;
-			_LVgroup1 = [_Tower,3,200,[true,false],[false,false,false],false,[10,0],[3,0],0.1,nil,nil,1,true,true,["ALL"]] execVM "TIMS\LV\militarize.sqf";
+			_LVgroup1 = [_Tower,3,200,[true,false],[false,false,false],false,[10,0],[3,0],0.1,nil,nil,1,true,true,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
 //============================================////============================================//
 	//ADD WAIT TIME FOR AI TO SPAWN FOR NOW TESTING
 		uiSleep 5;
@@ -153,10 +153,10 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//MESSAGE
 		showNotification = ["CompletedMain", "You have taken back the town!"]; publicVariable "showNotification";
 		"Missionmarker1" setMarkerColor "ColorGreen";
-		//REMOVE REMAINING ALIVE AI GROUP
+		//REMOVE ALIVE AI GROUP
 		nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-	//CREATE LOOT IF INVASION COMPLETED THEN START A SMOKE GRENADE
-	//TEST ALL LOOT
+//============================================////============================================//
+	//LOOT TEST 3 TYPES OF 3 DIFFERENT QUALITY
 		//_Crate_1
 		[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
 		//SMOKE_1
@@ -189,7 +189,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			deleteMarker "AI_COUNTER";
 			deleteMarker "Crate_1";
 			deleteMarker "Crate_2";
-		//DELETE AI TEST
+		//REMOVE DEAD AI GROUP WHEN 500 METERS OF PLAYER
 			nul = [500] execVM "TIMS\LV\LV_functions\LV_fnc_removeDead.sqf";
 //============================================////============================================//
 	//MISSION ENDED
