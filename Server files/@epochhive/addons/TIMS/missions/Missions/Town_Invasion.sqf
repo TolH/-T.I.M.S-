@@ -46,8 +46,8 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 //============================================////============================================//
 	//POSITION OF MISSION OBJECTS, AI, VEHICLES AND LOOTS
 		_kRandSpawnPos = [(getMarkerPos "Missionmarker1"), 1, 600, 0.1, 0, 200, 0] call BIS_fnc_findSafePos;	//RADIOTOWER
-		_kRandSpawnPos6 = [(getMarkerPos "Missionmarker1"), 800, 1400, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//BonusLoot1 Ground Vehicle POS
-		_kRandSpawnPos7 = [(getMarkerPos "Missionmarker1"), 800, 1410, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//BonusLoot2 Air Vehicle POS
+		_LootBox_1 = [(getMarkerPos "Missionmarker1"), 25, 100, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//BonusLoot1 Ground Vehicle POS
+		_LootBox_2 = [(getMarkerPos "Missionmarker1"), 10, 75, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//BonusLoot2 Air Vehicle POS
 //============================================////============================================//
 	//CREATE RADIOTOWER
 		_SPWradioTower = "Land_TTowerBig_2_F" createVehicle _kRandSpawnPos;
@@ -61,16 +61,14 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 //============================================////============================================//
 	//CREATE ALL CRATES
 		//CRATE TYPE
-			_bunker1POS = getPos _SPWbunker1;
-			_bunker2POS = getPos _SPWbunker2;
 			//_Type_FuelTank = "B_Slingload_01_Fuel_F";
 			_Type_AmmoBox = "B_CargoNet_01_ammo_F";
 		//CRATE #1
-			_supplyBox1 = createVehicle [_Type_AmmoBox, _bunker1POS, [], 0, "CAN_COLLIDE"];
+			_supplyBox1 = createVehicle [_Type_AmmoBox, _LootBox_1, [], 0, "CAN_COLLIDE"];
 			_supplyBox1 allowDamage false;
 			_supplyBox1 enableSimulation true;
 		//CRATE #2
-			_supplyBox2 = createVehicle [_Type_AmmoBox, _bunker2POS, [], 0, "CAN_COLLIDE"];
+			_supplyBox2 = createVehicle [_Type_AmmoBox, _LootBox_2, [], 0, "CAN_COLLIDE"];
 			_supplyBox2 allowDamage false;
 			_supplyBox2 enableSimulation true;
 	//CLEAR CRATE ITEMS
@@ -105,21 +103,19 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		showNotification = ["NewSub", "Secondary Objective: Destroy the RadioTower."]; publicVariable "showNotification";	
 //============================================////============================================//
 	//ADDING AI TO RADIOTOWER
-		//GROUP #1
-			_LVgroup1 = ["Missionmarker1",3,1100,[true,true],[true,true,true],false,[50,0],[3,0],0.3,nil,nil,1,true,true,["ALL"]] execVM "TIMS\LV\militarize.sqf";
-			//_Tower = getPos _SPWradioTower;
-			//_spawnGroup1 = [ (_Tower select 0) + 10,(_Tower select 1) - 10, 0], resistance, AI_DEFEND_TOWER] ExecVM CUSTOM_FN_SPAWNGROUP;
-			//nul_script1 = [_spawnGroup1, getpos _SPWradioTower, 50] ExecVM UNITS_PATROL;	//BIS_fnc_taskPatrol;
-
+		//GROUP_1 [LVgroup1]
+			_Tower = getPos _SPWradioTower;
+			_LVgroup1 = [_Tower,3,200,[true,false],[false,false,false],false,[10,0],[3,0],0.1,nil,nil,1,true,true,["ALL"]] execVM "TIMS\LV\militarize.sqf";
 //============================================////============================================//
+	//ADD WAIT TIME FOR AI TO SPAWN FOR NOW TESTING
+		uiSleep 5;
 	//SET MISSION VARIABLES
 		_AiCounter = 1;
 		_TowerCheck = 1;
-		_LOOT_TRACKER_ON = LOOT_TRACKER;
 	//SET AI_Counter Radius
 		_radius = 1250;			//_AiCount RADIUS (MISSION MARKER RADIUS)
 	//START TRACKING CRATE MARKERS IF ENABLED FROM CONFIG
-		if (_LOOT_TRACKER_ON isEqualTo 1) then
+		if (LOOT_TRACKER isEqualTo 1) then
 		{
 			[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 		};
@@ -143,7 +139,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				_TowerCheck = 0;
 			};
 			//ALL ENNEMIES KILLED. ENDING MISSION
-			if (_AiCount < 5) then 
+			if (_AiCount < 8) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
@@ -157,21 +153,23 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//MESSAGE
 		showNotification = ["CompletedMain", "You have taken back the town!"]; publicVariable "showNotification";
 		"Missionmarker1" setMarkerColor "ColorGreen";
+		//REMOVE REMAINING ALIVE AI GROUP
+		nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 	//CREATE LOOT IF INVASION COMPLETED THEN START A SMOKE GRENADE
+	//TEST ALL LOOT
 		//_Crate_1
 		[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
 		//SMOKE_1
 		
 		//_Crate_2
 		[_supplyBox2,"WEAPONS"] ExecVM HIGH_Loot_Setup;
-		//SMOKE_2
-		
-		//_Crate_2
 		[_supplyBox2,"MEDIC"] ExecVM LOW_Loot_Setup;
+		//SMOKE_2
+
 //============================================////============================================//
 	//WAIT X SECONDS BEFORE DELETING EVERYTHING
 		uiSleep MISSION_CLEAN_TIME;
-		CRATETRACKING = 0;
+		LOOT_TRACKER = 0;
 		//DELETE SPECIALS
 			if (!alive _SPWradioTower) then
 			{
@@ -180,22 +178,10 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				//WAIT OR WONT DELETE
 				uiSleep 1;
 			};
-			//DELETE VEHICLE_AI IF ALIVE
-			if (_Tank1Alive isEqualTo 1) then 
-			{
-				deletevehicle TANK_AI_1;
-			};
-			//
-			if (_Heli1Alive isEqualTo 1) then 
-			{
-				deletevehicle HELI_AI_1;
-			};
 		//DELETE LOOTBOX AND OBJECTS
 			deletevehicle _supplyBox1;
 			deletevehicle _supplyBox2;
 			deleteVehicle _SPWradioTower;
-			deleteVehicle _SPWbunker1;
-			deleteVehicle _SPWbunker2;
 		//DELETE MARKER
 			deleteMarker "Missionmarker1";
 			deleteMarker "Missionmarker2";
@@ -203,15 +189,8 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			deleteMarker "AI_COUNTER";
 			deleteMarker "Crate_1";
 			deleteMarker "Crate_2";
-			deleteMarker "Bunker1";
-			deleteMarker "Bunker2";
-			deleteMarker "BonusLoot1";
-			deleteMarker "BonusLoot2";
-			if (VEHICLE_MARKER isEqualTo 1) then
-			{
-				deleteMarker "Vehicle_1";
-				deleteMarker "Heli_1";
-			};
+		//DELETE AI TEST
+			nul = [500] execVM "TIMS\LV\LV_functions\LV_fnc_removeDead.sqf";
 //============================================////============================================//
 	//MISSION ENDED
 		diag_log "-=T.I.M.S=-: Mission -Invasion.sqf- Ended";
