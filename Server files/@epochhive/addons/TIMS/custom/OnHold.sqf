@@ -46,7 +46,7 @@
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				showNotification = ["NewMain", "A Player scouted the area! Starting Hostage Rescue mission..."]; publicVariable "showNotification";
+				showNotification = ["NewMain", "A player scouted the area! Starting the mission..."]; publicVariable "showNotification";
 				uiSleep 10;
 				ANIMEMARKER = 0;
 			};
