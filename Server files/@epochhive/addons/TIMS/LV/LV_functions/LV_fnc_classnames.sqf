@@ -107,10 +107,10 @@ for "_i" from 0 to (count _filters - 1) do {
         _INDships set[count _INDships, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_C_F" >> "ships")];
         _INDships set[count _INDships, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_G_F" >> "ships")];
 
-        _INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_F" >> "men")];
-        _INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_G_F" >> "men")];
-        _INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_C_F" >> "men2")];
-        _INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_C_F" >> "men3")];
+        //_INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_F" >> "men")];
+        //_INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_G_F" >> "men")];
+        //_INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_C_F" >> "men2")];
+        //_INDmen set[count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_C_F" >> "men3")];
 
         _INDdivers set[count _INDdivers, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> "IND_F" >> "divers")];
 
@@ -192,9 +192,9 @@ for "_i" from 0 to (count _filters - 1) do {
                 _INDhelis set [count _INDhelis, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "helicopters")];
                 _INDplanes set [count _INDplanes, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "planes")];
                 _INDships set [count _INDships, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "ships")];
-                _INDmen set [count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "men")];
-                _INDmen set [count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "men2")];
-                _INDmen set [count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "men3")];
+                //_INDmen set [count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "men")];
+                //_INDmen set [count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "men2")];
+                //_INDmen set [count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "men3")];
                 _INDmen set [count _INDmen, getArray (getMissionConfig "aissp_configs" >> "config_aissp" >> "classPresets" >> (_filters select _i) >> "menSF")];
             };
         };

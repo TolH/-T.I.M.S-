@@ -9,14 +9,14 @@ class CfgNotifications
 		iconText = ""; 			// Short text displayed over the icon. Colored by "color", filled by arguments.
 		description = ""; 		// Brief description displayed as structured text. Colored by "color", filled by arguments.
 		color[] = {1,1,1,1}; 	// Icon and text color
-		duration = 6; 			// How many seconds will the notification be displayed
+		duration = 5; 			// How many seconds will the notification be displayed
 		priority = 0; 			// Priority; higher number = more important; tasks in queue are selected by priority
 		difficulty[] = {}; 		// Required difficulty settings. All listed difficulties has to be enabled
 	};
 
 	class NewMain
 	{
-		title = "NEW MAIN OBJECTIVE";
+		title = "PRIMARY OBJECTIVE";
 		description = "%1";
 		iconPicture = "media\images\notificons\main_objective.paa";
 		color[] = {1, 0.81, 0.06, 1};
@@ -26,10 +26,31 @@ class CfgNotifications
 
 	class CompletedMain
 	{
-		title = "MAIN OBJECTIVE COMPLETED";
+		title = "PRIMARY OBJECTIVE COMPLETED";
 		description = "%1";
 		iconPicture = "media\images\notificons\main_objective_completed.paa";
 		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
+		priority = 9;
+	};
+
+	class NewSecondary
+	{
+		title = "SECONDARY OBJECTIVE";
+		description = "%1";
+		iconPicture = "media\images\notificons\sub_objective.paa";
+		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
+		priority = 8;
+	};
+
+	class CompletedSecondary
+	{
+		title = "SECONDARY OBJECTIVE COMPLETED";
+		description = "%1";
+		iconPicture = "media\images\notificons\sub_objective_completed.paa";
+		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
 		priority = 9;
 	};
 
@@ -39,6 +60,7 @@ class CfgNotifications
 		description = "%1";
 		iconPicture = "media\images\notificons\side_mission.paa";
 		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
 		priority = 9;
 	};
 
@@ -48,6 +70,7 @@ class CfgNotifications
 		description = "%1";
 		iconPicture = "media\images\notificons\side_mission_completed.paa";
 		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
 		priority = 9;
 	};
 
@@ -57,24 +80,7 @@ class CfgNotifications
 		description = "%1";
 		iconPicture = "media\images\notificons\failed.paa";
 		color[] = {1, 0.81, 0.06, 1};
-		priority = 9;
-	};
-
-	class NewSub
-	{
-		title = "NEW SUB-OBJECTIVE";
-		description = "%1";
-		iconPicture = "media\images\notificons\sub_objective.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		priority = 8;
-	};
-
-	class CompletedSub
-	{
-		title = "SUB-OBJECTIVE COMPLETED";
-		description = "%1";
-		iconPicture = "media\images\notificons\sub_objective_completed.paa";
-		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
 		priority = 9;
 	};
 
@@ -94,6 +100,7 @@ class CfgNotifications
 		description = "%1";
 		iconPicture = "media\images\notificons\failed.paa";
 		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
 		priority = 9;
 	};
 
@@ -103,6 +110,7 @@ class CfgNotifications
 		description = "%1";
 		iconPicture = "media\images\notificons\side_mission_completed.paa";
 		color[] = {1, 0.81, 0.06, 1};
+		duration = 7;
 		priority = 9;
 	};
 };

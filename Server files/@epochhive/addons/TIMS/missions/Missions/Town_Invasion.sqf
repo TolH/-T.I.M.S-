@@ -46,8 +46,8 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 //============================================////============================================//
 	//POSITION OF MISSION OBJECTS, AI, VEHICLES AND LOOTS
 		_kRandSpawnPos = [(getMarkerPos "Missionmarker1"), 1, 600, 0.1, 0, 200, 0] call BIS_fnc_findSafePos;	//RADIOTOWER
-		_LootBox_1 = [(getMarkerPos "Missionmarker1"), 25, 100, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//BonusLoot1 Ground Vehicle POS
-		_LootBox_2 = [(getMarkerPos "Missionmarker1"), 10, 75, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//BonusLoot2 Air Vehicle POS
+		_LootBox_1 = [(getMarkerPos "Missionmarker1"), 25, 100, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//_LootBox_1
+		_LootBox_2 = [(getMarkerPos "Missionmarker1"), 10, 75, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//_LootBox_2
 //============================================////============================================//
 	//CREATE RADIOTOWER
 		_SPWradioTower = "Land_TTowerBig_2_F" createVehicle _kRandSpawnPos;
@@ -97,15 +97,15 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			"Crate_2" setMarkerText "";		//Weapons loot
 //============================================////============================================//
 	//MESSAGE
-		showNotification = ["NewMain", "Primary Objective: Take back the town!"]; publicVariable "showNotification";
+		showNotification = ["NewMain", "Take back the town!"]; publicVariable "showNotification";
 	//WAIT 15 SECONDS BEFORE SENDING NEXT MESSAGE
 		uiSleep 15;
-		showNotification = ["NewSub", "Secondary Objective: Destroy the RadioTower."]; publicVariable "showNotification";	
+		showNotification = ["NewSecondary", "Destroy the RadioTower."]; publicVariable "showNotification";	
 //============================================////============================================//
 	//ADDING AI TO RADIOTOWER
 		//GROUP_1 [LVgroup1]
 			_Tower = getPos _SPWradioTower;
-			_LVgroup1 = [_Tower,3,200,[true,false],[false,false,false],false,[10,0],[3,0],0.1,nil,nil,1,true,true,["TOHL"]] execVM "TIMS\LV\militarize.sqf";
+			_LVgroup1 = [_Tower,3,200,[true,false],[false,false,false],false,[10,0],[3,0],0.1,nil,nil,1,true,true,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 //============================================////============================================//
 	//ADD WAIT TIME FOR AI TO SPAWN FOR NOW TESTING
 		uiSleep 5;
@@ -135,11 +135,11 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				"Radio-Tower" setMarkerColor "ColorGrey";
 				"Radio-Tower" setMarkerText " -=RadioTower=- Destroyed";
 				uiSleep 5;
-				showNotification = ["CompletedSub", "The RadioTower is Down!"]; publicVariable "showNotification";
+				showNotification = ["CompletedSecondary", "The RadioTower is Down!"]; publicVariable "showNotification";
 				_TowerCheck = 0;
 			};
 			//ALL ENNEMIES KILLED. ENDING MISSION
-			if (_AiCount < 8) then 
+			if ((_AiCount < 8) && (_TowerCheck isEqualTo 0)) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
@@ -156,7 +156,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		//REMOVE ALIVE AI GROUP
 		nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 //============================================////============================================//
-	//LOOT TEST 3 TYPES OF 3 DIFFERENT QUALITY
+	//LOOT TEST (3 TYPES OF 3 DIFFERENT QUALITY)
 		//_Crate_1
 		[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
 		//SMOKE_1
@@ -189,8 +189,8 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			deleteMarker "AI_COUNTER";
 			deleteMarker "Crate_1";
 			deleteMarker "Crate_2";
-		//REMOVE DEAD AI GROUP WHEN 500 METERS OF PLAYER
-			nul = [500] execVM "TIMS\LV\LV_functions\LV_fnc_removeDead.sqf";
+		//REMOVE DEAD AI GROUP WHEN 1300 METERS OF PLAYER
+			nul = [1000] execVM "TIMS\LV\LV_functions\LV_fnc_removeDead.sqf";
 //============================================////============================================//
 	//MISSION ENDED
 		diag_log "-=T.I.M.S=-: Mission -Invasion.sqf- Ended";
