@@ -1,0 +1,7 @@
+// Epoch Survival Gamemode
+#include "epoch_config\sandbox_config.hpp"
+
+class aissp_configs
+{
+#include "LV\config_aissp.hpp"
+};
