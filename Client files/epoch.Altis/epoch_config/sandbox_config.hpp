@@ -76,7 +76,7 @@ disableRandomization[] = {"All"};
 #include "Configs\CfgSwitchMovehandler.hpp"
 
 // A3 specific configs
-#include "Configs\CfgFunctions.hpp"
+//#include "Configs\CfgFunctions.hpp"
 #include "Configs\CfgRemoteExec.hpp"
 
 class CfgEpochBuild

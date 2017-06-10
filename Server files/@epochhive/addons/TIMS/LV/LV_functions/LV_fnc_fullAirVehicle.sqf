@@ -40,7 +40,11 @@ if(typeName _veh == "ARRAY")then{_veh = selectRandom _veh;};
 
 _vehSpots = getNumber (configFile >> "CfgVehicles" >> _veh >> "transportSoldier");
 _vehicle = createVehicle [_veh, _pos, [], 0, "FLY"];
-_vehicle call EPOCH_server_setVToken;
+//============================================////============================================//
+	//MY MODIFICATION CUSTOM
+		//KEEP AI VEHICLE SPAWNED ON THE MAP
+		_vehicle call EPOCH_server_setVToken;
+//============================================////============================================//
 if(_clean)then{
 	_vehicle setVariable ["syncedUnit",_syncedUnit,false];
 	_vehicle setVariable ["dissapearDistance",_dissapearDistance,false];

@@ -8,6 +8,7 @@
 */
 class cfgFunctions
 {
+	//#include "ASORGS\cfgfunctions.hpp"
     class A3
     {
         tag = "BIS";

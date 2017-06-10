@@ -16,19 +16,19 @@ class CfgEpochClient
 {
     epochVersion = "0.5.0.0";
     ArmAVersion = 168;
-    sapperRngChance = 100; // increase number to reduce chances and reduce to increase. Default 100
-    droneRngChance = 100; // increase number to reduce chances and reduce to increase. Default 100
+    sapperRngChance = 200; // increase number to reduce chances and reduce to increase. Default 100
+    droneRngChance = 200; // increase number to reduce chances and reduce to increase. Default 100
     zombieRngChance = 50; // increase number to reduce chances and reduce to increase. Default 50
 
     buildingNearbyMilitary = 0; //1 to allow building nearby
-    buildingNearbyMilitaryRange = 300; //Define radius of blocked area
+    buildingNearbyMilitaryRange = 1000; //Define radius of blocked area
     buildingNearbyMilitaryClasses[] = {"Cargo_Tower_base_F","Cargo_HQ_base_F","Cargo_Patrol_base_F","Cargo_House_base_F"};
     restrictedLocations[] = {"NameCityCapital"};
     restrictedLocationsRange = 300;
     buildingRequireJammer = 1;		//1 = require jammer to build
-    buildingJammerRange = 75; 		// jammer range in meters
+    buildingJammerRange = 100; 		// jammer range in meters
     jammerPerGroup = 1;				// allowed number of jammers per group.
-    jammerGLOnly = 1;               // allow only group leader to place Jammer
+    jammerGLOnly = 0;               // allow only group leader to place Jammer
     minJammerDistance = 650;		// min distance to next Jammer
     maxBuildingHeight = 33;			// Max Height, building is allowed.
     buildingCountLimit = 200;		//overall building limit in range of jammer (overridden if "useGroupCountLimits=1")
