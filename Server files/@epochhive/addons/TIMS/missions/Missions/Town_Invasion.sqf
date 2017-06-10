@@ -97,18 +97,32 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			"Crate_2" setMarkerText "";		//Weapons loot
 //============================================////============================================//
 	//MESSAGE
-		showNotification = ["NewMain", "Take back the town!"]; publicVariable "showNotification";
-	//WAIT 15 SECONDS BEFORE SENDING NEXT MESSAGE
-		uiSleep 15;
+		showNotification = ["NewMain", "Town Militarization Mission Test!"]; publicVariable "showNotification";
+//============================================////============================================//
+	//ADDING GROUND PATROL AI TO RADIOTOWER
+		//[LVgroup1]
+			_LVgroup1 = ["Radio-Tower",3,150,[true,false],[false,false,false],false,[10,0],[0,0],0.1,nil,nil,1,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+	//ADDING AI IN HOUSES
+		//[LVgroup2]
+			_LVgroup2 = ["Missionmarker1",3,false,1,[12,0],200,0.1,nil,nil,2,["TOHL_HARD"]] execVM "TIMS\LV\fillHouse.sqf";
+	//ADDING GROUND PATROL AROUND MISSION
+		//[LVgroup3]
+			_LVgroup3 = ["Missionmarker1",3,900,[true,false],[false,false,false],false,[13,0],[0,0],0.1,nil,nil,3,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+	//ADDING VEHICLE PATROL
+		//[LVgroup4]
+			_LVgroup4 = ["Missionmarker1",3,1000,[false,false],[true,false,false],false,[0,0],[2,0],0.1,nil,nil,4,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+	//ADDING AIR PATROL
+		//[LVgroup5]
+			_LVgroup5 = ["Missionmarker1",3,1150,[false,false],[false,false,true],false,[0,0],[2,0],0.1,nil,nil,5,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+	//ADDING WATER PATROL IF POSSIBLE
+		//[LVgroup6]
+			_LVgroup6 = ["Missionmarker1",3,1100,[false,false],[false,true,false],false,[0,0],[1,0],0.1,nil,nil,6,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+//============================================////============================================//
+	//MESSAGE
+	//WAIT 14 SECONDS BEFORE SENDING NEXT MESSAGE
+		uiSleep 14;
 		showNotification = ["NewSecondary", "Destroy the RadioTower."]; publicVariable "showNotification";	
 //============================================////============================================//
-	//ADDING AI TO RADIOTOWER
-		//GROUP_1 [LVgroup1]
-			_Tower = getPos _SPWradioTower;
-			_LVgroup1 = [_Tower,3,200,[true,false],[false,false,false],false,[10,0],[3,0],0.1,nil,nil,1,true,true,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-//============================================////============================================//
-	//ADD WAIT TIME FOR AI TO SPAWN FOR NOW TESTING
-		uiSleep 5;
 	//SET MISSION VARIABLES
 		_AiCounter = 1;
 		_TowerCheck = 1;
@@ -139,11 +153,11 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				_TowerCheck = 0;
 			};
 			//ALL ENNEMIES KILLED. ENDING MISSION
-			if ((_AiCount < 8) && (_TowerCheck isEqualTo 0)) then 
+			if ((_AiCount < 5) && (_TowerCheck isEqualTo 0)) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
-				"AI_COUNTER" setMarkerText "The town has been taken back!";
+				"AI_COUNTER" setMarkerText "All opposing forces as been eliminated! Great job.";
 				_AiCounter = 0;
 			};
 		};
@@ -151,10 +165,15 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//WAIT UNTIL AI ELEMINATED (< 5)
 		waitUntil {uiSleep 5; _AiCounter isEqualTo 0};
 	//MESSAGE
-		showNotification = ["CompletedMain", "You have taken back the town!"]; publicVariable "showNotification";
+		showNotification = ["CompletedMain", "All opposing forces as been eliminated! Great job."]; publicVariable "showNotification";
 		"Missionmarker1" setMarkerColor "ColorGreen";
 		//REMOVE ALIVE AI GROUP
 		nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul = [LVgroup2] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul = [LVgroup4] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul = [LVgroup5] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul = [LVgroup6] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 //============================================////============================================//
 	//LOOT TEST (3 TYPES OF 3 DIFFERENT QUALITY)
 		//_Crate_1

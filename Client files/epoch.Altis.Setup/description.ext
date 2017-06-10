@@ -1,5 +1,0 @@
-class aissp_configs
-{
-	//CUSTOM AI UNITS SELECTOR
-	#include "LV\config_aissp.hpp"
-};

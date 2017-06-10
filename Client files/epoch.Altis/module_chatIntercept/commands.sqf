@@ -14,5 +14,17 @@ pvpfw_chatIntercept_allCommands = [
 		{
 			hint format ["%1",EPOCH_playerCrypto];
 		}
+	],
+	[
+		"alive",
+		{
+			hint format ["%1",EPOCH_playerAliveTime];
+		}
+	],
+	[
+		"gear",
+		{
+			//execVM "ASORGS\open.sqf";
+		}
 	]
 ];

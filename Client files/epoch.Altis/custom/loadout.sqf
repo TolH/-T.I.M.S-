@@ -16,7 +16,7 @@
 	{
 	//NEW PLAYER SPAWNNING CONFIG
 		//SCREEN COMING BACK SLOWLY
-		titleText ["", "BLACK IN", 12];
+		titleText ["", "BLACK IN", 15];
 		//playerfog = 1;
 		//player setDamage 0.30;
 		player setpos _pos2;
@@ -31,24 +31,24 @@
 		player addWeapon _riffle;
         player addMagazine _mag;
 		player addMagazine _mag;
-		player addMagazine _mag;
-		player addMagazine _mag;
 		player addWeapon "EpochRadio0";
 		player addItem "FirstAidKit";
 		player addPrimaryWeaponItem "acc_flashlight";
-		player action ["GunLightOn", player];
+		//player action ["GunLightOn", player];
 		HALV_takegive = [player,100];
 		publicVariableServer "HALV_takegive";
+		uiSleep 3;
 		systemchat format ["Welcome -=(%1)=-", name player];
 	}
 	else
 	{
 	//OLD PLAYER SPAWNNING CONFIG
 		//SCREEN COMING BACK SLOWLY
-		titleText ["", "BLACK IN", 8];
+		titleText ["", "BLACK IN", 12];
 		//player enableFatigue false;
 		waitUntil{!isNull (findDisplay 46) && !dialog && cameraOn isEqualTo player && cameraView == "INTERNAL"};
 		player switchCamera "EXTERNAL";
+		uiSleep 3;
 		systemchat format ["Welcome back -=(%1)=-", name player];
 	};
 //============================================////============================================//
