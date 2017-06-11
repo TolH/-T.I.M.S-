@@ -1,7 +1,7 @@
 //============================================////============================================//
 //-T.I.M.S- (WIP) by TolH
 //============================================////============================================//
-private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spawnRandomisation","_spwnposNew","_SPWradioTower","_TowerMarker"];
+private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower","_TowerMarker"];
 //============================================////============================================//
 	//MISSION RUNNING CHECK
 		MISSION_ISRUNNING = 1;
@@ -99,40 +99,56 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 	//MESSAGE
 		showNotification = ["NewMain", "Town Militarization Mission Test!"]; publicVariable "showNotification";
 //============================================////============================================//
-	//ADDING GROUND PATROL AI TO RADIOTOWER
-		//[LVgroup1]
+	//SPAWN ALL ONFOOT UNITS
+		//[LVgroup1] GROUND PATROL TO RADIOTOWER
 			_LVgroup1 = ["Radio-Tower",3,150,[true,false],[false,false,false],false,[10,0],[0,0],0.1,nil,nil,1,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-	//ADDING AI IN HOUSES
-		//[LVgroup2]
+		//[LVgroup2] AI IN HOUSES
 			_LVgroup2 = ["Missionmarker1",3,false,1,[12,0],200,0.1,nil,nil,2,["TOHL_HARD"]] execVM "TIMS\LV\fillHouse.sqf";
-	//ADDING GROUND PATROL AROUND MISSION
-		//[LVgroup3]
+		//[LVgroup3] GROUND PATROL AROUND MISSION MARKER
 			_LVgroup3 = ["Missionmarker1",3,900,[true,false],[false,false,false],false,[13,0],[0,0],0.1,nil,nil,3,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-	//ADDING VEHICLE PATROL
-		//[LVgroup4]
+			uiSleep 3;//WAIT 3 SECONDS
+	//SPAWN ALL VEHICLES UNITS
+		//[LVgroup4] VEHICLE PATROL
 			_LVgroup4 = ["Missionmarker1",3,1000,[false,false],[true,false,false],false,[0,0],[2,0],0.1,nil,nil,4,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-	//ADDING AIR PATROL
-		//[LVgroup5]
+		//[LVgroup5] AIR PATROL
 			_LVgroup5 = ["Missionmarker1",3,1150,[false,false],[false,false,true],false,[0,0],[2,0],0.1,nil,nil,5,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-	//ADDING WATER PATROL IF POSSIBLE
-		//[LVgroup6]
-			_LVgroup6 = ["Missionmarker1",3,1100,[false,false],[false,true,false],false,[0,0],[1,0],0.1,nil,nil,6,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+		//[LVgroup6] WATER PATROL
+			_LVgroup6 = ["Missionmarker1",3,1050,[false,false],[false,true,false],false,[0,0],[1,0],0.1,nil,nil,6,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 //============================================////============================================//
 	//MESSAGE
 	//WAIT 14 SECONDS BEFORE SENDING NEXT MESSAGE
 		uiSleep 14;
-		showNotification = ["NewSecondary", "Destroy the RadioTower."]; publicVariable "showNotification";	
+		showNotification = ["NewSecondary", "Destroy the RadioTower to stop AI paradropping around your position!"]; publicVariable "showNotification";	
+//============================================////============================================//
+	//ADDING HELIDROP TEST
+		//[LVgroup7]
+		_LVgroup7 = [player,3,true,true,1500,"random",true,200,150,8,0.6,75,true,true,false,false,player,false,0.1,nil,nil,7,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 //============================================////============================================//
 	//SET MISSION VARIABLES
-		_AiCounter = 1;
-		_TowerCheck = 1;
-	//SET AI_Counter Radius
-		_radius = 1250;			//_AiCount RADIUS (MISSION MARKER RADIUS)
+		_AiCounter   = 1;			//MAIN MISSION LOOP 4 SECONDS CHECK
+		_TowerCheck  = 1;		    //CHECK FOR TOWER DESTRUCTION TO RUN ONLY ONCE IF TOWER DESTROYED
+		HeliTimer1   = 0;			//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
+		//DELETE CHECK
+		HP_WAVE1	 = 0;			//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup7]		= 0,1 	(Default 0)
+		HP_WAVE2	 = 0;			//HELI_PARADROP WAVE 2 SPAWNED? [LVgroup8]		= 0,1 	(Default 0)
+		HP_WAVE3	 = 0;			//HELI_PARADROP WAVE 3 SPAWNED? [LVgroup9]		= 0,1 	(Default 0)
+		//SET AI_Counter Radius
+		_radius = 1250;			//_AiCount RADIUS
+//============================================////============================================//
 	//START TRACKING CRATE MARKERS IF ENABLED FROM CONFIG
 		if (LOOT_TRACKER isEqualTo 1) then
 		{
 			[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 		};
+//============================================////============================================//
+	//IDEA I HAVE IN MIND FOR MISSION STORED HERE
+
+				//TODO CAPTURE AND DEFEND THE RADIOTOWER
+				//WHILE UNDER PLAYER CONTROL, HELI_PARADROP WILL BE PLAYER SIDE
+				//WHILE DEFENDING THE RADIOTOWER, AI HELI PARADROP WILL BE SENT TO CAPTURE IT BACK
+				//HOLD THE RADIOTOWER FOR 15 MINUTES TO CLAIM IT AND STOP ALL AIR AI REINFORCEMENTS.
+				//ONCE RADIOTOWER CLAIMED MAKE SOMETHING HAPPEN HERE FOR PLAYER OR REWARDS BY VAR FOR STAGED EVENTS
+
 //============================================////============================================//
 	//START MISSION
 		while {_AiCounter isEqualTo 1} do 
@@ -142,6 +158,14 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		  uiSleep 4;
 		  //CREATE AI_COUNTER MARKER
 		  "AI_COUNTER" setMarkerText format ["(Ennemies left: (%1)", _AiCount];
+			//SEND IN HELI_PARADROP REINFORCEMENT IF ENABLED.
+			if (HELI_PARADROP isEqualTo 1 && HeliTimer1 isEqualTo 0) then
+			{
+				//START HELI_PARADROP_TIMER_1
+				HeliTimer1 = 1;
+				//STARTING TIMER
+				[] execVM HELI_PARADROP_TIMER_1;
+			};
 			//WAIT UNTIL RADIOTOWER IS DESTROYED
 			if ((!alive _SPWradioTower) && (_TowerCheck isEqualTo 1)) then
 			{
@@ -151,6 +175,8 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 				uiSleep 5;
 				showNotification = ["CompletedSecondary", "The RadioTower is Down!"]; publicVariable "showNotification";
 				_TowerCheck = 0;
+				//STOP HELI_PARADROP TIMER IF RADIOTOWER IS DESTROYED.
+				HeliTimer1 = 0;
 			};
 			//ALL ENNEMIES KILLED. ENDING MISSION
 			if ((_AiCount < 5) && (_TowerCheck isEqualTo 0)) then 
@@ -174,6 +200,19 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 		nul = [LVgroup4] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul = [LVgroup5] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul = [LVgroup6] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		//REMOVE [LVgroup7],[LVgroup8],[LVgroup9] IF SPAWNED 
+		if (HP_WAVE1 isEqualTo 1) then
+		{
+			nul = [LVgroup7] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		};
+		if (HP_WAVE2 isEqualTo 1) then
+		{
+			nul = [LVgroup8] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		};
+		if (HP_WAVE3 isEqualTo 1) then
+		{
+			nul = [LVgroup9] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		};
 //============================================////============================================//
 	//LOOT TEST (3 TYPES OF 3 DIFFERENT QUALITY)
 		//_Crate_1
@@ -208,7 +247,7 @@ private ["_Missionmarker1","_towns","_kRandSpawnPos","_RandomTownPosition","_spa
 			deleteMarker "AI_COUNTER";
 			deleteMarker "Crate_1";
 			deleteMarker "Crate_2";
-		//REMOVE DEAD AI GROUP WHEN 1300 METERS OF PLAYER
+		//REMOVE DEAD AI GROUP WHEN 1000 METERS OF PLAYER
 			nul = [1000] execVM "TIMS\LV\LV_functions\LV_fnc_removeDead.sqf";
 //============================================////============================================//
 	//MISSION ENDED
