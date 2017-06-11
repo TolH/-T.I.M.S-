@@ -118,11 +118,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 	//MESSAGE
 	//WAIT 14 SECONDS BEFORE SENDING NEXT MESSAGE
 		uiSleep 14;
-		showNotification = ["NewSecondary", "Destroy the RadioTower to stop AI paradropping around your position!"]; publicVariable "showNotification";	
-//============================================////============================================//
-	//ADDING HELIDROP TEST
-		//[LVgroup7]
-		_LVgroup7 = [player,3,true,true,1500,"random",true,200,150,8,0.6,75,true,true,false,false,player,false,0.1,nil,nil,7,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+		showNotification = ["NewSecondary", "Destroy the RadioTower to stop AI paradropping around your position!"]; publicVariable "showNotification";
 //============================================////============================================//
 	//SET MISSION VARIABLES
 		_AiCounter   = 1;			//MAIN MISSION LOOP 4 SECONDS CHECK
