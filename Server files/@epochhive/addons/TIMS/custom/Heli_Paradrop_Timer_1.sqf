@@ -15,7 +15,7 @@ private["_countHP1"];
 		while {HeliTimer1 isEqualTo 1} do 
 		{
 			//wait for timer while loop method
-			while {_countHP1 < 900 && HeliTimer1 isEqualTo 1} do 
+			while {_countHP1 < 900} do 
 			{
 			  _countHP1 = _countHP1 + 1;
 			  uiSleep 1;
@@ -24,7 +24,7 @@ private["_countHP1"];
 				{
 					//[LVgroup7] HP_WAVE1
 					_LVgroup7 = [player,3,true,true,1500,"random",true,200,150,5,0.6,75,true,true,false,false,player,false,0.1,nil,nil,7,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
-					diag_log format ["-=T.I.M.S=-: HELI_PARADROP TIMER #1 REACHED. SENDING IN AI REINFORCEMENTS _LVgroup7."];
+					diag_log format ["-=T.I.M.S=-: HELI_PARADROP TIMER #1 REACHED. SENDING IN AI REINFORCEMENTS LVgroup7."];
 					HP_WAVE1 = 1;
 				};
 				//SEND HELI_PARADROP #2
