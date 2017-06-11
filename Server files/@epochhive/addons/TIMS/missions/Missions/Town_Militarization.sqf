@@ -177,10 +177,10 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				showNotification = ["CompletedSecondary", "The RadioTower is Down!"]; publicVariable "showNotification";
 				_TowerCheck = 0;
 				//STOP HELI_PARADROP TIMER IF RADIOTOWER IS DESTROYED.
-				HeliTimer1 = 0;
+				HeliTimer1 = 2;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
-			if ((_AiCount < 5) && (_TowerCheck isEqualTo 0)) then 
+			if ((_AiCount < 50) && (_TowerCheck isEqualTo 0)) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
