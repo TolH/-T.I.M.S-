@@ -149,6 +149,7 @@ if(_mp)then{
 if(typeName _heliDirection == "STRING")then{_heliDirection = random 360;};
 _spos = [(_landingSpotPos select 0) + (sin _heliDirection) * _heliDistance, (_landingSpotPos select 1) + (cos _heliDirection) * _heliDistance, _flyHeight];
 _heli = createVehicle [_heliType, _spos, [], 0, "FLY"];
+_heli call EPOCH_server_setVToken;
 _heli allowDamage _allowDamage;
 _crew = [_heli,_grp] call bis_fnc_spawncrew;
 if(_captive)then{
