@@ -179,7 +179,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				//STOP HELI_PARADROP TIMER IF RADIOTOWER IS DESTROYED.
 				HeliTimer1 = 0;
 			};
-			//ALL ENNEMIES KILLED. ENDING MISSION
+			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
 			if ((_AiCount < 5) && (_TowerCheck isEqualTo 0)) then 
 			{
 				//CHANGE AI_COUNTER MARKER
