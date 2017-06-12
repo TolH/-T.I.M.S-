@@ -101,7 +101,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 //============================================////============================================//
 	//SPAWN ALL ONFOOT UNITS
 		//[LVgroup1] GROUND PATROL TO RADIOTOWER
-			_LVgroup1 = ["Radio-Tower",3,150,[true,false],[false,false,false],false,[10,0],[0,0],0.1,nil,nil,1,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+			//_LVgroup1 = ["Radio-Tower",3,150,[true,false],[false,false,false],false,[10,0],[0,0],0.1,nil,nil,1,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 		//[LVgroup2] AI IN HOUSES
 			_LVgroup2 = ["Missionmarker1",3,false,1,[12,0],200,0.1,nil,nil,2,["TOHL_HARD"]] execVM "TIMS\LV\fillHouse.sqf";
 		//[LVgroup3] GROUND PATROL AROUND MISSION MARKER
@@ -121,20 +121,20 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		showNotification = ["NewSecondary", "Capture the RadioTower to gain reinforcements!"]; publicVariable "showNotification";
 //============================================////============================================//
 	//SET MISSION VARS
-		_AiCounter   			 	= 1;		//MAIN MISSION LOOP 4 SECONDS CHECK
-		_TowerCheck  			 	= 1;		//CHECK FOR TOWER DESTRUCTION TO RUN ONLY ONCE IF TOWER DESTROYED
-		HeliTimer1   			 	= 0;		//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
+		_AiCounter   			 = 1;				//MAIN MISSION LOOP 4 SECONDS CHECK
+		_TowerCheck  			 = 1;				//CHECK FOR TOWER DESTRUCTION TO RUN ONLY ONCE IF TOWER DESTROYED
+		HeliTimer1   			 = 0;				//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
 		//DELETE CHECK
-		HP_WAVE1				 	= 0;		//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup7]		= 0,1 	(Default 0)
-		HP_WAVE2	 			 	= 0;		//HELI_PARADROP WAVE 2 SPAWNED? [LVgroup8]		= 0,1 	(Default 0)
-		HP_WAVE3	 			 	= 0;		//HELI_PARADROP WAVE 3 SPAWNED? [LVgroup9]		= 0,1 	(Default 0)
+		HP_WAVE1				 = 0;				//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup7]		= 0,1 	(Default 0)
+		HP_WAVE2	 			 = 0;				//HELI_PARADROP WAVE 2 SPAWNED? [LVgroup8]		= 0,1 	(Default 0)
+		HP_WAVE3	 			 = 0;				//HELI_PARADROP WAVE 3 SPAWNED? [LVgroup9]		= 0,1 	(Default 0)
 		//RADIOTOWER VARS
-		_RadioTowerOwnedByAI	 	= 0;		//RadioTower CAPTURED BY AI 	= 1; 	(Default 0)
-		_RadioTowerOwnedByPlayer 	= 0;		//RadioTower CAPTURED BY PLAYER = 1; 	(Default 0)
-		//RadioTower_AI_GROUP1 	 	= 0;		//RadioTower REINFORCEMENT AI 	= 1,2,3 (Default 0)
+		_RadioTowerOwnedByAI	 = 0;				//RadioTower CAPTURED BY AI 	= 1; 	(Default 0)
+		_RadioTowerOwnedByPlayer = 0;				//RadioTower CAPTURED BY PLAYER = 1; 	(Default 0)
+		//RadioTower_AI_GROUP1 	 = 0;				//RadioTower REINFORCEMENT AI 	= 1,2,3 (Default 0)
 		//SET AI_Counter Radius
-		_radius 					= 1250;		//_AiCount RADIUS
-		_TowerRadius 				= 60;		//_PlCount RADIUS
+		_radius 				 = 1250;			//_AiCount RADIUS
+		_TowerRadius 			 = RT_CLAIM_RADIUS;	//_PlCount RADIUS
 //============================================////============================================//
 	//START TRACKING CRATE MARKERS IF ENABLED FROM CONFIG
 		if (LOOT_TRACKER isEqualTo 1) then
@@ -164,7 +164,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY AI
 			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0)) then
 			{
-				showNotification = ["BunkerTakenByAI", "RadioTower captured by AI's."]; publicVariable "showNotification";
+				showNotification = ["RadioTowerTakenByAI", "RadioTower captured by AI's."]; publicVariable "showNotification";
 				"Radio-Tower" setMarkerColor "ColorRed";
 				"Radio-Tower" setMarkerText " (Captured by: (AI)";
 				_RadioTowerOwnedByAI = 1;
@@ -174,14 +174,14 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY AI
 			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0)) then
 			{
-				showNotification = ["BunkerTakenByPlayer", "RadioTower captured by PLAYERS."]; publicVariable "showNotification";
+				showNotification = ["RadioTowerTakenByPlayer", "RadioTower captured by PLAYERS."]; publicVariable "showNotification";
 				"Radio-Tower" setMarkerColor "ColorBlue";
 				"Radio-Tower" setMarkerText " (Captured by: (Players)";
 				_RadioTowerOwnedByAI = 0;
 				_RadioTowerOwnedByPlayer = 1;
 
 			};
-			//WAIT UNTIL RADIOTOWER IS DESTROYED
+			//WAIT UNTIL RADIOTOWER IS DESTROYED FOR NOW
 			if ((!alive _SPWradioTower) && (_TowerCheck isEqualTo 1)) then
 			{
 				diag_log format ["-=T.I.M.S=-: Mission -Invasion.sqf- TOWER DESTROYED"];
@@ -191,14 +191,15 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				showNotification = ["CompletedSecondary", "The RadioTower is Down!"]; publicVariable "showNotification";
 				_TowerCheck = 0;
 				//STOP HELI_PARADROP TIMER IF RADIOTOWER IS DESTROYED.
-				//HeliTimer1 = 2;
+				HeliTimer1 = 2;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
-			if ((_AiCount < 6) && (_TowerCheck isEqualTo 0)) then 
+			if (_AiCount < 6) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
 				"AI_COUNTER" setMarkerText "All opposing forces as been eliminated! Great job.";
+				HeliTimer1 = 2;
 				_AiCounter = 0;
 			};
 		};
@@ -209,7 +210,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		showNotification = ["CompletedMain", "All opposing forces as been eliminated! Great job."]; publicVariable "showNotification";
 		"Missionmarker1" setMarkerColor "ColorGreen";
 		//REMOVE ALIVE AI GROUP
-		nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		//nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul = [LVgroup2] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul = [LVgroup4] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";

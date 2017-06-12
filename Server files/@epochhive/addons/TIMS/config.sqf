@@ -16,15 +16,17 @@
 		LOOT_TRACKER 		= 1;			// ENABLE OR DISABLE LOOT_CRATE MOVING MARKER ON THE MAP. (Default 1=Enabled)
 
 //==================================// 
-	//HELI_PARADROP CONFIGS
-		HELI_PARADROP		= 0;			// DROP 3 WAVES OF AI GROUP BY HELICOPTER ON A RANDOM PLAYER IF THE RADIOTOWER IS TAKEN BY AI. (Default 1=Enabled)
-			//ADVANCED PARADROP AI CONFIG
-			HP_WAVE_1	= [60, 5, 0.10];	// [TIME1,AINUMBER,SKILLS] SET WAVE_1 SETTINGS. Default=5MINS+5(AI)   [300, 5, 0.10]
-			HP_WAVE_2	= [600, 6, 0.50];	// [TIME2,AINUMBER,SKILLS] SET WAVE_2 SETTINGS. Default=10MINS+6(AI)  [600, 6, 0.15]
-			HP_WAVE_3	= [900, 7, 1.00];	// [TIME3,AINUMBER,SKILLS] SET WAVE_3 SETTINGS. Default=15MINS+7(AI)  [900, 7, 0.20]
-//==================================//  
-
-
+	//SPECIFIC MISSION CONFIG
+		//
+		//-TOWN MILITARIZATION-
+		//
+		RT_CLAIM_RADIUS 	= 50;			// THE RANGE IN METERS AT WICH THE RADIOTOWER CAN BE CAPTURED BY AI AND PLAYER. (Default 50=50METERS)
+		HELI_PARADROP		= 1;			// DROP AI TROOPS TO CLAIM THE RADIOTOWER. (Default 1=Enabled)
+			//ADVANCED CONFIG FOR HELI_PARADROP
+			HP_WAVE_1	= [300, 10, 0.10];	// [TIMER,AINUMBER,SKILLS] SET WAVE_1 SETTINGS. Default=5MINS+10(AI)   [300, 10, 0.10]
+		
+			
+			
 //============================================////============================================//
 //======================================//-CONFIG END-//======================================//
 //============================================////============================================//
