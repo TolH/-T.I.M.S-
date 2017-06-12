@@ -100,20 +100,18 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		showNotification = ["NewMain", "Town Militarization Mission Test!"]; publicVariable "showNotification";
 //============================================////============================================//
 	//SPAWN ALL ONFOOT UNITS
-		//[LVgroup1] GROUND PATROL TO RADIOTOWER
-			//_LVgroup1 = ["Radio-Tower",3,150,[true,false],[false,false,false],false,[10,0],[0,0],0.1,nil,nil,1,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-		//[LVgroup2] AI IN HOUSES
-			_LVgroup2 = ["Missionmarker1",3,false,1,[12,0],200,0.1,nil,nil,2,["TOHL_HARD"]] execVM "TIMS\LV\fillHouse.sqf";
-		//[LVgroup3] GROUND PATROL AROUND MISSION MARKER
-			_LVgroup3 = ["Missionmarker1",3,900,[true,false],[false,false,false],false,[13,0],[0,0],0.1,nil,nil,3,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+		//[LVgroup1] AI IN HOUSES
+			_LVgroup1 = ["Missionmarker1",3,false,1,[12,0],200,0.1,nil,nil,1,["TOHL_HARD"]] execVM "TIMS\LV\fillHouse.sqf";
+		//[LVgroup2] GROUND PATROL AROUND MISSION MARKER
+			_LVgroup2 = ["Missionmarker1",3,900,[true,false],[false,false,false],false,[13,0],[0,0],0.1,nil,nil,2,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 3;//WAIT 3 SECONDS
 	//SPAWN ALL VEHICLES UNITS
-		//[LVgroup4] VEHICLE PATROL
-			_LVgroup4 = ["Missionmarker1",3,1000,[false,false],[true,false,false],false,[0,0],[2,0],0.1,nil,nil,4,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-		//[LVgroup5] AIR PATROL
-			_LVgroup5 = ["Missionmarker1",3,1150,[false,false],[false,false,true],false,[0,0],[2,0],0.1,nil,nil,5,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
-		//[LVgroup6] WATER PATROL
-			_LVgroup6 = ["Missionmarker1",3,1050,[false,false],[false,true,false],false,[0,0],[1,0],0.1,nil,nil,6,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+		//[LVgroup3] VEHICLE PATROL
+			_LVgroup3 = ["Missionmarker1",3,1000,[false,false],[true,false,false],false,[0,0],[2,0],0.1,nil,nil,3,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+		//[LVgroup4] AIR PATROL
+			_LVgroup4 = ["Missionmarker1",3,1150,[false,false],[false,false,true],false,[0,0],[2,0],0.1,nil,nil,4,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+		//[LVgroup5] WATER PATROL
+			_LVgroup5 = ["Missionmarker1",3,1050,[false,false],[false,true,false],false,[0,0],[1,0],0.1,nil,nil,5,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 //============================================////============================================//
 	//MESSAGE
 	//WAIT 14 SECONDS BEFORE SENDING NEXT MESSAGE
@@ -123,11 +121,11 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 	//SET MISSION VARS
 		_AiCounter   			 = 1;				//MAIN MISSION LOOP 4 SECONDS CHECK
 		_TowerCheck  			 = 1;				//CHECK FOR TOWER DESTRUCTION TO RUN ONLY ONCE IF TOWER DESTROYED
-		HeliTimer1   			 = 0;				//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
+		AI_SF_CG_Timer   		 = 0;				//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
 		//DELETE CHECK
-		HP_WAVE1				 = 0;				//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup7]		= 0,1 	(Default 0)
-		HP_WAVE2	 			 = 0;				//HELI_PARADROP WAVE 2 SPAWNED? [LVgroup8]		= 0,1 	(Default 0)
-		HP_WAVE3	 			 = 0;				//HELI_PARADROP WAVE 3 SPAWNED? [LVgroup9]		= 0,1 	(Default 0)
+		AI_SF_CG_SPAWNED_WAVE_1	 = 0;				//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup6]		= 0,1 	(Default 0)
+		AI_SF_CG_SPAWNED_WAVE_2	 = 0;				//HELI_PARADROP WAVE 2 SPAWNED? [LVgroup7]		= 0,1 	(Default 0)
+		AI_SF_CG_SPAWNED_WAVE_3	 = 0;				//HELI_PARADROP WAVE 3 SPAWNED? [LVgroup8]		= 0,1 	(Default 0)
 		//RADIOTOWER VARS
 		_RadioTowerOwnedByAI	 = 0;				//RadioTower CAPTURED BY AI 	= 1; 	(Default 0)
 		_RadioTowerOwnedByPlayer = 0;				//RadioTower CAPTURED BY PLAYER = 1; 	(Default 0)
@@ -142,6 +140,15 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 		};
 //============================================////============================================//
+	//SEND IN CLAIMING_GROUP IF ENABLED.
+		if (CLAIMING_GROUP isEqualTo 1 && AI_SF_CG_Timer isEqualTo 0) then
+		{
+			//START HELI_PARADROP AI_SF_Claiming_Group
+			AI_SF_CG_Timer = 1;
+			//STARTING TIMER
+			[] execVM AI_SF_CG;
+		};
+//============================================////============================================//
 	//START MISSION
 		while {_AiCounter isEqualTo 1} do 
 		{
@@ -153,14 +160,6 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		  uiSleep 4;
 		  //CREATE AI_COUNTER MARKER
 		  "AI_COUNTER" setMarkerText format ["(Ennemies left: (%1)", _AiCount];
-			//SEND IN HELI_PARADROP REINFORCEMENT IF ENABLED.
-			if (HELI_PARADROP isEqualTo 1 && HeliTimer1 isEqualTo 0) then
-			{
-				//START HELI_PARADROP_TIMER_1
-				HeliTimer1 = 1;
-				//STARTING TIMER
-				[] execVM HELI_PARADROP_TIMER_1;
-			};
 			//RADIOTOWER CAPTURED BY AI
 			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0)) then
 			{
@@ -190,8 +189,8 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				uiSleep 5;
 				showNotification = ["CompletedSecondary", "The RadioTower is Down!"]; publicVariable "showNotification";
 				_TowerCheck = 0;
-				//STOP HELI_PARADROP TIMER IF RADIOTOWER IS DESTROYED.
-				HeliTimer1 = 2;
+				//STOP CLAIMING_GROUP IF RADIOTOWER IS DESTROYED.
+				AI_SF_CG_Timer = 0;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
 			if (_AiCount < 6) then 
@@ -199,7 +198,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
 				"AI_COUNTER" setMarkerText "All opposing forces as been eliminated! Great job.";
-				HeliTimer1 = 2;
+				AI_SF_CG_Timer = 0;
 				_AiCounter = 0;
 			};
 		};
@@ -209,25 +208,27 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 	//MESSAGE
 		showNotification = ["CompletedMain", "All opposing forces as been eliminated! Great job."]; publicVariable "showNotification";
 		"Missionmarker1" setMarkerColor "ColorGreen";
-		//REMOVE ALIVE AI GROUP
-		//nul = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul = [LVgroup2] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul = [LVgroup4] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul = [LVgroup5] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul = [LVgroup6] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		//REMOVE [LVgroup7],[LVgroup8],[LVgroup9] IF SPAWNED 
-		if (HP_WAVE1 isEqualTo 1) then
+		//DELETE ALIVE AI GROUP
+		nul1 = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul2 = [LVgroup2] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul3 = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul4 = [LVgroup4] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		nul5 = [LVgroup5] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		//DELETE AI_SpecialForce_Claiming_Group IF SPAWNED AND ENABLED FROM CONFIG
+		if (CLAIMING_GROUP isEqualTo 1) then
 		{
-			nul = [LVgroup7] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		};
-		if (HP_WAVE2 isEqualTo 1) then
-		{
-			nul = [LVgroup8] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		};
-		if (HP_WAVE3 isEqualTo 1) then
-		{
-			nul = [LVgroup9] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+			if (AI_SF_CG_SPAWNED_WAVE_1 isEqualTo 1) then
+			{
+				nul6 = [LVgroup6] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+			};
+			if (AI_SF_CG_SPAWNED_WAVE_2 isEqualTo 1) then
+			{
+				nul7 = [LVgroup7] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+			};
+			if (AI_SF_CG_SPAWNED_WAVE_3 isEqualTo 1) then
+			{
+				nul8 = [LVgroup8] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+			};
 		};
 //============================================////============================================//
 	//LOOT TEST (3 TYPES OF 3 DIFFERENT QUALITY)

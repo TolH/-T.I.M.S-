@@ -22,6 +22,10 @@ private["_countHP1","_HP_TIMER_1","_HP_TIMER_2","_HP_TIMER_3","_AI_NUMBER1","_AI
 	_AI_SKILLS1 = HP_WAVE_1 select 2;
 	_AI_SKILLS2 = HP_WAVE_2 select 2;
 	_AI_SKILLS3 = HP_WAVE_3 select 2;
+	//SELECT AI_TARGET 	ARRAY 3
+	_AI_TARGET1 = HP_WAVE_1 select 3;
+	_AI_TARGET2 = HP_WAVE_2 select 3;
+	_AI_TARGET3 = HP_WAVE_3 select 3;
 //============================================////============================================//
 	_countHP1 = 0;
 		//SEND REINFORCEMENT AFTER A WHILE IF BUNKER IS PLAYER OWNED
@@ -36,10 +40,9 @@ private["_countHP1","_HP_TIMER_1","_HP_TIMER_2","_HP_TIMER_3","_AI_NUMBER1","_AI
 				if (_countHP1 isEqualTo _HP_TIMER_1) then 
 				{
 					//[LVgroup7] HP_WAVE1
-					_LVgroup7 = ["Radio-Tower",3,true,true,1500,"random",true,150,130,_AI_NUMBER1,0.5,60,true,true,false,true,"Radio-Tower",false,_AI_SKILLS1,nil,nil,7,false,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					_LVgroup7 = [_AI_TARGET1,3,true,true,1500,"random",true,150,110,_AI_NUMBER1,0.5,50,true,true,false,true,"Radio-Tower",false,_AI_SKILLS1,nil,nil,7,false,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: HELI_PARADROP TIMER #1 REACHED. SENDING IN AI REINFORCEMENTS LVgroup7."];
 					HP_WAVE1 = 1;
-					HeliTimer1 = 2;
 				};
 				//SEND HELI_PARADROP #2
 				if (_countHP1 isEqualTo _HP_TIMER_2) then 

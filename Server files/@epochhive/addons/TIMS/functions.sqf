@@ -7,9 +7,6 @@
 		PAUSE_MISSION = "TIMS\custom\OnHold.sqf";
 	//MARKER FOLLOW LOOT
 		LOOT_MARKER = "TIMS\custom\Loot_Crate_Markers.sqf";
-	//HELI_PARADROP_TIMER_1
-		HELI_PARADROP_TIMER_1 = "TIMS\custom\Heli_Paradrop_Timer_1.sqf";
-	//Bunker Timer
-		//BUNKER1_TIMER = "TIMS\custom\Bunker1_Timer.sqf";
-		//BUNKER2_TIMER = "TIMS\custom\Bunker2_Timer.sqf";
+	//CLAIMING_GROUP
+		AI_SF_CG = "TIMS\custom\AI_SF_Claiming_Group.sqf";
 //============================================////============================================//

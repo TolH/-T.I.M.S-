@@ -17,16 +17,17 @@
 
 //==================================// 
 	//SPECIFIC MISSION CONFIG
-		//
-		//-TOWN MILITARIZATION-
-		//
-		RT_CLAIM_RADIUS 	= 50;			// THE RANGE IN METERS AT WICH THE RADIOTOWER CAN BE CAPTURED BY AI AND PLAYER. (Default 50=50METERS)
-		HELI_PARADROP		= 1;			// DROP AI TROOPS TO CLAIM THE RADIOTOWER. (Default 1=Enabled)
-			//ADVANCED CONFIG FOR HELI_PARADROP
-			HP_WAVE_1	= [300, 10, 0.10];	// [TIMER,AINUMBER,SKILLS] SET WAVE_1 SETTINGS. Default=5MINS+10(AI)   [300, 10, 0.10]
-		
-			
-			
+		//-----------------------------//
+		//-TOWN MILITARIZATION MISSION-//
+		//-----------------------------//
+			RT_CLAIM_RADIUS 	= 90;			// THE RANGE IN METERS AT WICH THE RADIOTOWER CAN BE CAPTURED BY AI AND PLAYER. (Default 90=90METERS)
+			CLAIMING_GROUP		= 1;			// DROP AI TROOPS TO CLAIM ALL CLAIMABLE MISSION OBJECTIVES. 3 GROUPS MAX. (Default 1=Enabled)
+			//ADVANCED CONFIG FOR CLAIMING_GROUP
+				CLAIMING_GROUP_NUMBER   = 1; //(1,2,3)		// NUMBER OF GROUP TO SEND. 1 FOR NOW, ONLY 1 CLAIMABLE BUILDING SETUP! (Default 1) MAX 3.
+				/*1*/AI_SF_CG_WAVE_1	= [300, 5, 0.10];	// [TIMER, AI_NUMBER, AI_SKILLS] SET AI_SF_CG_WAVE_1 SETTINGS. Default=[300, 5, 0.10]; 	5MINS+5(AI)
+				/*2*/AI_SF_CG_WAVE_2	= [600, 5, 0.10];	// [TIMER, AI_NUMBER, AI_SKILLS] SET AI_SF_CG_WAVE_2 SETTINGS. Default=[600, 5, 0.10];	10MINS+5(AI)
+				/*3*/AI_SF_CG_WAVE_3	= [900, 5, 0.10];	// [TIMER, AI_NUMBER, AI_SKILLS] SET AI_SF_CG_WAVE_3 SETTINGS. Default=[900, 5, 0.10];	15MINS+5(AI)
+
 //============================================////============================================//
 //======================================//-CONFIG END-//======================================//
 //============================================////============================================//
@@ -37,11 +38,3 @@
 
 				// REMINDER ALL AISKILLS (FIXED SKILLS FOR NOW)
 				// AISKILLS ALL [0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1,0]
-				// _select  0   1   2
-				//        [300, 5, 0.10];
-				//    [TIME,AINUMBER,SKILLS]
-				//
-				//			-=CONFIG TO ADD=-
-				//ADD RANDOMIZED AISKILLS SETTINGS AND ADVANCED SKILLS SETTING
-				//AISKILLS CHANGE DEPENDING ON NUMBER OF PLAYER ONLINE
-				//MAKE 3dTools VehicleESP from AH AVAILABLE TO EVERYONE ?!
