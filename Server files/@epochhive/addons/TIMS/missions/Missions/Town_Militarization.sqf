@@ -55,7 +55,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		_SPWradioTower setVectorUp [0,0,1];
 	//MARKER AT RADIOTOWER
 		_TowerMarker = createMarker ["Radio-Tower", getPos _SPWradioTower];
-		"Radio-Tower" setMarkerColor "ColorYellow";
+		"Radio-Tower" setMarkerColor "ColorGrey";
 		"Radio-Tower" setMarkerType "loc_Transmitter";
 		"Radio-Tower" setMarkerText " -RadioTower-";
 //============================================////============================================//
@@ -118,18 +118,23 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 	//MESSAGE
 	//WAIT 14 SECONDS BEFORE SENDING NEXT MESSAGE
 		uiSleep 14;
-		showNotification = ["NewSecondary", "Destroy the RadioTower to stop AI paradropping around your position!"]; publicVariable "showNotification";
+		showNotification = ["NewSecondary", "Capture the RadioTower to gain reinforcements!"]; publicVariable "showNotification";
 //============================================////============================================//
-	//SET MISSION VARIABLES
-		_AiCounter   = 1;			//MAIN MISSION LOOP 4 SECONDS CHECK
-		_TowerCheck  = 1;		    //CHECK FOR TOWER DESTRUCTION TO RUN ONLY ONCE IF TOWER DESTROYED
-		HeliTimer1   = 0;			//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
+	//SET MISSION VARS
+		_AiCounter   			 	= 1;		//MAIN MISSION LOOP 4 SECONDS CHECK
+		_TowerCheck  			 	= 1;		//CHECK FOR TOWER DESTRUCTION TO RUN ONLY ONCE IF TOWER DESTROYED
+		HeliTimer1   			 	= 0;		//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
 		//DELETE CHECK
-		HP_WAVE1	 = 0;			//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup7]		= 0,1 	(Default 0)
-		HP_WAVE2	 = 0;			//HELI_PARADROP WAVE 2 SPAWNED? [LVgroup8]		= 0,1 	(Default 0)
-		HP_WAVE3	 = 0;			//HELI_PARADROP WAVE 3 SPAWNED? [LVgroup9]		= 0,1 	(Default 0)
+		HP_WAVE1				 	= 0;		//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup7]		= 0,1 	(Default 0)
+		HP_WAVE2	 			 	= 0;		//HELI_PARADROP WAVE 2 SPAWNED? [LVgroup8]		= 0,1 	(Default 0)
+		HP_WAVE3	 			 	= 0;		//HELI_PARADROP WAVE 3 SPAWNED? [LVgroup9]		= 0,1 	(Default 0)
+		//RADIOTOWER VARS
+		_RadioTowerOwnedByAI	 	= 0;		//RadioTower CAPTURED BY AI 	= 1; 	(Default 0)
+		_RadioTowerOwnedByPlayer 	= 0;		//RadioTower CAPTURED BY PLAYER = 1; 	(Default 0)
+		//RadioTower_AI_GROUP1 	 	= 0;		//RadioTower REINFORCEMENT AI 	= 1,2,3 (Default 0)
 		//SET AI_Counter Radius
-		_radius = 1250;			//_AiCount RADIUS
+		_radius 					= 1250;		//_AiCount RADIUS
+		_TowerRadius 				= 60;		//_PlCount RADIUS
 //============================================////============================================//
 	//START TRACKING CRATE MARKERS IF ENABLED FROM CONFIG
 		if (LOOT_TRACKER isEqualTo 1) then
@@ -137,25 +142,14 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 		};
 //============================================////============================================//
-	//IDEA I HAVE IN MIND FOR MISSION STORED HERE
-
-				//TODO CAPTURE AND DEFEND THE RADIOTOWER
-				//WHILE UNDER PLAYER CONTROL, HELI_PARADROP WILL BE PLAYER SIDE
-				//WHILE DEFENDING THE RADIOTOWER, AI HELI PARADROP WILL BE SENT TO CAPTURE IT BACK
-				//HOLD THE RADIOTOWER FOR 15 MINUTES TO CLAIM IT AND STOP ALL AIR AI REINFORCEMENTS.
-				//ONCE RADIOTOWER CLAIMED MAKE SOMETHING HAPPEN HERE FOR PLAYER OR REWARDS BY VAR FOR STAGED EVENTS
-				//TRY TO MAKE RYANZOMBIE HAPPENS AS WAVE "INVULNERABLE PLAYER" WHILE HAPPEN, HELI DROPPING GUNS BOX TO FIGHT WAVES
-				//LAST WAVE INVULNERABLE ZOMBIES THEN CALL AIRSTRIKE TO BLOW EM ALL UP. END EVENT, LOTS OF LAGS, LOTS OF FUN...
-
-				//MAKE PLAYER FETCH BOX WITH HELI FROM THE MAIN AO TO A LOCATION TO GAIN ACCESS TO MORE MILITARY VEHICLES.
-				//DELETE ALL VEHICLES ON SERVER AND MAKE EM AVAILABLE ONLY BY MISSION SUCCESS EVENTS.
-				//THESES VEHICLES WILL BE USEFULL FOR MISSIONS AND ONLY 1 COPY OF EACH TYPE WILL BE AVAILABLE.
-//============================================////============================================//
 	//START MISSION
 		while {_AiCounter isEqualTo 1} do 
 		{
 		  //AICOUNTER
 		  _AiCount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getMarkerPos "Missionmarker1" < _radius)} count allunits);
+		  //RADIOTOWER PLAYER+AI COUNTER
+		  _RadioTowerPLCount = ({alive _x AND (side _x) isEqualTo east AND (_x distance getPos _SPWradioTower < _TowerRadius)} count allunits);
+		  _RadioTowerAICount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getPos _SPWradioTower < _TowerRadius)} count allunits);
 		  uiSleep 4;
 		  //CREATE AI_COUNTER MARKER
 		  "AI_COUNTER" setMarkerText format ["(Ennemies left: (%1)", _AiCount];
@@ -167,6 +161,26 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				//STARTING TIMER
 				[] execVM HELI_PARADROP_TIMER_1;
 			};
+			//RADIOTOWER CAPTURED BY AI
+			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0)) then
+			{
+				showNotification = ["BunkerTakenByAI", "RadioTower captured by AI's."]; publicVariable "showNotification";
+				"Radio-Tower" setMarkerColor "ColorRed";
+				"Radio-Tower" setMarkerText " (Captured by: (AI)";
+				_RadioTowerOwnedByAI = 1;
+				_RadioTowerOwnedByPlayer = 0;
+
+			};
+			//RADIOTOWER CAPTURED BY AI
+			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0)) then
+			{
+				showNotification = ["BunkerTakenByPlayer", "RadioTower captured by PLAYERS."]; publicVariable "showNotification";
+				"Radio-Tower" setMarkerColor "ColorBlue";
+				"Radio-Tower" setMarkerText " (Captured by: (Players)";
+				_RadioTowerOwnedByAI = 0;
+				_RadioTowerOwnedByPlayer = 1;
+
+			};
 			//WAIT UNTIL RADIOTOWER IS DESTROYED
 			if ((!alive _SPWradioTower) && (_TowerCheck isEqualTo 1)) then
 			{
@@ -177,10 +191,10 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				showNotification = ["CompletedSecondary", "The RadioTower is Down!"]; publicVariable "showNotification";
 				_TowerCheck = 0;
 				//STOP HELI_PARADROP TIMER IF RADIOTOWER IS DESTROYED.
-				HeliTimer1 = 2;
+				//HeliTimer1 = 2;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
-			if ((_AiCount < 50) && (_TowerCheck isEqualTo 0)) then 
+			if ((_AiCount < 6) && (_TowerCheck isEqualTo 0)) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
