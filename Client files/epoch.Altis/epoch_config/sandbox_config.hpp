@@ -179,9 +179,9 @@ class CfgNotifications
 		duration = 8;
 	};
 
-	class BunkerTakenByAI
+	class RadioTowerTakenByAI
 	{
-		title = "Bunker Taken By AI";
+		title = "RadioTower Taken By AI";
 		description = "%1";
 		iconPicture = "media\images\notificons\failed.paa";
 		color[] = {1, 0.81, 0.06, 1};
@@ -189,9 +189,9 @@ class CfgNotifications
 		priority = 9;
 	};
 
-	class BunkerTakenByPlayer
+	class RadioTowerTakenByPlayer
 	{
-		title = "Bunker Taken By Player";
+		title = "RadioTower Taken By Player";
 		description = "%1";
 		iconPicture = "media\images\notificons\side_mission_completed.paa";
 		color[] = {1, 0.81, 0.06, 1};

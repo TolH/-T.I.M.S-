@@ -32,13 +32,14 @@ private["_countHP1","_HP_TIMER_1","_HP_TIMER_2","_HP_TIMER_3","_AI_NUMBER1","_AI
 			{
 			  _countHP1 = _countHP1 + 1;
 			  uiSleep 1;
-				//SEND HELI_PARADROP #1
+				//SEND HELI_PARADROP #1 AT RADIOTOWER TO CLAIM IT
 				if (_countHP1 isEqualTo _HP_TIMER_1) then 
 				{
 					//[LVgroup7] HP_WAVE1
-					_LVgroup7 = [player,3,true,true,1500,"random",true,150,130,_AI_NUMBER1,0.6,75,true,true,false,true,player,false,_AI_SKILLS1,nil,nil,7,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					_LVgroup7 = ["Radio-Tower",3,true,true,1500,"random",true,150,130,_AI_NUMBER1,0.5,60,true,true,false,true,"Radio-Tower",false,_AI_SKILLS1,nil,nil,7,false,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: HELI_PARADROP TIMER #1 REACHED. SENDING IN AI REINFORCEMENTS LVgroup7."];
 					HP_WAVE1 = 1;
+					HeliTimer1 = 2;
 				};
 				//SEND HELI_PARADROP #2
 				if (_countHP1 isEqualTo _HP_TIMER_2) then 
