@@ -9,7 +9,7 @@
 	REM -================================================================================-
 	REM RESTART TIME HERE IN HOURS
 	SET Restart= 3
-	REM SERVER LAUNCH PARAMETERS   D:\Arma3 Mods\@CUP_Terrains_Core;D:\Arma3 Mods\@CUP_Terrains_Maps;
+	REM SERVER LAUNCH PARAMETERS  D:\Arma3 Mods\@CUP_Terrains_Core;D:\Arma3 Mods\@CUP_Terrains_Maps;
 	SET ServerMods= "-serverMod=@epochhive;@AdvancedSlingLoading;@AdvancedUrbanRappelling;" "-mod=@epoch;Kart;Mark;Heli;@CBA_A3;D:\Arma3 Mods\@CUP_Units;D:\Arma3 Mods\@CUP_Vehicles;D:\Arma3 Mods\@CUP_Weapons;" -config=@epochhive\server.cfg -port=2302 -profiles=SC_EPOCH -cfg=@epochhive\basic.cfg -name=SC_EPOCH -malloc=tbbmalloc -autoinit
 	SET /A Hours=%Restart%*3600
 	GOTO StartArma3Server
