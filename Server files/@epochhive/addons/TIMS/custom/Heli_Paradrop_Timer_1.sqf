@@ -36,7 +36,7 @@ private["_countHP1","_HP_TIMER_1","_HP_TIMER_2","_HP_TIMER_3","_AI_NUMBER1","_AI
 				if (_countHP1 isEqualTo _HP_TIMER_1) then 
 				{
 					//[LVgroup7] HP_WAVE1
-					_LVgroup7 = [player,3,true,true,1500,"random",true,200,150,_AI_NUMBER1,0.6,75,true,true,false,false,player,false,_AI_SKILLS1,nil,nil,7,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					_LVgroup7 = [player,3,true,true,1500,"random",true,150,130,_AI_NUMBER1,0.6,75,true,true,false,true,player,false,_AI_SKILLS1,nil,nil,7,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: HELI_PARADROP TIMER #1 REACHED. SENDING IN AI REINFORCEMENTS LVgroup7."];
 					HP_WAVE1 = 1;
 				};
@@ -44,7 +44,7 @@ private["_countHP1","_HP_TIMER_1","_HP_TIMER_2","_HP_TIMER_3","_AI_NUMBER1","_AI
 				if (_countHP1 isEqualTo _HP_TIMER_2) then 
 				{
 					//[LVgroup8] HP_WAVE2
-					_LVgroup8 = [player,3,true,true,1500,"random",true,200,150,_AI_NUMBER2,0.6,75,true,true,false,false,player,false,_AI_SKILLS2,nil,nil,8,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					_LVgroup8 = [player,3,true,true,1500,"random",true,150,130,_AI_NUMBER2,0.6,75,true,true,false,true,player,false,_AI_SKILLS2,nil,nil,8,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: HELI_PARADROP TIMER #2 REACHED. SENDING IN AI REINFORCEMENTS LVgroup8."];
 					HP_WAVE2 = 1;
 				};
@@ -52,7 +52,7 @@ private["_countHP1","_HP_TIMER_1","_HP_TIMER_2","_HP_TIMER_3","_AI_NUMBER1","_AI
 				if (_countHP1 isEqualTo _HP_TIMER_3) then 
 				{
 					//[LVgroup9] HP_WAVE3
-					_LVgroup9 = [player,3,true,true,1500,"random",true,200,150,_AI_NUMBER3,0.6,75,true,true,false,false,player,false,_AI_SKILLS3,nil,nil,9,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					_LVgroup9 = [player,3,true,true,1500,"random",true,150,130,_AI_NUMBER3,0.6,75,true,true,false,true,player,false,_AI_SKILLS3,nil,nil,9,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: HELI_PARADROP TIMER #3 REACHED. SENDING IN AI REINFORCEMENTS LVgroup9."];
 					HP_WAVE3 = 1;
 					//LAST TIMER REACHED, PREPARING TO EXIT
