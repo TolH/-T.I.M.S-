@@ -87,6 +87,7 @@ class CfgEpochBuild
 //Notifications
 class CfgNotifications
 {
+//====================================//
 	class Default
 	{
 		title = ""; 			// Tile displayed as text on black background. Filled by arguments.
@@ -98,7 +99,7 @@ class CfgNotifications
 		priority = 0; 			// Priority; higher number = more important; tasks in queue are selected by priority
 		difficulty[] = {}; 		// Required difficulty settings. All listed difficulties has to be enabled
 	};
-
+//====================================//
 	class NewMain
 	{
 		title = "PRIMARY OBJECTIVE";
@@ -108,7 +109,6 @@ class CfgNotifications
 		duration = 8;
 		priority = 9;
 	};
-
 	class CompletedMain
 	{
 		title = "PRIMARY OBJECTIVE COMPLETED";
@@ -118,7 +118,24 @@ class CfgNotifications
 		duration = 7;
 		priority = 9;
 	};
-
+//====================================//
+	class NewSub
+	{
+		title = "NEW SUB-OBJECTIVE";
+		description = "%1";
+		iconPicture = "media\images\notificons\sub_objective.paa";
+		color[] = {1, 0.81, 0.06, 1};
+		priority = 8;
+	};
+	class CompletedSub
+	{
+		title = "SUB-OBJECTIVE COMPLETED";
+		description = "%1";
+		iconPicture = "media\images\notificons\sub_objective_completed.paa";
+		color[] = {1, 0.81, 0.06, 1};
+		priority = 9;
+	};
+//====================================//
 	class NewSecondary
 	{
 		title = "SECONDARY OBJECTIVE";
@@ -138,7 +155,7 @@ class CfgNotifications
 		duration = 7;
 		priority = 9;
 	};
-
+//====================================//
 	class NewOptional
 	{
 		title = "NEW OPTIONAL OBJECTIVE";
@@ -148,7 +165,6 @@ class CfgNotifications
 		duration = 7;
 		priority = 9;
 	};
-
 	class CompletedOptional
 	{
 		title = "OPTIONAL OBJECTIVE COMPLETED";
@@ -158,7 +174,6 @@ class CfgNotifications
 		duration = 7;
 		priority = 9;
 	};
-
 	class OptionalFailed
 	{
 		title = "OPTIONAL OBJECTIVE FAILED";
@@ -168,7 +183,7 @@ class CfgNotifications
 		duration = 7;
 		priority = 9;
 	};
-
+//====================================//
 	class RadioTowerCAS
 	{
 		title = "RadioTower";
@@ -178,7 +193,7 @@ class CfgNotifications
 		priority = 9;
 		duration = 8;
 	};
-
+//====================================//
 	class RadioTowerTakenByAI
 	{
 		title = "RadioTower Taken By AI";
@@ -188,7 +203,6 @@ class CfgNotifications
 		duration = 7;
 		priority = 9;
 	};
-
 	class RadioTowerTakenByPlayer
 	{
 		title = "RadioTower Taken By Player";
@@ -199,4 +213,5 @@ class CfgNotifications
 		priority = 9;
 	};
 };
+//====================================//
 //====================================//====================================//
