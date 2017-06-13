@@ -53,6 +53,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		_SPWradioTower = "Land_TTowerBig_2_F" createVehicle _kRandSpawnPos;
 		waitUntil {uiSleep 1; alive _SPWradioTower};
 		_SPWradioTower setVectorUp [0,0,1];
+		_SPWradioTower allowDamage false;
 	//MARKER AT RADIOTOWER
 		_TowerMarker = createMarker ["Radio-Tower", getPos _SPWradioTower];
 		"Radio-Tower" setMarkerColor "ColorGrey";
@@ -97,7 +98,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			"Crate_2" setMarkerText "";		//Weapons loot
 //============================================////============================================//
 	//MESSAGE
-		showNotification = ["NewMain", "Town Militarization Mission Test!"]; publicVariable "showNotification";
+		showNotification = ["NewMain", "Mission: -=Town Invasion Test=- Started!"]; publicVariable "showNotification";
 //============================================////============================================//
 	//SPAWN ALL ONFOOT UNITS
 		//[LVgroup1] AI IN HOUSES
@@ -116,11 +117,10 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 	//MESSAGE
 	//WAIT 14 SECONDS BEFORE SENDING NEXT MESSAGE
 		uiSleep 14;
-		showNotification = ["NewSecondary", "Capture the RadioTower to gain reinforcements!"]; publicVariable "showNotification";
+		showNotification = ["NewSecondary", "Capture the RadioTower."]; publicVariable "showNotification";
 //============================================////============================================//
 	//SET MISSION VARS
 		_AiCounter   			 = 1;				//MAIN MISSION LOOP 4 SECONDS CHECK
-		_TowerCheck  			 = 1;				//CHECK FOR TOWER DESTRUCTION TO RUN ONLY ONCE IF TOWER DESTROYED
 		AI_SF_CG_Timer   		 = 0;				//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
 		//DELETE CHECK
 		AI_SF_CG_SPAWNED_WAVE_1	 = 0;				//HELI_PARADROP WAVE 1 SPAWNED? [LVgroup6]		= 0,1 	(Default 0)
@@ -129,7 +129,10 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		//RADIOTOWER VARS
 		_RadioTowerOwnedByAI	 = 0;				//RadioTower CAPTURED BY AI 	= 1; 	(Default 0)
 		_RadioTowerOwnedByPlayer = 0;				//RadioTower CAPTURED BY PLAYER = 1; 	(Default 0)
-		//RadioTower_AI_GROUP1 	 = 0;				//RadioTower REINFORCEMENT AI 	= 1,2,3 (Default 0)
+		RADIOTOWER_StartTimer 	 = 0;				//RADIOTOWER_TIMER 				= 0,1,2,3 (Default 0) 0=OFF 1=CHECK 2=AI 3=PLAYER
+		RADIOTOWER_CLAIMED		 = 0;				//RADIOTOWER CLAIMED BY : 0=CHECK 1=AI 2=PLAYER
+		//RTcountAI 			 = 0;				//RADIOTOWER AI TIMER
+		//RTcountPL 			 = 0;				//RADIOTOWER PLAYER TIMER
 		//SET AI_Counter Radius
 		_radius 				 = 1250;			//_AiCount RADIUS
 		_TowerRadius 			 = RT_CLAIM_RADIUS;	//_PlCount RADIUS
@@ -161,36 +164,40 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		  //CREATE AI_COUNTER MARKER
 		  "AI_COUNTER" setMarkerText format ["(Ennemies left: (%1)", _AiCount];
 			//RADIOTOWER CAPTURED BY AI
-			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0)) then
+			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
 				showNotification = ["RadioTowerTakenByAI", "RadioTower captured by AI's."]; publicVariable "showNotification";
 				"Radio-Tower" setMarkerColor "ColorRed";
 				"Radio-Tower" setMarkerText " (Captured by: (AI)";
 				_RadioTowerOwnedByAI = 1;
 				_RadioTowerOwnedByPlayer = 0;
-
+				//CHECK IF TIMER IS ALREADY STARTED FIRST
+				if (RADIOTOWER_StartTimer isEqualTo 0) then 
+				{
+					//START TIMER
+					[] execVM RADIOTOWER_TIMER;
+				};
+				//RESET TIMER
+				RTcountAI = 0;
+				RADIOTOWER_StartTimer = 2;
 			};
-			//RADIOTOWER CAPTURED BY AI
-			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0)) then
+			//RADIOTOWER CAPTURED BY PLAYER
+			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
 				showNotification = ["RadioTowerTakenByPlayer", "RadioTower captured by PLAYERS."]; publicVariable "showNotification";
 				"Radio-Tower" setMarkerColor "ColorBlue";
 				"Radio-Tower" setMarkerText " (Captured by: (Players)";
 				_RadioTowerOwnedByAI = 0;
 				_RadioTowerOwnedByPlayer = 1;
-
-			};
-			//WAIT UNTIL RADIOTOWER IS DESTROYED FOR NOW
-			if ((!alive _SPWradioTower) && (_TowerCheck isEqualTo 1)) then
-			{
-				diag_log format ["-=T.I.M.S=-: Mission -Invasion.sqf- TOWER DESTROYED"];
-				"Radio-Tower" setMarkerColor "ColorGrey";
-				"Radio-Tower" setMarkerText " -=RadioTower=- Destroyed";
-				uiSleep 5;
-				showNotification = ["CompletedSecondary", "The RadioTower is Down!"]; publicVariable "showNotification";
-				_TowerCheck = 0;
-				//STOP CLAIMING_GROUP IF RADIOTOWER IS DESTROYED.
-				AI_SF_CG_Timer = 0;
+				//CHECK IF TIMER IS ALREADY STARTED FIRST
+				if (RADIOTOWER_StartTimer isEqualTo 0) then 
+				{
+					//START TIMER
+					[] execVM RADIOTOWER_TIMER;
+				};
+				//RESET TIMER
+				RTcountPL = 0;
+				RADIOTOWER_StartTimer = 3;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
 			if (_AiCount < 6) then 

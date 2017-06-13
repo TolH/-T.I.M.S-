@@ -6,13 +6,21 @@
 					["marker",  radius, "colordifficulty"] ExecVM PAUSE_MISSION;
 	This will put a rotating marker on map pausing mission so no ai spawn until a player is near the location between the green and red circle.
 */
+private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townName","_OnHold","_degree","_PlayerAround"];
 //============================================////============================================//
 	_MarkerPOS = _this select 0;	// first ELEMENT == MARKER POSITION TO PUT MARKER
 	_radius = _this select 1;	// SECOND ELEMENT == RADIUS OF WICH PAUSED MISSION WILL RESUME WHEN PLAYER ARE NEARBY
 	_colorDifficulty = _this select 2;	//THIRD ELEMENT == THE COLOR OF THE MARKER REPRESENT THE VISUAL DIFFICULTY OF THE MISSION (Green, Yellow, Red)
 //============================================////============================================//
 	//SEND MESSAGE TO PLAYER THAT A RANDOM MISSION HAS STARTED
-		showNotification = ["NewMain", "A new mission is on hold. Scout the area to see what it is."]; publicVariable "showNotification";
+//============================================////============================================//
+	//WICH TOWN MISSION IS AT ?
+	_anyNearestLocation = nearestLocation [getMarkerPos "Missionmarker1", ""];
+	_townName = text _anyNearestLocation;
+		//SEND MESSAGES
+		_targetStartText = format ["<t align='center' size='2.2'>-=%1=-</t><br/><t size='1.5' color='#3ea190' align='center'>Is the next mission loacation.</t><br/>____________________<br/>____________________<br/><br/><t size='1.2' color='#9ec190' align='center'>____________________</t><br/>", _townName];
+		GlobalHint = _targetStartText; publicVariable "GlobalHint"; hint parseText GlobalHint;
+		showNotification = ["NewMain", "A new mission will start soon."]; publicVariable "showNotification";
 	//VAR
 		ANIMEMARKER = 1;
 		_degree = 0;
@@ -46,7 +54,7 @@
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				showNotification = ["NewMain", "A player scouted the area! Starting the mission..."]; publicVariable "showNotification";
+				showNotification = ["NewMain", "A Player is near the mission area! Staring the mission..."]; publicVariable "showNotification";
 				uiSleep 10;
 				ANIMEMARKER = 0;
 			};

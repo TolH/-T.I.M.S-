@@ -1,6 +1,6 @@
 //============================================////============================================//
-//TIMS NOTIFICATION
-	//"showNotification" FROM AWOL INVASION
+//PUBLICVARIABLEEVENTHANDLER
+	//"showNotification"
 	"showNotification" addPublicVariableEventHandler
 	{
 		private ["_type", "_message"];

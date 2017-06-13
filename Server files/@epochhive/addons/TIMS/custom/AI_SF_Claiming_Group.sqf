@@ -9,7 +9,7 @@
 				Send AI group at radiotower to claim it.
 */
 //============================================////============================================//
-private["_countHP1","_AI_SF_CG_Timer1","_AI_SF_CG_Timer2","_AI_SF_CG_Timer3","_AI_NUMBER1","_AI_NUMBER2","_AI_NUMBER3","_AI_SKILLS1","_AI_SKILLS2","_AI_SKILLS3","_LVgroup6","_LVgroup7","_LVgroup8"];
+private["_countHP1","_AI_SF_CG_Timer1","_AI_SF_CG_Timer2","_AI_SF_CG_Timer3","_AI_NUMBER1","_AI_NUMBER2","_AI_NUMBER3","_AI_SKILLS1","_AI_SKILLS2","_AI_SKILLS3"];
 //============================================////============================================//
 
 	//SELECT TIMER 		ARRAY 0
@@ -40,7 +40,7 @@ private["_countHP1","_AI_SF_CG_Timer1","_AI_SF_CG_Timer2","_AI_SF_CG_Timer3","_A
 				if (_countHP1 isEqualTo _AI_SF_CG_Timer1 && CLAIMING_GROUP_NUMBER >= 1) then 
 				{
 					//[LVgroup6] AI_SF_CG_WAVE_1
-					_LVgroup6 = ["Radio-Tower",3,true,true,1500,"random",true,120,110,_AI_NUMBER1,0.5,60,true,true,false,true,["Radio-Tower",(getMarkerPos "Radio-Tower"),75],false,_AI_SKILLS1,nil,nil,6,false,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					_LVgroup6 = ["Missionmarker1",3,true,true,1500,"random",true,120,110,_AI_NUMBER1,0.5,60,true,true,false,true,["Radio-Tower","Missionmarker1"],true,_AI_SKILLS1,nil,nil,6,false,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: FIRST SPECIAL AI PARTY SENT TO THE RADIOTOWER TO CLAIM IT. LVgroup6."];
 					//DELETE CHECK
 					AI_SF_CG_SPAWNED_WAVE_1 = 1;
@@ -55,7 +55,7 @@ private["_countHP1","_AI_SF_CG_Timer1","_AI_SF_CG_Timer2","_AI_SF_CG_Timer3","_A
 				if (_countHP1 isEqualTo _AI_SF_CG_Timer2 && CLAIMING_GROUP_NUMBER >= 2) then 
 				{
 					//[LVgroup7] AI_SF_CG_WAVE_2
-					_LVgroup7 = [player,3,true,true,1500,"random",true,120,110,_AI_NUMBER2,0.5,60,true,true,false,true,player,false,_AI_SKILLS2,nil,nil,7,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					
 					diag_log format ["-=T.I.M.S=-: SECOND SPECIAL AI PARTY SENT TO A RANDOM PLAYER. LVgroup7."];
 					//DELETE CHECK
 					AI_SF_CG_SPAWNED_WAVE_2 = 1;
@@ -70,7 +70,7 @@ private["_countHP1","_AI_SF_CG_Timer1","_AI_SF_CG_Timer2","_AI_SF_CG_Timer3","_A
 				if (_countHP1 isEqualTo _AI_SF_CG_Timer3 && CLAIMING_GROUP_NUMBER isEqualTo 3) then 
 				{
 					//[LVgroup8] AI_SF_CG_WAVE_3
-					_LVgroup8 = [player,3,true,true,1500,"random",true,120,110,_AI_NUMBER3,0.5,60,true,true,false,true,player,false,_AI_SKILLS3,nil,nil,8,true,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
+					
 					diag_log format ["-=T.I.M.S=-: THIRD SPECIAL AI PARTY SENT TO A RANDOM PLAYER. LVgroup8."];
 					//DELETE CHECK
 					AI_SF_CG_SPAWNED_WAVE_3 = 1;
