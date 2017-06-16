@@ -83,6 +83,7 @@ class CfgEpochBuild
 {
  	#include "build.hpp"
 };
+
 //====================================//====================================//
 //Notifications
 class CfgNotifications

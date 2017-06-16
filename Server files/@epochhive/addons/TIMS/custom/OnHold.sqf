@@ -18,7 +18,7 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 	_anyNearestLocation = nearestLocation [getMarkerPos "Missionmarker1", ""];
 	_townName = text _anyNearestLocation;
 		//SEND MESSAGES
-		_targetStartText = format ["<t align='center' size='2.2'>-=%1=-</t><br/><t size='1.5' color='#3ea190' align='center'>Is the next mission loacation.</t><br/>____________________<br/>____________________<br/><br/><t size='1.2' color='#9ec190' align='center'>____________________</t><br/>", _townName];
+		_targetStartText = format ["<t align='center' size='1.5'>New mission location will be</t><br/><t size='2.0' color='#3ea190' align='center'>-=%1=-</t><br/>____________________<br/>____________________<br/><br/><t size='1.2' color='#9ec190' align='center'>____________________</t><br/>", _townName];
 		GlobalHint = _targetStartText; publicVariable "GlobalHint"; hint parseText GlobalHint;
 		showNotification = ["NewMain", "A new mission will start soon."]; publicVariable "showNotification";
 	//VAR

@@ -301,6 +301,11 @@ class CfgRemoteExec
             allowedTargets = 2;
             jip = 0;
         };
+		class EPOCH_server_setVToken
+		{
+			allowedTargets = 2;
+			jip = 0;
+		};
     };
     class Commands
     {

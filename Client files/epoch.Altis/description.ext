@@ -1,8 +1,11 @@
 //============================================////============================================//
 #include "epoch_config\sandbox_config.hpp"
 //============================================////============================================//
+//ASORVS
+#include "ASORVS\menu.hpp"
 class cfgFunctions
 {
+	#include "ASORVS\cfgfunctions.hpp"
     class A3
     {
         tag = "BIS";
