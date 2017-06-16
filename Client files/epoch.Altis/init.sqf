@@ -11,4 +11,6 @@
 		//null = [] execVM "custom\vehicle\auxslingloading.sqf";
 	//Chat
 		[] execVM "module_chatIntercept\init.sqf";
+	//PP
+		[] execVM "DamageSystemEffect\pp.sqf";
 //============================================////============================================//

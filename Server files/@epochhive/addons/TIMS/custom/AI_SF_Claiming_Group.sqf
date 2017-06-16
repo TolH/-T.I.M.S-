@@ -55,7 +55,7 @@ private["_countHP1","_AI_SF_CG_Timer1","_AI_SF_CG_Timer2","_AI_SF_CG_Timer3","_A
 				if (_countHP1 isEqualTo _AI_SF_CG_Timer2 && CLAIMING_GROUP_NUMBER >= 2) then 
 				{
 					//[LVgroup7] AI_SF_CG_WAVE_2
-					
+					_LVgroup7 = ["Radio-Tower",3,true,true,1500,"random",true,120,110,_AI_NUMBER1,0.5,60,true,true,false,true,["Missionmarker1","Radio-Tower"],true,_AI_SKILLS1,nil,nil,7,false,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: SECOND SPECIAL AI PARTY SENT TO A RANDOM PLAYER. LVgroup7."];
 					//DELETE CHECK
 					AI_SF_CG_SPAWNED_WAVE_2 = 1;
@@ -70,7 +70,7 @@ private["_countHP1","_AI_SF_CG_Timer1","_AI_SF_CG_Timer2","_AI_SF_CG_Timer3","_A
 				if (_countHP1 isEqualTo _AI_SF_CG_Timer3 && CLAIMING_GROUP_NUMBER isEqualTo 3) then 
 				{
 					//[LVgroup8] AI_SF_CG_WAVE_3
-					
+					_LVgroup6 = ["Missionmarker1",3,true,true,1500,"random",true,120,110,_AI_NUMBER1,0.5,60,true,true,false,true,["Radio-Tower","Missionmarker1"],true,_AI_SKILLS1,nil,nil,8,false,false,["TOHL_HARD"]] execVM "TIMS\LV\heliParadrop.sqf";
 					diag_log format ["-=T.I.M.S=-: THIRD SPECIAL AI PARTY SENT TO A RANDOM PLAYER. LVgroup8."];
 					//DELETE CHECK
 					AI_SF_CG_SPAWNED_WAVE_3 = 1;

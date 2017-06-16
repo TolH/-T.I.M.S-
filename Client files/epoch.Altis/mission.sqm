@@ -51,7 +51,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=203;
+		items=214;
 		class Item0
 		{
 			dataType="Marker";
@@ -6106,5 +6106,174 @@ class Mission
 			};
 			id=403;
 		};
+//=========================================================================//
+	//CUSTOM MARKERS//
+		class Item204
+		{
+			dataType="Marker";
+			position[]={14742.429,17.91,16779.35};
+			name="SpawnHeli";
+			type="Empty";
+			angle=222.67462;
+			id=2040;
+		};
+		class Item205
+		{
+			dataType="Marker";
+			position[]={14607.149,17.91,16632.932};
+			name="SpawnTank";
+			type="Empty";
+			angle=41.888416;
+			id=2050;
+		};
+		class Item206
+		{
+			dataType="Marker";
+			position[]={15180.907,17.91,16805.752};
+			name="SpawnPlane";
+			type="Empty";
+			angle=162.26051;
+			id=2060;
+		};
+//=========================================================================//
+	//CUSTOM OBJECTS//
+		class Item207
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14621.427,18.878881,16774.354};
+				angles[]={0,5.4563708,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this allowDamage false; this enableSimulation false; this addAction ['Spawn Planes', {[['planes'], [], 'SpawnPlane'] execvm 'ASORVS\open.sqf';}]; this addAction ['Spawn Helicopters', {[['helicopters'], [], 'SpawnHeli'] execvm 'ASORVS\open.sqf';}]; this addAction ['Spawn Tanks', {[['tanks'], [], 'SpawnTank'] execvm 'ASORVS\open.sqf';}];";
+				name="ASORVS";
+				aiRadarUsage=535822336;
+			};
+			id=2070;
+			type="MapBoard_altis_F";
+		};
+		class Item208
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14622.1,17.91,16699.301};
+				angles[]={-0,0.7701326,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="Ground_vehicle_repair";
+				aiRadarUsage=535822336;
+			};
+			id=2080;
+			type="Land_JumpTarget_F";
+		};
+		class Item209
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14721.824,17.91,16702.674};
+				angles[]={-0,5.4823503,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="Heli_vehicle_repair_1";
+				aiRadarUsage=535822336;
+			};
+			id=2090;
+			type="Land_HelipadRescue_F";
+		};
+		class Item210
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15170.915,17.91,16823.578};
+				angles[]={-0,2.767441,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="Plane_vehicle_repair_2";
+				aiRadarUsage=535822336;
+			};
+			id=2100;
+			type="Land_HelipadSquare_F";
+		};
+//=========================================================================//
+	//CUSTOM TRIGGERS//
+		//REARM&REPAIR GROUND
+		class Item211
+		{
+			dataType="Trigger";
+			position[]={14622.098,17.91,16699.311};
+			angle=3.9177406;
+			class Attributes
+			{
+				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
+				onActivation="_handle = [(thisList select 0)] execVM ""custom\vehicle\rearmGround.sqf"";";
+				sizeA=4;
+				sizeB=4;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				effectTitle="RscStatic";
+			};
+			id=2110;
+			type="EmptyDetectorArea10x10";
+		};
+		//REARM&REPAIR HELI
+		class Item212
+		{
+			dataType="Trigger";
+			position[]={14721.755,17.91,16703.072};
+			angle=5.4797583;
+			class Attributes
+			{
+				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
+				onActivation="_handle = [(thisList select 0)] execVM ""custom\vehicle\rearmHelicopter.sqf"";";
+				sizeA=4;
+				sizeB=4;
+				sizeC=4;
+				isRectangle=1;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				effectTitle="RscStatic";
+			};
+			id=2120;
+			type="EmptyDetectorArea10x10";
+		};
+		//REARM&REPAIR PLANE
+		class Item213
+		{
+			dataType="Trigger";
+			position[]={15172.355,17.909676,16825.221};
+			angle=2.7642515;
+			class Attributes
+			{
+				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
+				onActivation="_handle = [(thisList select 0)] execVM ""custom\vehicle\rearmPlane.sqf"";";
+				sizeA=5;
+				sizeB=5;
+				sizeC=5;
+				isRectangle=1;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+				effectTitle="RscStatic";
+			};
+			id=2130;
+			type="EmptyDetectorArea10x10";
+			atlOffset=-0.00032424927;
+		};
+//=========================================================================//
 	};
 };

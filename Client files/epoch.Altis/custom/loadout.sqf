@@ -12,7 +12,7 @@
 		//_spwnposNew = [(_pos1),random _spawnRandomisation, random 360] call BIS_fnc_relPos;
 //============================================////============================================//
 	//if ((EPOCH_playerAliveTime < 0.1) && (EPOCH_playerCrypto < 1)) then
-	if ((player distance _pos1 <5) && (EPOCH_playerCrypto <1)) then
+	if (player distance _pos1 <5) then
 	{
 	//NEW PLAYER SPAWNNING CONFIG
 		//SCREEN COMING BACK SLOWLY
@@ -34,7 +34,7 @@
 		player addWeapon "EpochRadio0";
 		player addItem "FirstAidKit";
 		player addPrimaryWeaponItem "acc_flashlight";
-		//player action ["GunLightOn", player];
+		player action ["GunLightOn", player];
 		HALV_takegive = [player,100];
 		publicVariableServer "HALV_takegive";
 		uiSleep 3;

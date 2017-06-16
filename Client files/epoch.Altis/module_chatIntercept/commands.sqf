@@ -10,21 +10,9 @@ pvpfw_chatIntercept_allCommands = [
 		}
 	],
 	[
-		"crypto",
-		{
-			hint format ["%1",EPOCH_playerCrypto];
-		}
-	],
-	[
-		"alive",
-		{
-			hint format ["%1",EPOCH_playerAliveTime];
-		}
-	],
-	[
 		"gear",
 		{
-			//execVM "ASORGS\open.sqf";
+			["Open",true] spawn BIS_fnc_arsenal;
 		}
 	]
 ];
