@@ -120,6 +120,9 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		showNotification = ["NewSecondary", "Capture the RadioTower."]; publicVariable "showNotification";
 //============================================////============================================//
 	//SET MISSION VARS
+		//BONUS -=MP=-
+		BONUS_MP_AI				 = 0; 				//AI BONUS MP (START AT 0)
+		BONUS_MP_PL				 = 0; 				//PLAYERS BONUS MP (START AT 0)
 		_AiCounter   			 = 1;				//MAIN MISSION LOOP 4 SECONDS CHECK
 		AI_SF_CG_Timer   		 = 0;				//HELI_PARADROP TIMER CHECK						= 0,1,2 (Default 0)
 		//DELETE CHECK
@@ -166,9 +169,9 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY AI
 			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
-				showNotification = ["RadioTowerTakenByAI", "RadioTower captured by AI's."]; publicVariable "showNotification";
+				showNotification = ["RadioTowerTakenByAI", "AI's are attempting to capture the RadioTower!"]; publicVariable "showNotification";
 				"Radio-Tower" setMarkerColor "ColorRed";
-				"Radio-Tower" setMarkerText " (Captured by: (AI)";
+				"Radio-Tower" setMarkerText " (Capturing in progress by...: (AI's)";
 				_RadioTowerOwnedByAI = 1;
 				_RadioTowerOwnedByPlayer = 0;
 				//CHECK IF TIMER IS ALREADY STARTED FIRST
@@ -177,6 +180,12 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 					//START TIMER
 					[] execVM RADIOTOWER_TIMER;
 				};
+				//
+				if (TOWER_BAR_TEST isEqualTo 1) then 
+				{
+					tower_Bar_progress = "custom\tower\tower_Bar_progress.sqf"; publicVariable "tower_Bar_progress";
+					[] execVM tower_Bar_progress;
+				};
 				//RESET TIMER
 				RTcountAI = 0;
 				RADIOTOWER_StartTimer = 2;
@@ -184,9 +193,9 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY PLAYER
 			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
-				showNotification = ["RadioTowerTakenByPlayer", "RadioTower captured by PLAYERS."]; publicVariable "showNotification";
+				showNotification = ["RadioTowerTakenByPlayer", "PLAYERS are attempting to capture the RadioTower!"]; publicVariable "showNotification";
 				"Radio-Tower" setMarkerColor "ColorBlue";
-				"Radio-Tower" setMarkerText " (Captured by: (Players)";
+				"Radio-Tower" setMarkerText " (Capturing in progress by...: (Players)";
 				_RadioTowerOwnedByAI = 0;
 				_RadioTowerOwnedByPlayer = 1;
 				//CHECK IF TIMER IS ALREADY STARTED FIRST
@@ -194,13 +203,20 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				{
 					//START TIMER
 					[] execVM RADIOTOWER_TIMER;
+					//SHOW PROGRESS BAR IF ENABLED
+				};
+				//
+				if (TOWER_BAR_TEST isEqualTo 1) then 
+				{
+					tower_Bar_progress = "custom\tower\tower_Bar_progress.sqf"; publicVariable "tower_Bar_progress";
+					[] execVM tower_Bar_progress;
 				};
 				//RESET TIMER
 				RTcountPL = 0;
 				RADIOTOWER_StartTimer = 3;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
-			if (_AiCount < 6) then 
+			if (_AiCount < 5) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
@@ -213,7 +229,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 	//WAIT UNTIL AI ELEMINATED (< 5)
 		waitUntil {uiSleep 5; _AiCounter isEqualTo 0};
 	//MESSAGE
-		showNotification = ["CompletedMain", "All opposing forces as been eliminated! Great job."]; publicVariable "showNotification";
+		showNotification = ["CompletedMain", "All objectives completed."]; publicVariable "showNotification";
 		"Missionmarker1" setMarkerColor "ColorGreen";
 		//DELETE ALIVE AI GROUP
 		nul1 = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";

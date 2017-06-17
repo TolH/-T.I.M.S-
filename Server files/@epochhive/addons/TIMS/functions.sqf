@@ -11,6 +11,4 @@
 		AI_SF_CG = "TIMS\custom\AI_SF_Claiming_Group.sqf";
 	//RADIOTOWER_TIMER
 		RADIOTOWER_TIMER = "TIMS\custom\RadioTower_Timer.sqf";
-	//bar_progress.sqf
-		//BAR_PROGRESS = "TIMS\custom\bar_progress.sqf";
 //============================================////============================================//

@@ -17,4 +17,12 @@
 		_GHint = _this select 1;
 		hint parseText format["%1", _GHint];
 	};
+	//TOWER PROGRESS BAR	    // use:  tower_Bar_progress = "custom\tower\tower_Bar_progress.sqf"; publicVariable "tower_Bar_progress";   execVM tower_Bar_progress;   (from server)
+	"tower_Bar_progress" addPublicVariableEventHandler
+	 {
+		private ["_forAll"];
+		
+		_forAll = _this select 1;
+		execVM _forAll;
+	 };
 //============================================////============================================//

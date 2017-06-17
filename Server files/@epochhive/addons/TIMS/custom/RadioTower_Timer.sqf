@@ -20,25 +20,13 @@
 			{
 			  RTcountAI = RTcountAI + 1;
 			  uiSleep 1;
-				//SEND REINFORCMENT #1
-				if (RTcountAI isEqualTo 300) then 
+				//TOWER HELD FOR X MINUTES BY AI
+				if (RTcountAI isEqualTo TOWER_CAPTURE_TIME_AI) then 
 				{
-					//SEND AI
-					
-				};
-				//SEND REINFORCMENT #2
-				if (RTcountAI isEqualTo 600) then 
-				{
-					//SEND AI
-					
-				};
-				//SEND REINFORCMENT #3
-				if (RTcountAI isEqualTo 900) then 
-				{
-					//SEND AI
-					showNotification = ["RadioTowerTakenByAI", "The AI claimed the radiotower after holding it for over 15mins."]; publicVariable "showNotification";
+					//AI CAPTURED
+					showNotification = ["RadioTowerTakenByAI", "The AI held the radiotower for over 15mins and captured it."]; publicVariable "showNotification";
 					"Radio-Tower" setMarkerColor "ColorOrange";
-					"Radio-Tower" setMarkerText " (Claimed by: (AI)";
+					"Radio-Tower" setMarkerText " (Captured by: (AI) No Bonus MP!";
 					//LAST TIMER REACHED CLAIM RADIOTWER AI AND STOP MAIN MISSION CHECK
 					RADIOTOWER_CLAIMED = 1;
 					//STOP TIMER EXIT SECONDARY LOOP
@@ -50,26 +38,14 @@
 			{
 			  RTcountPL = RTcountPL + 1;
 			  uiSleep 1;
-				//SEND REINFORCMENT #1
-				if (RTcountPL isEqualTo 300) then 
+				//TOWER HELD FOR X MINUTES BY PLAYERS
+				if (RTcountPL isEqualTo TOWER_CAPTURE_TIME_PL) then 
 				{
-					//SEND AI
-					
-				};
-				//SEND REINFORCMENT #2
-				if (RTcountPL isEqualTo 600) then 
-				{
-					//SEND AI
-					
-				};
-				//SEND REINFORCMENT #3
-				if (RTcountPL isEqualTo 900) then 
-				{
-					//SEND AI
-					showNotification = ["RadioTowerTakenByPlayer", "You have claimed the radiotower after holding it for over 15mins."]; publicVariable "showNotification";
+					//PLAYER CAPTURED
+					showNotification = ["RadioTowerTakenByPlayer", "Players held the radiotower for over 15mins and captured it!"]; publicVariable "showNotification";
 					//LAST TIMER REACHED CLAIM RADIOTWER PLAYER AND STOP MAIN MISSION CHECK
 					"Radio-Tower" setMarkerColor "ColorGreen";
-					"Radio-Tower" setMarkerText " (Claimed by: (Players)";
+					"Radio-Tower" setMarkerText " (Captured by: (Players) +500MP!";
 					RADIOTOWER_CLAIMED = 2;
 					//STOP TIMER EXIT SECONDARY LOOP
 					RADIOTOWER_StartTimer = 0;

@@ -1,6 +1,6 @@
 objNull spawn {
-	titleText ["Creating vehicle, just a moment...", "BLACK", 3];
-	uiSleep 2.9;
+	titleText ["Creating vehicle, just a moment...", "BLACK", 2];
+	uiSleep 1.9;
 	//sleep 2; //wait for client to be able to check vehicles positions properly again.
 	_somedeleted =false;
 	{
@@ -23,5 +23,5 @@ objNull spawn {
 	player moveInDriver _veh;
 	player switchCamera "INTERNAL";
 	uiSleep 3;
-	titleText ["", "BLACK IN", 6];
+	titleText ["", "BLACK IN", 5];
 };
