@@ -6135,7 +6135,7 @@ class Mission
 			angle=162.26051;
 			id=2060;
 		};
-		class Item214
+		class Item213
 		{
 			dataType="Marker";
 			position[]={14630.626,0,16765.9};
@@ -6264,7 +6264,7 @@ class Mission
 			type="EmptyDetectorArea10x10";
 		};
 		//REARM&REPAIR PLANE
-		class Item213
+		class Item214
 		{
 			dataType="Trigger";
 			position[]={15172.355,17.909676,16825.221};

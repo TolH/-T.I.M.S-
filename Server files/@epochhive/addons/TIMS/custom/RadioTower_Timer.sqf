@@ -21,7 +21,7 @@
 			  RTcountAI = RTcountAI + 1;
 			  uiSleep 1;
 				//TOWER HELD FOR X MINUTES BY AI
-				if (RTcountAI isEqualTo TOWER_CAPTURE_TIME_AI) then 
+				if (RTcountAI >= TOWER_CAPTURE_TIME) then 
 				{
 					//AI CAPTURED
 					showNotification = ["RadioTowerTakenByAI", "The AI held the radiotower for over 15mins and captured it."]; publicVariable "showNotification";
@@ -39,7 +39,7 @@
 			  RTcountPL = RTcountPL + 1;
 			  uiSleep 1;
 				//TOWER HELD FOR X MINUTES BY PLAYERS
-				if (RTcountPL isEqualTo TOWER_CAPTURE_TIME_PL) then 
+				if (RTcountPL >= TOWER_CAPTURE_TIME) then 
 				{
 					//PLAYER CAPTURED
 					showNotification = ["RadioTowerTakenByPlayer", "Players held the radiotower for over 15mins and captured it!"]; publicVariable "showNotification";

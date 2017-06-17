@@ -119,7 +119,9 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		uiSleep 14;
 		showNotification = ["NewSecondary", "Capture the RadioTower."]; publicVariable "showNotification";
 //============================================////============================================//
+	//CHANGING THIS WILL BREAK THE MISSION!!!
 	//SET MISSION VARS
+//============================================////============================================//
 		//BONUS -=MP=-
 		BONUS_MP_AI				 = 0; 				//AI BONUS MP (START AT 0)
 		BONUS_MP_PL				 = 0; 				//PLAYERS BONUS MP (START AT 0)
@@ -146,14 +148,6 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			[_supplyBox1, _supplyBox2] execVM LOOT_MARKER;
 		};
 //============================================////============================================//
-	//SEND IN CLAIMING_GROUP IF ENABLED.
-		if (CLAIMING_GROUP isEqualTo 1 && AI_SF_CG_Timer isEqualTo 0) then
-		{
-			//START HELI_PARADROP AI_SF_Claiming_Group
-			AI_SF_CG_Timer = 1;
-			//STARTING TIMER
-			[] execVM AI_SF_CG;
-		};
 //============================================////============================================//
 	//START MISSION
 		while {_AiCounter isEqualTo 1} do 
@@ -198,6 +192,14 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				"Radio-Tower" setMarkerText " (Capturing in progress by...: (Players)";
 				_RadioTowerOwnedByAI = 0;
 				_RadioTowerOwnedByPlayer = 1;
+				//SEND IN CLAIMING_GROUP IF ENABLED. PLAYER ONLY FOR NOW
+				if (CLAIMING_GROUP isEqualTo 1 && AI_SF_CG_Timer isEqualTo 0) then
+				{
+					//START HELI_PARADROP AI_SF_Claiming_Group
+					AI_SF_CG_Timer = 1;
+					//STARTING TIMER
+					[] execVM AI_SF_CG;
+				};
 				//CHECK IF TIMER IS ALREADY STARTED FIRST
 				if (RADIOTOWER_StartTimer isEqualTo 0) then 
 				{
@@ -225,6 +227,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				_AiCounter = 0;
 			};
 		};
+//============================================////============================================//
 //============================================////============================================//
 	//WAIT UNTIL AI ELEMINATED (< 5)
 		waitUntil {uiSleep 5; _AiCounter isEqualTo 0};
