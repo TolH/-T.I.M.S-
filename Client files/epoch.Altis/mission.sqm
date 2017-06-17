@@ -51,7 +51,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=214;
+		items=215;
 		class Item0
 		{
 			dataType="Marker";
@@ -6134,6 +6134,17 @@ class Mission
 			type="Empty";
 			angle=162.26051;
 			id=2060;
+		};
+		class Item214
+		{
+			dataType="Marker";
+			position[]={14630.626,0,16765.9};
+			name="respawn_custom";
+			type="Empty";
+			colorName="ColorUNKNOWN";
+			angle=132.416;
+			id=3;
+			atlOffset=-17.91;
 		};
 //=========================================================================//
 	//CUSTOM OBJECTS//

@@ -6,7 +6,8 @@
 	//PLAYER RESPAWN POSITIONS
 		//_pos1 = [14625.8, 16771, 0.00143814];    //MAIN AIRPORT
 		_pos1 = getMarkerPos "respawn_west";
-		_pos2 = [8935.1592, 7494.0469, 1.378685]; //ALTIS CHURCH SPAWN
+		_pos2 = getMarkerPos "respawn_custom";
+		//_pos2 = [8935.1592, 7494.0469, 1.378685]; //ALTIS CHURCH SPAWN
 	//RADIUS RANDOMISATION FOR PLAYER SPAWN
 		//_spawnRandomisation=5; //5m RADIUS
 		//_spwnposNew = [(_pos1),random _spawnRandomisation, random 360] call BIS_fnc_relPos;
@@ -16,11 +17,11 @@
 	{
 	//NEW PLAYER SPAWNNING CONFIG
 		//SCREEN COMING BACK SLOWLY
-		titleText ["", "BLACK IN", 15];
+		titleText ["", "BLACK IN", 12];
 		//playerfog = 1;
 		//player setDamage 0.30;
 		player setpos _pos2;
-		player setDir 270;
+		//player setDir 270;
 		//player enableFatigue false;
 		waitUntil{!isNull (findDisplay 46) && !dialog && cameraOn isEqualTo player && cameraView == "INTERNAL"};
 		player switchCamera "EXTERNAL";
@@ -39,6 +40,12 @@
 		publicVariableServer "HALV_takegive";
 		uiSleep 3;
 		systemchat format ["Welcome -=(%1)=-", name player];
+		//ADD CUSTOM RANDOM STARTING SPAWNING.
+			//_randomSpawn = [1,2,3,4,5,6,7,8] call BIS_fnc_selectRandom;
+				//1
+				//2
+				//3
+				//4
 	}
 	else
 	{
