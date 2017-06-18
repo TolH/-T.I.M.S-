@@ -16,7 +16,7 @@ class config_aissp
 			cars[] = {"I_G_Offroad_01_armed_F","I_MRAP_03_F","I_MRAP_03_hmg_F","I_MRAP_03_gmg_F"};
 			tanks[] = {"I_APC_tracked_03_cannon_F"};
 			helicopters[] = {"I_Heli_light_03_F"};
-			planes[] = {"B_Heli_Light_01_armed_F"};
+			planes[] = {"I_Heli_light_03_F"};
 			ships[] = {"I_Boat_Armed_01_minigun_F"};
 		};
 /*

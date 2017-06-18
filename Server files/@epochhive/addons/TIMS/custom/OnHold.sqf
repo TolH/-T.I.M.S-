@@ -18,9 +18,10 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 	_anyNearestLocation = nearestLocation [getMarkerPos "Missionmarker1", ""];
 	_townName = text _anyNearestLocation;
 		//SEND MESSAGES
-		_targetStartText = format ["<t align='center' size='1.5'>New mission location will be</t><br/><t size='1.8' color='#3ea190' align='center'>-=%1=-</t><br/><img color='' size='10' align='center' image='\A3\weapons_f\items\data\ui\gear_gps_CA.paa'/> <br/><t size='1.0' color='#3ea190' align='center'>-=TEST BOTTOM=-</t>", _townName];
+		_targetStartText = format ["<t align='center' size='1.5'>New mission location is:</t><br/><t size='1.8' color='#3ea190' align='center'>-%1-</t><br/><img color='' size='8' align='center' image='\A3\weapons_f\items\data\ui\gear_gps_CA.paa'/> <br/><t size='1.0' color='#3ea190' align='center'>-=ONLY A TEST TMP=-</t>", _townName];
 		GlobalHint = _targetStartText; publicVariable "GlobalHint"; hint parseText GlobalHint;
-		showNotification = ["NewMain", "A new mission will start soon."]; publicVariable "showNotification";
+		Epoch_Message1 = ["New mission available. Check map."]; publicVariable "Epoch_Message1";
+		//showNotification = ["NewMain", "A new mission will start soon."]; publicVariable "showNotification";
 	//VAR
 		ANIMEMARKER = 1;
 		_degree = 0;
@@ -54,8 +55,9 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				showNotification = ["NewMain", "A Player is near the mission area! Staring the mission..."]; publicVariable "showNotification";
-				uiSleep 10;
+				//showNotification = ["NewMain", "A Player is near the mission area! Staring the mission..."]; publicVariable "showNotification";
+				Epoch_Message1 = ["Mission starting in 5 seconds..."]; publicVariable "Epoch_Message1";
+				uiSleep 5;
 				ANIMEMARKER = 0;
 			};
 		};

@@ -26,7 +26,7 @@
 					//AI CAPTURED
 					showNotification = ["RadioTowerTakenByAI", "The AI held the radiotower for over 15mins and captured it."]; publicVariable "showNotification";
 					"Radio-Tower" setMarkerColor "ColorOrange";
-					"Radio-Tower" setMarkerText " (Captured by: (AI) No Bonus MP!";
+					"Radio-Tower" setMarkerText " (Captured by: (AI)!";
 					//LAST TIMER REACHED CLAIM RADIOTWER AI AND STOP MAIN MISSION CHECK
 					RADIOTOWER_CLAIMED = 1;
 					//STOP TIMER EXIT SECONDARY LOOP
@@ -45,7 +45,7 @@
 					showNotification = ["RadioTowerTakenByPlayer", "Players held the radiotower for over 15mins and captured it!"]; publicVariable "showNotification";
 					//LAST TIMER REACHED CLAIM RADIOTWER PLAYER AND STOP MAIN MISSION CHECK
 					"Radio-Tower" setMarkerColor "ColorGreen";
-					"Radio-Tower" setMarkerText " (Captured by: (Players) +500MP!";
+					"Radio-Tower" setMarkerText " (Captured by: (Players)!";
 					RADIOTOWER_CLAIMED = 2;
 					//STOP TIMER EXIT SECONDARY LOOP
 					RADIOTOWER_StartTimer = 0;
