@@ -3,7 +3,6 @@
 //									   -=CAPTURE & DEFEND=-	
 //			MISSION OBJECTIVES:
 //          	1: TRY AND CAPTURE A RADIOTOWER TO GAIN POINTS IN A MILITARIZED ZONE!
-//				2: IT'S A PLAY AGAINST AI. GET POINTS WHILE DEFENDING THE TOWER, FIRST TO X AMOUNTS WIN!
 //============================================////============================================//
 private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower","_TowerMarker"];
 //============================================////============================================//
@@ -102,8 +101,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			"Crate_2" setMarkerText "";		//Weapons loot
 //============================================////============================================//
 	//MESSAGE
-		//showNotification = ["NewMain", "Mission: -=Capture And Defend=- the Radiotower Started!"]; publicVariable "showNotification";
-		Epoch_Message1 = ["Capture And Defend started... Good luck"]; publicVariable "Epoch_Message1";
+		["Capture And Defend started... Good luck", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 //============================================////============================================//
 	//SPAWN ALL ONFOOT UNITS
 		//[LVgroup1] AI IN HOUSES
@@ -166,8 +164,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY AI
 			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
-				//showNotification = ["RadioTowerTakenByAI", "AI's are attempting to capture the RadioTower!"]; publicVariable "showNotification";
-				Epoch_Message1 = ["AI's are attempting to capture the tower..."]; publicVariable "Epoch_Message1";
+				["AI's are attempting to capture the tower...", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 				"Radio-Tower" setMarkerColor "ColorRed";
 				"Radio-Tower" setMarkerText " (Capturing in progress by...: (AI's)";
 				_RadioTowerOwnedByAI = 1;
@@ -191,9 +188,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY PLAYER
 			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
-				//showNotification = ["RadioTowerTakenByPlayer", "PLAYERS are attempting to capture the RadioTower!"]; publicVariable "showNotification";
-				Epoch_Message1 = ["Players are attempting to capture the tower..."]; publicVariable "Epoch_Message1";
-				
+				["Players are attempting to capture the tower...", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 				"Radio-Tower" setMarkerColor "ColorBlue";
 				"Radio-Tower" setMarkerText " (Capturing in progress by...: (Players)";
 				_RadioTowerOwnedByAI = 0;

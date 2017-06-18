@@ -20,8 +20,7 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 		//SEND MESSAGES
 		_targetStartText = format ["<t align='center' size='1.5'>New mission location is:</t><br/><t size='1.8' color='#3ea190' align='center'>-%1-</t><br/><img color='' size='8' align='center' image='\A3\weapons_f\items\data\ui\gear_gps_CA.paa'/> <br/><t size='1.0' color='#3ea190' align='center'>-=ONLY A TEST TMP=-</t>", _townName];
 		GlobalHint = _targetStartText; publicVariable "GlobalHint"; hint parseText GlobalHint;
-		Epoch_Message1 = ["New mission available. Check map."]; publicVariable "Epoch_Message1";
-		//showNotification = ["NewMain", "A new mission will start soon."]; publicVariable "showNotification";
+		["A new mission is available.", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 	//VAR
 		ANIMEMARKER = 1;
 		_degree = 0;
@@ -55,8 +54,7 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				//showNotification = ["NewMain", "A Player is near the mission area! Staring the mission..."]; publicVariable "showNotification";
-				Epoch_Message1 = ["Mission starting in 5 seconds..."]; publicVariable "Epoch_Message1";
+				["Mission starting in 5 seconds...", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 				uiSleep 5;
 				ANIMEMARKER = 0;
 			};
