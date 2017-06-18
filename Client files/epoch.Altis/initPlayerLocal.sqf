@@ -17,14 +17,6 @@
 		_GHint = _this select 1;
 		hint parseText format["%1", _GHint];
 	};
-	//[format["Internal sound level: %1%2", EPOCH_soundLevel * 100, "%"], 5] call Epoch_message;
-	//"Epoch_Message1" 
-	"Epoch_Message1" addPublicVariableEventHandler
-	{
-		private ["_Epoch_msg"];
-		_Epoch_msg = _this select 1;
-		[_Epoch_msg, 10] call Epoch_message;
-	};
 	//TOWER PROGRESS BAR
 	//  tower_Bar_progress = "custom\tower\tower_Bar_progress.sqf"; publicVariable "tower_Bar_progress";
     //	execVM tower_Bar_progress;
@@ -36,3 +28,14 @@
 		execVM _forAll;
 	 };
 //============================================////============================================//
+//NOT USED BUT WORKS
+/*
+	//Epoch_Message1 = "A player is attempting to capture the tower..."; publicVariable "Epoch_Message1";
+	//"Epoch_Message1" 
+	"Epoch_Message1" addPublicVariableEventHandler
+	{
+		private ["_Epoch_msg"];
+		_Epoch_msg = _this select 1;
+		[_Epoch_msg, 10] call Epoch_message;
+	};
+*/
