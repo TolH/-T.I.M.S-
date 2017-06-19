@@ -3,6 +3,33 @@
 //============================================////============================================//
 //ASORVS
 #include "ASORVS\menu.hpp"
+//============================================////============================================//
+class CfgSounds
+{
+	sounds[] = {};
+	class NEWMISSIONSFX
+	{
+		name = "NEW_MISSION_SFX";
+		// start path to sound file in AddOn with @   // filename, volume, pitch, distance
+		sound[] = {"media\sounds\hint-3.wss", 1, 1, 5};
+		titles[] = {0,""};
+	};
+	class AICAPTURETOWER
+	{
+		name = "AI_CAPTURE_TOWER";
+		// start path to sound file in AddOn with @   // filename, volume, pitch, distance
+		sound[] = {"media\sounds\hint-4.wss", 1, 1, 5};
+		titles[] = {0,""};
+	};
+	class PLCAPTURETOWER
+	{
+		name = "PL_CAPTURE_TOWER";
+		// start path to sound file in AddOn with @   // filename, volume, pitch, distance
+		sound[] = {"media\sounds\hint-5.wss", 1, 1, 5};
+		titles[] = {0,""};
+	};
+};
+//============================================////============================================//
 class cfgFunctions
 {
 	#include "ASORVS\cfgfunctions.hpp"

@@ -101,7 +101,8 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			"Crate_2" setMarkerText "";		//Weapons loot
 //============================================////============================================//
 	//MESSAGE
-		["Capture And Defend started... Good luck", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+		SFX_CUSTOM = "NEWMISSIONSFX"; publicVariable "SFX_CUSTOM";
+		["Capture And Defend started... Good luck", 6, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server  ["the message", 6, [[0,0,0,0.2],[1,1,1,0.95]]]
 //============================================////============================================//
 	//SPAWN ALL ONFOOT UNITS
 		//[LVgroup1] AI IN HOUSES
@@ -164,7 +165,8 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY AI
 			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
-				["AI's are attempting to capture the tower...", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+				SFX_CUSTOM = "AICAPTURETOWER"; publicVariable "SFX_CUSTOM";
+				["AI's are attempting to capture the tower...", 6, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 				"Radio-Tower" setMarkerColor "ColorRed";
 				"Radio-Tower" setMarkerText " (Capturing in progress by...: (AI's)";
 				_RadioTowerOwnedByAI = 1;
@@ -178,8 +180,8 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				//
 				if (TOWER_BAR_TEST isEqualTo 1) then 
 				{
-					tower_Bar_progress = "custom\tower\tower_Bar_progress.sqf"; publicVariable "tower_Bar_progress";
-					[] execVM tower_Bar_progress;
+					AI_tower_Bar_progress = "custom\tower\AI_tower_Bar_progress.sqf"; publicVariable "AI_tower_Bar_progress";
+					[] execVM AI_tower_Bar_progress;
 				};
 				//RESET TIMER
 				RTcountAI = 0;
@@ -188,7 +190,8 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			//RADIOTOWER CAPTURED BY PLAYER
 			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
-				["Players are attempting to capture the tower...", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+				SFX_CUSTOM = "PLCAPTURETOWER"; publicVariable "SFX_CUSTOM";
+				["Players are attempting to capture the tower...", 6, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 				"Radio-Tower" setMarkerColor "ColorBlue";
 				"Radio-Tower" setMarkerText " (Capturing in progress by...: (Players)";
 				_RadioTowerOwnedByAI = 0;
@@ -211,15 +214,15 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				//
 				if (TOWER_BAR_TEST isEqualTo 1) then 
 				{
-					tower_Bar_progress = "custom\tower\tower_Bar_progress.sqf"; publicVariable "tower_Bar_progress";
-					[] execVM tower_Bar_progress;
+					PL_tower_Bar_progress = "custom\tower\PL_tower_Bar_progress.sqf"; publicVariable "PL_tower_Bar_progress";
+					[] execVM PL_tower_Bar_progress;
 				};
 				//RESET TIMER
 				RTcountPL = 0;
 				RADIOTOWER_StartTimer = 3;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
-			if (_AiCount < 5) then 
+			if (_AiCount < 5 && RADIOTOWER_CLAIMED >= 1) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
