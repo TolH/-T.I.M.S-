@@ -17,10 +17,13 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 	//WICH TOWN MISSION IS AT ?
 	_anyNearestLocation = nearestLocation [getMarkerPos "Missionmarker1", ""];
 	_townName = text _anyNearestLocation;
+	_bgCol = [0,0,0,0.2];
+	_txtCol = [0,0,0,0.2];
 		//SEND MESSAGES
-		_targetStartText = format ["<t align='center' size='1.5'>New mission location is:</t><br/><t size='1.8' color='#3ea190' align='center'>-%1-</t><br/><img color='' size='8' align='center' image='\A3\weapons_f\items\data\ui\gear_gps_CA.paa'/> <br/><t size='1.0' color='#3ea190' align='center'>-=ONLY A TEST TMP=-</t>", _townName];
+		_targetStartText = format ["<t align='center' size='1.5'>New mission location is:</t><br/><t size='1.8' color='#3ea190' align='center'>-%1-</t><br/><img size='8' align='center' image='\A3\weapons_f\items\data\ui\gear_gps_CA.paa'/> <br/><t size='1.0' color='#3ea190' align='center'>-=ONLY A TEST TMP=-</t>", _townName];
 		GlobalHint = _targetStartText; publicVariable "GlobalHint"; hint parseText GlobalHint;
-		["A new mission is available.", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+		SFX_CUSTOM = "NEWMISSIONSFX"; publicVariable "SFX_CUSTOM";
+		["A new mission is available.", 6, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2];// -2 targets everyone but the server
 	//VAR
 		ANIMEMARKER = 1;
 		_degree = 0;
@@ -54,8 +57,9 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 				//NAME MARKER
 				"OnHold" setMarkerText "<<==== Loading mission...";
 				//RESUME MISSION
-				["Mission starting in 5 seconds...", 10] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
-				uiSleep 5;
+				//SFX_CUSTOM = "NEWMISSIONSFX"; publicVariable "SFX_CUSTOM";
+				["Mission starting in 5 seconds...", 6, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+				uiSleep 6;
 				ANIMEMARKER = 0;
 			};
 		};

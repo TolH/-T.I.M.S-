@@ -18,15 +18,31 @@
 		hint parseText format["%1", _GHint];
 	};
 	//TOWER PROGRESS BAR
-	//  tower_Bar_progress = "custom\tower\tower_Bar_progress.sqf"; publicVariable "tower_Bar_progress";
-    //	execVM tower_Bar_progress;
-	"tower_Bar_progress" addPublicVariableEventHandler
+	//  AI_tower_Bar_progress = "custom\tower\AI_tower_Bar_progress.sqf"; publicVariable "AI_tower_Bar_progress";
+    //	execVM AI_tower_Bar_progress;
+	//AI_tower_Bar_progress
+	"AI_tower_Bar_progress" addPublicVariableEventHandler
 	 {
 		private ["_forAll"];
 		
 		_forAll = _this select 1;
 		execVM _forAll;
 	 };
+	//PL_tower_Bar_progress
+	"PL_tower_Bar_progress" addPublicVariableEventHandler
+	 {
+		private ["_forAll"];
+		
+		_forAll = _this select 1;
+		execVM _forAll;
+	 };
+	//"SFX_CUSTOM"  SFX_CUSTOM = "sound_here"; publicVariable "SFX_CUSTOM";
+	"SFX_CUSTOM" addPublicVariableEventHandler
+	{
+		private ["_soundSFX"];
+		_soundSFX = _this select 1;
+		playSound _soundSFX;
+	};
 //============================================////============================================//
 //NOT USED BUT WORKS
 /*
