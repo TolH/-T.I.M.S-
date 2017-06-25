@@ -44,5 +44,5 @@
     ctrlDelete (uiNamespace getVariable "PL_capture_radiotower_img");
 	ctrlDelete (uiNamespace getVariable "PL_capture_radiotower_img2");
     };  
-}, [time, time + 722]] call BIS_fnc_addStackedEventHandler;
+}, [time, time + 724]] call BIS_fnc_addStackedEventHandler;
 //============================================////============================================//

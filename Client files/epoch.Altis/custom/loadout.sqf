@@ -17,7 +17,7 @@
 	{
 	//NEW PLAYER SPAWNNING CONFIG
 		//SCREEN COMING BACK SLOWLY
-		titleText ["", "BLACK IN", 12];
+		titleText ["", "BLACK IN", 7];
 		//playerfog = 1;
 		//player setDamage 0.30;
 		player setpos _pos2;
@@ -26,16 +26,16 @@
 		waitUntil{!isNull (findDisplay 46) && !dialog && cameraOn isEqualTo player && cameraView == "INTERNAL"};
 		player switchCamera "EXTERNAL";
 		uiSleep 1;
-        _PistolANDmag = ["Rollins_F","5Rnd_rollins_mag"];
-		_riffle = _PistolANDmag select 0;
-        _mag = _PistolANDmag select 1;
-		player addWeapon _riffle;
-        player addMagazine _mag;
-		player addMagazine _mag;
+        //_PistolANDmag = ["Rollins_F","5Rnd_rollins_mag"];
+		//_riffle = _PistolANDmag select 0;
+        //_mag = _PistolANDmag select 1;
+		//player addWeapon _riffle;
+        //player addMagazine _mag;
+		//player addMagazine _mag;
 		player addWeapon "EpochRadio0";
 		player addItem "FirstAidKit";
-		player addPrimaryWeaponItem "acc_flashlight";
-		player action ["GunLightOn", player];
+		//player addPrimaryWeaponItem "acc_flashlight";
+		//player action ["GunLightOn", player];
 		HALV_takegive = [player,100];
 		publicVariableServer "HALV_takegive";
 		uiSleep 3;
@@ -51,7 +51,7 @@
 	{
 	//OLD PLAYER SPAWNNING CONFIG
 		//SCREEN COMING BACK SLOWLY
-		titleText ["", "BLACK IN", 12];
+		titleText ["", "BLACK IN", 7];
 		//player enableFatigue false;
 		waitUntil{!isNull (findDisplay 46) && !dialog && cameraOn isEqualTo player && cameraView == "INTERNAL"};
 		player switchCamera "EXTERNAL";
