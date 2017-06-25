@@ -6,7 +6,7 @@
 				nul_script8 = [] execVM RADIOTOWER_TIMER;
 				
 				This will ADD reinforcment to the radiotower area every X minutes.
-				If AI Take radiotower back, TIMER resetart.
+				If AI Take radiotower back, TIMER restart.
 */
 //============================================////============================================//
 	//START RADIOTOWER_TIMER

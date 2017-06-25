@@ -6,7 +6,7 @@ if (!isDedicated) exitWith {};
 		while {true} do
 		{
 		  //WAIT 1 MINUTE AFTER THE INVASION ENDED FOR NOW
-		  uiSleep 60;
+		  uiSleep 30;
 			_playerCount = {alive _x} count playableUnits;
 			if ((_playerCount >= ONLINE_PLAYERS) && (MISSION_ISRUNNING == 0)) then 
 			{

@@ -1,4 +1,6 @@
 //============================================////============================================//
+	//MESSAGING
+//============================================////============================================//
 //PUBLICVARIABLEEVENTHANDLER
 	//"showNotification"
 	"showNotification" addPublicVariableEventHandler
@@ -17,9 +19,12 @@
 		_GHint = _this select 1;
 		hint parseText format["%1", _GHint];
 	};
-	//TOWER PROGRESS BAR
-	//  AI_tower_Bar_progress = "custom\tower\AI_tower_Bar_progress.sqf"; publicVariable "AI_tower_Bar_progress";
-    //	execVM AI_tower_Bar_progress;
+//============================================////============================================//
+	//DEFEND_CAPTURE MISSION PROGRESS BAR
+//============================================////============================================//
+		//SERVER USE:
+		//	AI_tower_Bar_progress = "GUI_ON_THE_FLY\tower\AI_tower_Bar_progress.sqf"; publicVariable "AI_tower_Bar_progress";
+		//	execVM AI_tower_Bar_progress;
 	//AI_tower_Bar_progress
 	"AI_tower_Bar_progress" addPublicVariableEventHandler
 	 {
@@ -36,7 +41,12 @@
 		_forAll = _this select 1;
 		execVM _forAll;
 	 };
-	//"SFX_CUSTOM"  SFX_CUSTOM = "sound_here"; publicVariable "SFX_CUSTOM";
+//============================================////============================================//
+	//CUSTOM SOUND TO SEND TO EVERYONE
+//============================================////============================================//
+		//SERVER USE:
+		//	SFX_CUSTOM = "sound_here_from_description_ext"; publicVariable "SFX_CUSTOM";
+	//SFX_CUSTOM
 	"SFX_CUSTOM" addPublicVariableEventHandler
 	{
 		private ["_soundSFX"];
@@ -44,14 +54,15 @@
 		playSound _soundSFX;
 	};
 //============================================////============================================//
-//NOT USED BUT WORKS
-/*
-	//Epoch_Message1 = "A player is attempting to capture the tower..."; publicVariable "Epoch_Message1";
-	//"Epoch_Message1" 
-	"Epoch_Message1" addPublicVariableEventHandler
+	//CUSTOM UI FOR MISSION MESSAGE NOTIFICATION
+//============================================////============================================//
+		//SERVER USE:
+		//	MISSION_NOTIFICATION_MSG = "RscTitles_from_description_ext"; publicVariable "MISSION_NOTIFICATION_MSG";
+	//MISSION_NOTIFICATION_MSG
+	"MISSION_NOTIFICATION_MSG" addPublicVariableEventHandler
 	{
-		private ["_Epoch_msg"];
-		_Epoch_msg = _this select 1;
-		[_Epoch_msg, 10] call Epoch_message;
+		private ["_MissionMSG"];
+		_MissionMSG = _this select 1;
+		cutRsc [_MissionMSG, "PLAIN"];
 	};
-*/
+//============================================////============================================//

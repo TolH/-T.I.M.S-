@@ -1,12 +1,15 @@
+//playSound3D ["A3\Sounds_F\sfx\blip1.wav", player];
 //============================================////============================================//
 //									 -T.I.M.S- (WIP) by TolH
 //									   -=CAPTURE & DEFEND=-	
 //			MISSION OBJECTIVES:
-//          	1: TRY AND CAPTURE A RADIOTOWER TO GAIN POINTS IN A MILITARIZED ZONE!
+//          	1: 
 //============================================////============================================//
 private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower","_TowerMarker"];
 //============================================////============================================//
 	//MISSION RUNNING CHECK
+	//MISSION_NOTIFICATION_MSG = "ZOMBIE_MISSION_NOTIFICATION"; publicVariable "MISSION_NOTIFICATION_MSG";
+	//SFX_CUSTOM = "AICAPTURETOWER"; publicVariable "SFX_CUSTOM";
 		MISSION_ISRUNNING = 1;
 		diag_log "=======================================================================";
 		diag_log "-=T.I.M.S=-: Mission -Capture_Defend.sqf- Started";
@@ -48,7 +51,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		"AI_COUNTER" setMarkerType "hd_dot";
 //============================================////============================================//
 	//POSITION OF MISSION OBJECTS, AI, VEHICLES AND LOOTS
-		_kRandSpawnPos = [(getMarkerPos "Missionmarker1"), 1, 500, 0.1, 0, 200, 0] call BIS_fnc_findSafePos;	//RADIOTOWER
+		_kRandSpawnPos = [(getMarkerPos "Missionmarker1"), 1, 600, 0.1, 0, 200, 0] call BIS_fnc_findSafePos;	//RADIOTOWER
 		_LootBox_1 = [(getMarkerPos "Missionmarker1"), 25, 100, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//_LootBox_1
 		_LootBox_2 = [(getMarkerPos "Missionmarker1"), 10, 75, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//_LootBox_2
 //============================================////============================================//
@@ -86,19 +89,6 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			clearWeaponCargoGlobal _supplyBox2;
 			clearMagazineCargoGlobal _supplyBox2;
 			clearItemCargoGlobal _supplyBox2;
-	//CREATE ALL CRATES MARKERS
-		//(Crate_1)
-			_Crate_1 = createMarker ["Crate_1", getPos _supplyBox1];
-			"Crate_1" setMarkerSize [0.8,0.8];
-			"Crate_1" setMarkerColor "ColorKhaki";
-			"Crate_1" setMarkerType "respawn_para";
-			"Crate_1" setMarkerText "";		//Construction loot
-		//(Crate_2)
-			_Crate_2 = createMarker ["Crate_2", getPos _supplyBox2];
-			"Crate_2" setMarkerSize [0.8,0.8];
-			"Crate_2" setMarkerColor "ColorKhaki";
-			"Crate_2" setMarkerType "respawn_para";
-			"Crate_2" setMarkerText "";		//Weapons loot
 //============================================////============================================//
 	//MESSAGE
 		SFX_CUSTOM = "NEWMISSIONSFX"; publicVariable "SFX_CUSTOM";
@@ -108,7 +98,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		//[LVgroup1] AI IN HOUSES
 			_LVgroup1 = ["Missionmarker1",3,false,1,[12,0],200,0.1,nil,nil,1,["TOHL_HARD"]] execVM "TIMS\LV\fillHouse.sqf";
 		//[LVgroup2] GROUND PATROL AROUND MISSION MARKER
-			_LVgroup2 = ["Missionmarker1",3,900,[true,false],[false,false,false],false,[13,0],[0,0],0.1,nil,nil,2,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+			_LVgroup2 = ["Missionmarker1",3,900,[true,false],[false,false,false],false,[12,0],[0,0],0.1,nil,nil,2,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 			uiSleep 3;//WAIT 3 SECONDS
 	//SPAWN ALL VEHICLES UNITS
 		//[LVgroup3] VEHICLE PATROL
@@ -116,7 +106,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 		//[LVgroup4] AIR PATROL
 			_LVgroup4 = ["Missionmarker1",3,1150,[false,false],[false,false,true],false,[0,0],[2,0],0.1,nil,nil,4,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 		//[LVgroup5] WATER PATROL
-			_LVgroup5 = ["Missionmarker1",3,1050,[false,false],[false,true,false],false,[0,0],[1,0],0.1,nil,nil,5,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
+			//_LVgroup5 = ["Missionmarker1",3,1050,[false,false],[false,true,false],false,[0,0],[1,0],0.1,nil,nil,5,true,false,["TOHL_HARD"]] execVM "TIMS\LV\militarize.sqf";
 //============================================////============================================//
 	//WAIT 10 SECONDS BEFORE STARTING MAIN MISSION
 		uiSleep 10;
@@ -166,7 +156,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			if ((_RadioTowerAICount > _RadioTowerPLCount) && (_RadioTowerOwnedByAI isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
 				SFX_CUSTOM = "AICAPTURETOWER"; publicVariable "SFX_CUSTOM";
-				["AI's are attempting to capture the tower...", 6, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+				["AI's are attempting to capture the tower...", 5, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 				"Radio-Tower" setMarkerColor "ColorRed";
 				"Radio-Tower" setMarkerText " (Capturing in progress by...: (AI's)";
 				_RadioTowerOwnedByAI = 1;
@@ -180,7 +170,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				//
 				if (TOWER_BAR_TEST isEqualTo 1) then 
 				{
-					AI_tower_Bar_progress = "custom\tower\AI_tower_Bar_progress.sqf"; publicVariable "AI_tower_Bar_progress";
+					AI_tower_Bar_progress = "GUI_ON_THE_FLY\CAPTURE_DEFEND\AI_tower_Bar_progress.sqf"; publicVariable "AI_tower_Bar_progress";
 					[] execVM AI_tower_Bar_progress;
 				};
 				//RESET TIMER
@@ -191,7 +181,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			if ((_RadioTowerPLCount > _RadioTowerAICount) && (_RadioTowerOwnedByPlayer isEqualTo 0) && (RADIOTOWER_CLAIMED isEqualTo 0)) then
 			{
 				SFX_CUSTOM = "PLCAPTURETOWER"; publicVariable "SFX_CUSTOM";
-				["Players are attempting to capture the tower...", 6, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+				["Players are attempting to capture the tower...", 5, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 				"Radio-Tower" setMarkerColor "ColorBlue";
 				"Radio-Tower" setMarkerText " (Capturing in progress by...: (Players)";
 				_RadioTowerOwnedByAI = 0;
@@ -214,7 +204,7 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				//
 				if (TOWER_BAR_TEST isEqualTo 1) then 
 				{
-					PL_tower_Bar_progress = "custom\tower\PL_tower_Bar_progress.sqf"; publicVariable "PL_tower_Bar_progress";
+					PL_tower_Bar_progress = "GUI_ON_THE_FLY\CAPTURE_DEFEND\PL_tower_Bar_progress.sqf"; publicVariable "PL_tower_Bar_progress";
 					[] execVM PL_tower_Bar_progress;
 				};
 				//RESET TIMER
@@ -222,11 +212,11 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 				RADIOTOWER_StartTimer = 3;
 			};
 			//ALL ENNEMIES KILLED AND RADIOTOWER CLAIMED BY PLAYER. ENDING MISSION
-			if (_AiCount < 5 && RADIOTOWER_CLAIMED >= 1) then 
+			if (_AiCount < 25 && RADIOTOWER_CLAIMED >= 1) then 
 			{
 				//CHANGE AI_COUNTER MARKER
 				"AI_COUNTER" setMarkerColor "ColorOrange";
-				"AI_COUNTER" setMarkerText "All opposing forces as been eliminated! Great job.";
+				"AI_COUNTER" setMarkerText "All objectives completed. Well done soldiers!";
 				AI_SF_CG_Timer = 0;
 				_AiCounter = 0;
 			};
@@ -236,14 +226,15 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 	//WAIT UNTIL AI ELEMINATED (< 5)
 		waitUntil {uiSleep 5; _AiCounter isEqualTo 0};
 	//MESSAGE
-		showNotification = ["CompletedMain", "All objectives completed."]; publicVariable "showNotification";
+		SFX_CUSTOM = "PLCAPTURETOWER"; publicVariable "SFX_CUSTOM";
+		["All objectives completed. Well done soldiers!", 5, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 		"Missionmarker1" setMarkerColor "ColorGreen";
 		//DELETE ALIVE AI GROUP
 		nul1 = [LVgroup1] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul2 = [LVgroup2] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul3 = [LVgroup3] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		nul4 = [LVgroup4] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
-		nul5 = [LVgroup5] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
+		//nul5 = [LVgroup5] execVM "TIMS\LV\LV_functions\LV_fnc_removeGroupV2.sqf";
 		//DELETE AI_SpecialForce_Claiming_Group IF SPAWNED AND ENABLED FROM CONFIG
 		if (CLAIMING_GROUP isEqualTo 1) then
 		{
@@ -261,16 +252,28 @@ private ["_Missionmarker1","_Missionmarker2","_Missionmarker3","_SPWradioTower",
 			};
 		};
 //============================================////============================================//
+	uiSleep 5;
+	SFX_CUSTOM = "PLCAPTURETOWER"; publicVariable "SFX_CUSTOM";
+	["Looks like they left some loot behind! Look at your map.", 8, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+	//CREATE ALL CRATES MARKERS
+		//(Crate_1)
+			_Crate_1 = createMarker ["Crate_1", getPos _supplyBox1];
+			"Crate_1" setMarkerSize [0.8,0.8];
+			"Crate_1" setMarkerColor "ColorKhaki";
+			"Crate_1" setMarkerType "respawn_para";
+			"Crate_1" setMarkerText "";		//Construction loot
+		//(Crate_2)
+			_Crate_2 = createMarker ["Crate_2", getPos _supplyBox2];
+			"Crate_2" setMarkerSize [0.8,0.8];
+			"Crate_2" setMarkerColor "ColorKhaki";
+			"Crate_2" setMarkerType "respawn_para";
+			"Crate_2" setMarkerText "";		//Weapons loot
 	//LOOT TEST (3 TYPES OF 3 DIFFERENT QUALITY)
 		//_Crate_1
 		[_supplyBox1,"CONSTRUCTION"] ExecVM NORMAL_Loot_Setup;
-		//SMOKE_1
-		
 		//_Crate_2
 		[_supplyBox2,"WEAPONS"] ExecVM HIGH_Loot_Setup;
 		[_supplyBox2,"MEDIC"] ExecVM LOW_Loot_Setup;
-		//SMOKE_2
-
 //============================================////============================================//
 	//WAIT X SECONDS BEFORE DELETING EVERYTHING
 		uiSleep MISSION_CLEAN_TIME;

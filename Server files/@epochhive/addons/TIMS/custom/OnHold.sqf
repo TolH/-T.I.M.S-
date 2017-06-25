@@ -17,8 +17,6 @@ private ["_MarkerPOS","_radius","_colorDifficulty","_anyNearestLocation","_townN
 	//WICH TOWN MISSION IS AT ?
 	_anyNearestLocation = nearestLocation [getMarkerPos "Missionmarker1", ""];
 	_townName = text _anyNearestLocation;
-	_bgCol = [0,0,0,0.2];
-	_txtCol = [0,0,0,0.2];
 		//SEND MESSAGES
 		_targetStartText = format ["<t align='center' size='1.5'>New mission location is:</t><br/><t size='1.8' color='#3ea190' align='center'>-%1-</t><br/><img size='8' align='center' image='\A3\weapons_f\items\data\ui\gear_gps_CA.paa'/> <br/><t size='1.0' color='#3ea190' align='center'>-=ONLY A TEST TMP=-</t>", _townName];
 		GlobalHint = _targetStartText; publicVariable "GlobalHint"; hint parseText GlobalHint;
