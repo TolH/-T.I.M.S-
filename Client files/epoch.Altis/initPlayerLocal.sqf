@@ -1,17 +1,6 @@
 //============================================////============================================//
 	//MESSAGING
 //============================================////============================================//
-//PUBLICVARIABLEEVENTHANDLER
-	//"showNotification"
-	"showNotification" addPublicVariableEventHandler
-	{
-		private ["_type", "_message"];
-		_array = _this select 1;
-		_type = _array select 0;
-		_message = "";
-		if (count _array > 1) then { _message = _array select 1; };
-		[_type, [_message]] call BIS_fnc_showNotification;
-	};
 	//"GlobalHint"
 	"GlobalHint" addPublicVariableEventHandler
 	{
@@ -20,21 +9,13 @@
 		hint parseText format["%1", _GHint];
 	};
 //============================================////============================================//
-	//DEFEND_CAPTURE MISSION PROGRESS BAR
+	//SERVER CALL ALL CLIENT TO EXECUTE SQF SCRIPT
 //============================================////============================================//
 		//SERVER USE:
-		//	AI_tower_Bar_progress = "GUI_ON_THE_FLY\tower\AI_tower_Bar_progress.sqf"; publicVariable "AI_tower_Bar_progress";
-		//	execVM AI_tower_Bar_progress;
-	//AI_tower_Bar_progress
-	"AI_tower_Bar_progress" addPublicVariableEventHandler
-	 {
-		private ["_forAll"];
-		
-		_forAll = _this select 1;
-		execVM _forAll;
-	 };
-	//PL_tower_Bar_progress
-	"PL_tower_Bar_progress" addPublicVariableEventHandler
+		//	Execute_Client_SQF = "GUI_ON_THE_FLY\tower\AI_tower_Bar_progress.sqf"; publicVariable "Execute_Client_SQF";
+		//	execVM Execute_Client_SQF;
+	//tower_Bar_progress
+	"Execute_Client_SQF" addPublicVariableEventHandler
 	 {
 		private ["_forAll"];
 		

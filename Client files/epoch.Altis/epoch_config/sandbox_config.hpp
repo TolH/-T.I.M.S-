@@ -15,7 +15,7 @@ class Header
 {
  gameType = Survive;
  minPlayers = 1;
- maxPlayers = 200;
+ maxPlayers = 201;
 };
 respawn = "BASE";
 respawnDelay = 600;
@@ -32,13 +32,13 @@ onLoadName = "Epoch Mod";
 disabledAI = 1;
 scriptedPlayer = 1;
 disableChannels[]={0,2};
-enableItemsDropping = 0;
+enableItemsDropping = 1;
 briefing = 0;
 debriefing = 0;
 enableDebugConsole = 0;
 joinUnassigned = 0;
-forceRotorLibSimulation = 1;
-saving = 0;
+forceRotorLibSimulation = 0;
+saving = 1;
 
 corpseManagerMode = 1;
 corpseLimit = 10;
@@ -83,136 +83,4 @@ class CfgEpochBuild
 {
  	#include "build.hpp"
 };
-
-//====================================//====================================//
-//Notifications
-class CfgNotifications
-{
-//====================================//
-	class Default
-	{
-		title = ""; 			// Tile displayed as text on black background. Filled by arguments.
-		iconPicture = ""; 		// Small icon displayed in left part. Colored by "color", filled by arguments.
-		iconText = ""; 			// Short text displayed over the icon. Colored by "color", filled by arguments.
-		description = ""; 		// Brief description displayed as structured text. Colored by "color", filled by arguments.
-		color[] = {1,1,1,1}; 	// Icon and text color
-		duration = 8; 			// How many seconds will the notification be displayed
-		priority = 0; 			// Priority; higher number = more important; tasks in queue are selected by priority
-		difficulty[] = {}; 		// Required difficulty settings. All listed difficulties has to be enabled
-	};
-//====================================//
-	class NewMain
-	{
-		title = "PRIMARY OBJECTIVE";
-		description = "%1";
-		iconPicture = "media\images\notificons\main_objective.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 8;
-		priority = 9;
-	};
-	class CompletedMain
-	{
-		title = "PRIMARY OBJECTIVE COMPLETED";
-		description = "%1";
-		iconPicture = "media\images\notificons\main_objective_completed.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 9;
-	};
-//====================================//
-	class NewSub
-	{
-		title = "NEW SUB-OBJECTIVE";
-		description = "%1";
-		iconPicture = "media\images\notificons\sub_objective.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		priority = 8;
-	};
-	class CompletedSub
-	{
-		title = "SUB-OBJECTIVE COMPLETED";
-		description = "%1";
-		iconPicture = "media\images\notificons\sub_objective_completed.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		priority = 9;
-	};
-//====================================//
-	class NewSecondary
-	{
-		title = "SECONDARY OBJECTIVE";
-		description = "%1";
-		iconPicture = "media\images\notificons\sub_objective.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 8;
-	};
-
-	class CompletedSecondary
-	{
-		title = "SECONDARY OBJECTIVE COMPLETED";
-		description = "%1";
-		iconPicture = "media\images\notificons\sub_objective_completed.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 9;
-	};
-//====================================//
-	class NewOptional
-	{
-		title = "NEW OPTIONAL OBJECTIVE";
-		description = "%1";
-		iconPicture = "media\images\notificons\side_mission.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 9;
-	};
-	class CompletedOptional
-	{
-		title = "OPTIONAL OBJECTIVE COMPLETED";
-		description = "%1";
-		iconPicture = "media\images\notificons\side_mission_completed.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 9;
-	};
-	class OptionalFailed
-	{
-		title = "OPTIONAL OBJECTIVE FAILED";
-		description = "%1";
-		iconPicture = "media\images\notificons\failed.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 9;
-	};
-//====================================//
-	class RadioTowerCAS
-	{
-		title = "RadioTower";
-		description = "%1";
-		iconPicture = "media\images\notificons\enemyJetinbound.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		priority = 9;
-		duration = 8;
-	};
-//====================================//
-	class RadioTowerTakenByAI
-	{
-		title = "RadioTower Taken By AI";
-		description = "%1";
-		iconPicture = "media\images\notificons\failed.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 9;
-	};
-	class RadioTowerTakenByPlayer
-	{
-		title = "RadioTower Taken By Player";
-		description = "%1";
-		iconPicture = "media\images\notificons\side_mission_completed.paa";
-		color[] = {1, 0.81, 0.06, 1};
-		duration = 7;
-		priority = 9;
-	};
-};
-//====================================//
 //====================================//====================================//

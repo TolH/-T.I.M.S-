@@ -24,7 +24,8 @@
 				if (RTcountAI >= TOWER_CAPTURE_TIME) then 
 				{
 					//AI CAPTURED
-					showNotification = ["RadioTowerTakenByAI", "The AI held the radiotower for over 15mins and captured it."]; publicVariable "showNotification";
+					SFX_CUSTOM = "AICAPTURETOWER"; publicVariable "SFX_CUSTOM";
+					["The AI held the radiotower for over 15mins and captured it.", 8, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 					"Radio-Tower" setMarkerColor "ColorOrange";
 					"Radio-Tower" setMarkerText " (Captured by: (AI)!";
 					//LAST TIMER REACHED CLAIM RADIOTWER AI AND STOP MAIN MISSION CHECK
@@ -42,7 +43,8 @@
 				if (RTcountPL >= TOWER_CAPTURE_TIME) then 
 				{
 					//PLAYER CAPTURED
-					showNotification = ["RadioTowerTakenByPlayer", "Players held the radiotower for over 15mins and captured it!"]; publicVariable "showNotification";
+					SFX_CUSTOM = "PLCAPTURETOWER"; publicVariable "SFX_CUSTOM";
+					["You held the radiotower for over 15mins and captured it!", 8, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 					//LAST TIMER REACHED CLAIM RADIOTWER PLAYER AND STOP MAIN MISSION CHECK
 					"Radio-Tower" setMarkerColor "ColorGreen";
 					"Radio-Tower" setMarkerText " (Captured by: (Players)!";
