@@ -1,4 +1,4 @@
-version=51;
+version=53;
 class EditorData
 {
 	moveGridStep=1;
@@ -8,14 +8,14 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=2;
+		nextID=20;
 	};
 	class Camera
 	{
-		pos[]={7542.4932,93.791428,15492.986};
-		dir[]={-0.8989169,-0.17364819,-0.40223712};
-		up[]={-0.15850332,0.98480779,-0.070925266};
-		aside[]={-0.40844229,0,0.91278416};
+		pos[]={14425.356,552.26239,16499.535};
+		dir[]={0.43397486,-0.79355514,0.42671606};
+		up[]={0.56586969,0.60843271,0.55640912};
+		aside[]={0.7011739,-4.3195905e-007,-0.71309644};
 	};
 };
 binarizationWanted=0;
@@ -23,7 +23,48 @@ addons[]=
 {
 	"A3_epoch_config",
 	"a3_map_altis",
+	"a3_characters_f",
+	"ryanzombiesfunctions",
 	"Ryanzombies"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=5;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_epoch_config";
+			name="A3_epoch_config";
+		};
+		class Item2
+		{
+			className="A3_Structures_F";
+			name="Arma 3 - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="ryanzombiesfunctions";
+			name="ryanzombiesfunctions";
+			author="Ryan";
+		};
+	};
 };
 randomSeed=12032465;
 class ScenarioData
@@ -36,12 +77,11 @@ class Mission
 	{
 		briefingName="Epoch Mod";
 		timeOfChanges=28800;
-        startWeather=0;
-        startWind=0;
-        forecastWeather=0;
-        forecastWind=0;
-        forecastWaves=0;
-        forecastLightnings=0;
+		startWeather=0;
+		startWind=0;
+		forecastWeather=0;
+		forecastWind=0;
+		forecastWaves=0;
 		year=2035;
 		month=6;
 		day=24;
@@ -52,7 +92,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=215;
+		items=219;
 		class Item0
 		{
 			dataType="Marker";
@@ -60,6 +100,7 @@ class Mission
 			name="center";
 			type="Empty";
 			id=0;
+			atlOffset=51.076984;
 		};
 		class Item1
 		{
@@ -93,19 +134,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=4;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=3;
+			atlOffset=-0.0014388561;
 		};
 		class Item4
 		{
@@ -123,19 +166,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=6;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=5;
+			atlOffset=-0.0014388561;
 		};
 		class Item5
 		{
@@ -153,19 +198,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=8;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=7;
+			atlOffset=-0.0014388561;
 		};
 		class Item6
 		{
@@ -183,19 +230,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=10;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=9;
+			atlOffset=-0.0014388561;
 		};
 		class Item7
 		{
@@ -213,19 +262,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=12;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=11;
+			atlOffset=-0.0014388561;
 		};
 		class Item8
 		{
@@ -243,19 +294,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=14;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=13;
+			atlOffset=-0.0014388561;
 		};
 		class Item9
 		{
@@ -273,19 +326,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=16;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=15;
+			atlOffset=-0.0014388561;
 		};
 		class Item10
 		{
@@ -303,19 +358,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=18;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=17;
+			atlOffset=-0.0014388561;
 		};
 		class Item11
 		{
@@ -333,19 +390,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=20;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=19;
+			atlOffset=-0.0014388561;
 		};
 		class Item12
 		{
@@ -363,19 +422,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=22;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=21;
+			atlOffset=-0.0014388561;
 		};
 		class Item13
 		{
@@ -393,19 +454,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=24;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=23;
+			atlOffset=-0.0014388561;
 		};
 		class Item14
 		{
@@ -423,19 +486,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=26;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=25;
+			atlOffset=-0.0014388561;
 		};
 		class Item15
 		{
@@ -453,19 +518,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=28;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=27;
+			atlOffset=-0.0014388561;
 		};
 		class Item16
 		{
@@ -483,19 +550,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=30;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=29;
+			atlOffset=-0.0014388561;
 		};
 		class Item17
 		{
@@ -513,19 +582,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=32;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=31;
+			atlOffset=-0.0014388561;
 		};
 		class Item18
 		{
@@ -543,19 +614,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=34;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=33;
+			atlOffset=-0.0014388561;
 		};
 		class Item19
 		{
@@ -573,19 +646,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=36;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=35;
+			atlOffset=-0.0014388561;
 		};
 		class Item20
 		{
@@ -603,19 +678,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=38;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=37;
+			atlOffset=-0.0014388561;
 		};
 		class Item21
 		{
@@ -633,19 +710,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=40;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=39;
+			atlOffset=-0.0014388561;
 		};
 		class Item22
 		{
@@ -663,19 +742,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=42;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=41;
+			atlOffset=-0.0014388561;
 		};
 		class Item23
 		{
@@ -693,19 +774,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=44;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=43;
+			atlOffset=-0.0014388561;
 		};
 		class Item24
 		{
@@ -723,19 +806,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=46;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=45;
+			atlOffset=-0.0014388561;
 		};
 		class Item25
 		{
@@ -753,19 +838,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=48;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=47;
+			atlOffset=-0.0014388561;
 		};
 		class Item26
 		{
@@ -783,19 +870,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=50;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=49;
+			atlOffset=-0.0014388561;
 		};
 		class Item27
 		{
@@ -813,19 +902,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=52;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=51;
+			atlOffset=-0.0014388561;
 		};
 		class Item28
 		{
@@ -843,19 +934,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=54;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=53;
+			atlOffset=-0.0014388561;
 		};
 		class Item29
 		{
@@ -873,19 +966,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=56;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=55;
+			atlOffset=-0.0014388561;
 		};
 		class Item30
 		{
@@ -903,19 +998,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=58;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=57;
+			atlOffset=-0.0014388561;
 		};
 		class Item31
 		{
@@ -933,19 +1030,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=60;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=59;
+			atlOffset=-0.0014388561;
 		};
 		class Item32
 		{
@@ -963,19 +1062,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=62;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=61;
+			atlOffset=-0.0014388561;
 		};
 		class Item33
 		{
@@ -993,19 +1094,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=64;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=63;
+			atlOffset=-0.0014388561;
 		};
 		class Item34
 		{
@@ -1023,19 +1126,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=66;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=65;
+			atlOffset=-0.0014388561;
 		};
 		class Item35
 		{
@@ -1053,19 +1158,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=68;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=67;
+			atlOffset=-0.0014388561;
 		};
 		class Item36
 		{
@@ -1083,19 +1190,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=70;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=69;
+			atlOffset=-0.0014388561;
 		};
 		class Item37
 		{
@@ -1113,19 +1222,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=72;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=71;
+			atlOffset=-0.0014388561;
 		};
 		class Item38
 		{
@@ -1143,19 +1254,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=74;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=73;
+			atlOffset=-0.0014388561;
 		};
 		class Item39
 		{
@@ -1173,19 +1286,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=76;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=75;
+			atlOffset=-0.0014388561;
 		};
 		class Item40
 		{
@@ -1203,19 +1318,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=78;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=77;
+			atlOffset=-0.0014388561;
 		};
 		class Item41
 		{
@@ -1233,19 +1350,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=80;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=79;
+			atlOffset=-0.0014388561;
 		};
 		class Item42
 		{
@@ -1263,19 +1382,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=82;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=81;
+			atlOffset=-0.0014388561;
 		};
 		class Item43
 		{
@@ -1293,19 +1414,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=84;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=83;
+			atlOffset=-0.0014388561;
 		};
 		class Item44
 		{
@@ -1323,19 +1446,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=86;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=85;
+			atlOffset=-0.0014388561;
 		};
 		class Item45
 		{
@@ -1353,19 +1478,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=88;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=87;
+			atlOffset=-0.0014388561;
 		};
 		class Item46
 		{
@@ -1383,19 +1510,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=90;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=89;
+			atlOffset=-0.0014388561;
 		};
 		class Item47
 		{
@@ -1413,19 +1542,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=92;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=91;
+			atlOffset=-0.0014388561;
 		};
 		class Item48
 		{
@@ -1443,19 +1574,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=94;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=93;
+			atlOffset=-0.0014388561;
 		};
 		class Item49
 		{
@@ -1473,19 +1606,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=96;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=95;
+			atlOffset=-0.0014388561;
 		};
 		class Item50
 		{
@@ -1503,19 +1638,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=98;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=97;
+			atlOffset=-0.0014388561;
 		};
 		class Item51
 		{
@@ -1533,19 +1670,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=100;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=99;
+			atlOffset=-0.0014388561;
 		};
 		class Item52
 		{
@@ -1563,19 +1702,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=102;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=101;
+			atlOffset=-0.0014388561;
 		};
 		class Item53
 		{
@@ -1593,19 +1734,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=104;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=103;
+			atlOffset=-0.0014388561;
 		};
 		class Item54
 		{
@@ -1623,19 +1766,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=106;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=105;
+			atlOffset=-0.0014388561;
 		};
 		class Item55
 		{
@@ -1653,19 +1798,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=108;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=107;
+			atlOffset=-0.0014388561;
 		};
 		class Item56
 		{
@@ -1683,19 +1830,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=110;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=109;
+			atlOffset=-0.0014388561;
 		};
 		class Item57
 		{
@@ -1713,19 +1862,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=112;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=111;
+			atlOffset=-0.0014388561;
 		};
 		class Item58
 		{
@@ -1743,19 +1894,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=114;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=113;
+			atlOffset=-0.0014388561;
 		};
 		class Item59
 		{
@@ -1773,19 +1926,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=116;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=115;
+			atlOffset=-0.0014388561;
 		};
 		class Item60
 		{
@@ -1803,19 +1958,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=118;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=117;
+			atlOffset=-0.0014388561;
 		};
 		class Item61
 		{
@@ -1833,19 +1990,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=120;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=119;
+			atlOffset=-0.0014388561;
 		};
 		class Item62
 		{
@@ -1863,19 +2022,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=122;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=121;
+			atlOffset=-0.0014388561;
 		};
 		class Item63
 		{
@@ -1893,19 +2054,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=124;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=123;
+			atlOffset=-0.0014388561;
 		};
 		class Item64
 		{
@@ -1923,19 +2086,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=126;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=125;
+			atlOffset=-0.0014388561;
 		};
 		class Item65
 		{
@@ -1953,19 +2118,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=128;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=127;
+			atlOffset=-0.0014388561;
 		};
 		class Item66
 		{
@@ -1983,19 +2150,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=130;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=129;
+			atlOffset=-0.0014388561;
 		};
 		class Item67
 		{
@@ -2013,19 +2182,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=132;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=131;
+			atlOffset=-0.0014388561;
 		};
 		class Item68
 		{
@@ -2043,19 +2214,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=134;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=133;
+			atlOffset=-0.0014388561;
 		};
 		class Item69
 		{
@@ -2073,19 +2246,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=136;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=135;
+			atlOffset=-0.0014388561;
 		};
 		class Item70
 		{
@@ -2103,19 +2278,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=138;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=137;
+			atlOffset=-0.0014388561;
 		};
 		class Item71
 		{
@@ -2133,19 +2310,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=140;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=139;
+			atlOffset=-0.0014388561;
 		};
 		class Item72
 		{
@@ -2163,19 +2342,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=142;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=141;
+			atlOffset=-0.0014388561;
 		};
 		class Item73
 		{
@@ -2193,19 +2374,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=144;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=143;
+			atlOffset=-0.0014388561;
 		};
 		class Item74
 		{
@@ -2223,19 +2406,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=146;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=145;
+			atlOffset=-0.0014388561;
 		};
 		class Item75
 		{
@@ -2253,19 +2438,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=148;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=147;
+			atlOffset=-0.0014388561;
 		};
 		class Item76
 		{
@@ -2283,19 +2470,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=150;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=149;
+			atlOffset=-0.0014388561;
 		};
 		class Item77
 		{
@@ -2313,19 +2502,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=152;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=151;
+			atlOffset=-0.0014388561;
 		};
 		class Item78
 		{
@@ -2343,19 +2534,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=154;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=153;
+			atlOffset=-0.0014388561;
 		};
 		class Item79
 		{
@@ -2373,19 +2566,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=156;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=155;
+			atlOffset=-0.0014388561;
 		};
 		class Item80
 		{
@@ -2403,19 +2598,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=158;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=157;
+			atlOffset=-0.0014388561;
 		};
 		class Item81
 		{
@@ -2433,19 +2630,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=160;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=159;
+			atlOffset=-0.0014388561;
 		};
 		class Item82
 		{
@@ -2463,19 +2662,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=162;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=161;
+			atlOffset=-0.0014388561;
 		};
 		class Item83
 		{
@@ -2493,19 +2694,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=164;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=163;
+			atlOffset=-0.0014388561;
 		};
 		class Item84
 		{
@@ -2523,19 +2726,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=166;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=165;
+			atlOffset=-0.0014388561;
 		};
 		class Item85
 		{
@@ -2553,19 +2758,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=168;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=167;
+			atlOffset=-0.0014388561;
 		};
 		class Item86
 		{
@@ -2583,19 +2790,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=170;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=169;
+			atlOffset=-0.0014388561;
 		};
 		class Item87
 		{
@@ -2613,19 +2822,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=172;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=171;
+			atlOffset=-0.0014388561;
 		};
 		class Item88
 		{
@@ -2643,19 +2854,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=174;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=173;
+			atlOffset=-0.0014388561;
 		};
 		class Item89
 		{
@@ -2673,19 +2886,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=176;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=175;
+			atlOffset=-0.0014388561;
 		};
 		class Item90
 		{
@@ -2703,19 +2918,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=178;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=177;
+			atlOffset=-0.0014388561;
 		};
 		class Item91
 		{
@@ -2733,19 +2950,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=180;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=179;
+			atlOffset=-0.0014388561;
 		};
 		class Item92
 		{
@@ -2763,19 +2982,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=182;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=181;
+			atlOffset=-0.0014388561;
 		};
 		class Item93
 		{
@@ -2793,19 +3014,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=184;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=183;
+			atlOffset=-0.0014388561;
 		};
 		class Item94
 		{
@@ -2823,19 +3046,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=186;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=185;
+			atlOffset=-0.0014388561;
 		};
 		class Item95
 		{
@@ -2853,19 +3078,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=188;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=187;
+			atlOffset=-0.0014388561;
 		};
 		class Item96
 		{
@@ -2883,19 +3110,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=190;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=189;
+			atlOffset=-0.0014388561;
 		};
 		class Item97
 		{
@@ -2913,19 +3142,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=192;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=191;
+			atlOffset=-0.0014388561;
 		};
 		class Item98
 		{
@@ -2943,19 +3174,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=194;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=193;
+			atlOffset=-0.0014388561;
 		};
 		class Item99
 		{
@@ -2973,19 +3206,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=196;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=195;
+			atlOffset=-0.0014388561;
 		};
 		class Item100
 		{
@@ -3003,19 +3238,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=198;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=197;
+			atlOffset=-0.0014388561;
 		};
 		class Item101
 		{
@@ -3033,19 +3270,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=200;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=199;
+			atlOffset=-0.0014388561;
 		};
 		class Item102
 		{
@@ -3063,19 +3302,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=202;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=201;
+			atlOffset=-0.0014388561;
 		};
 		class Item103
 		{
@@ -3093,19 +3334,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=204;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=203;
+			atlOffset=-0.0014388561;
 		};
 		class Item104
 		{
@@ -3123,19 +3366,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=206;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=205;
+			atlOffset=-0.0014388561;
 		};
 		class Item105
 		{
@@ -3153,19 +3398,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=208;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=207;
+			atlOffset=-0.0014388561;
 		};
 		class Item106
 		{
@@ -3183,19 +3430,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=210;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=209;
+			atlOffset=-0.0014388561;
 		};
 		class Item107
 		{
@@ -3213,19 +3462,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=212;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=211;
+			atlOffset=-0.0014388561;
 		};
 		class Item108
 		{
@@ -3243,19 +3494,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=214;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=213;
+			atlOffset=-0.0014388561;
 		};
 		class Item109
 		{
@@ -3273,19 +3526,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=216;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=215;
+			atlOffset=-0.0014388561;
 		};
 		class Item110
 		{
@@ -3303,19 +3558,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=218;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=217;
+			atlOffset=-0.0014388561;
 		};
 		class Item111
 		{
@@ -3333,19 +3590,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=220;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=219;
+			atlOffset=-0.0014388561;
 		};
 		class Item112
 		{
@@ -3363,19 +3622,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=222;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=221;
+			atlOffset=-0.0014388561;
 		};
 		class Item113
 		{
@@ -3393,19 +3654,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=224;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=223;
+			atlOffset=-0.0014388561;
 		};
 		class Item114
 		{
@@ -3423,19 +3686,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=226;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=225;
+			atlOffset=-0.0014388561;
 		};
 		class Item115
 		{
@@ -3453,19 +3718,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=228;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=227;
+			atlOffset=-0.0014388561;
 		};
 		class Item116
 		{
@@ -3483,19 +3750,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=230;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=229;
+			atlOffset=-0.0014388561;
 		};
 		class Item117
 		{
@@ -3513,19 +3782,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=232;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=231;
+			atlOffset=-0.0014388561;
 		};
 		class Item118
 		{
@@ -3543,19 +3814,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=234;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=233;
+			atlOffset=-0.0014388561;
 		};
 		class Item119
 		{
@@ -3573,19 +3846,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=236;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=235;
+			atlOffset=-0.0014388561;
 		};
 		class Item120
 		{
@@ -3603,19 +3878,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=238;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=237;
+			atlOffset=-0.0014388561;
 		};
 		class Item121
 		{
@@ -3633,19 +3910,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=240;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=239;
+			atlOffset=-0.0014388561;
 		};
 		class Item122
 		{
@@ -3663,19 +3942,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=242;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=241;
+			atlOffset=-0.0014388561;
 		};
 		class Item123
 		{
@@ -3693,19 +3974,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=244;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=243;
+			atlOffset=-0.0014388561;
 		};
 		class Item124
 		{
@@ -3723,19 +4006,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=246;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=245;
+			atlOffset=-0.0014388561;
 		};
 		class Item125
 		{
@@ -3753,19 +4038,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=248;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=247;
+			atlOffset=-0.0014388561;
 		};
 		class Item126
 		{
@@ -3783,19 +4070,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=250;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=249;
+			atlOffset=-0.0014388561;
 		};
 		class Item127
 		{
@@ -3813,19 +4102,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=252;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=251;
+			atlOffset=-0.0014388561;
 		};
 		class Item128
 		{
@@ -3843,19 +4134,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=254;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=253;
+			atlOffset=-0.0014388561;
 		};
 		class Item129
 		{
@@ -3873,19 +4166,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=256;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=255;
+			atlOffset=-0.0014388561;
 		};
 		class Item130
 		{
@@ -3903,19 +4198,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=258;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=257;
+			atlOffset=-0.0014388561;
 		};
 		class Item131
 		{
@@ -3933,19 +4230,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=260;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=259;
+			atlOffset=-0.0014388561;
 		};
 		class Item132
 		{
@@ -3963,19 +4262,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=262;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=261;
+			atlOffset=-0.0014388561;
 		};
 		class Item133
 		{
@@ -3993,19 +4294,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=264;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=263;
+			atlOffset=-0.0014388561;
 		};
 		class Item134
 		{
@@ -4023,19 +4326,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=266;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=265;
+			atlOffset=-0.0014388561;
 		};
 		class Item135
 		{
@@ -4053,19 +4358,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=268;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=267;
+			atlOffset=-0.0014388561;
 		};
 		class Item136
 		{
@@ -4083,19 +4390,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=270;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=269;
+			atlOffset=-0.0014388561;
 		};
 		class Item137
 		{
@@ -4113,19 +4422,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=272;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=271;
+			atlOffset=-0.0014388561;
 		};
 		class Item138
 		{
@@ -4143,19 +4454,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=274;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=273;
+			atlOffset=-0.0014388561;
 		};
 		class Item139
 		{
@@ -4173,19 +4486,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=276;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=275;
+			atlOffset=-0.0014388561;
 		};
 		class Item140
 		{
@@ -4203,19 +4518,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=278;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=277;
+			atlOffset=-0.0014388561;
 		};
 		class Item141
 		{
@@ -4233,19 +4550,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=280;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=279;
+			atlOffset=-0.0014388561;
 		};
 		class Item142
 		{
@@ -4263,19 +4582,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=282;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=281;
+			atlOffset=-0.0014388561;
 		};
 		class Item143
 		{
@@ -4293,19 +4614,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=284;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=283;
+			atlOffset=-0.0014388561;
 		};
 		class Item144
 		{
@@ -4323,19 +4646,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=286;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=285;
+			atlOffset=-0.0014388561;
 		};
 		class Item145
 		{
@@ -4353,19 +4678,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=288;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=287;
+			atlOffset=-0.0014388561;
 		};
 		class Item146
 		{
@@ -4383,19 +4710,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=290;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=289;
+			atlOffset=-0.0014388561;
 		};
 		class Item147
 		{
@@ -4413,19 +4742,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=292;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=291;
+			atlOffset=-0.0014388561;
 		};
 		class Item148
 		{
@@ -4443,19 +4774,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=294;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=293;
+			atlOffset=-0.0014388561;
 		};
 		class Item149
 		{
@@ -4473,19 +4806,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=296;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=295;
+			atlOffset=-0.0014388561;
 		};
 		class Item150
 		{
@@ -4503,19 +4838,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=298;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=297;
+			atlOffset=-0.0014388561;
 		};
 		class Item151
 		{
@@ -4533,19 +4870,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=300;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=299;
+			atlOffset=-0.0014388561;
 		};
 		class Item152
 		{
@@ -4563,19 +4902,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=302;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=301;
+			atlOffset=-0.0014388561;
 		};
 		class Item153
 		{
@@ -4593,19 +4934,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=304;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=303;
+			atlOffset=-0.0014388561;
 		};
 		class Item154
 		{
@@ -4623,19 +4966,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=306;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=305;
+			atlOffset=-0.0014388561;
 		};
 		class Item155
 		{
@@ -4653,19 +4998,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=308;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=307;
+			atlOffset=-0.0014388561;
 		};
 		class Item156
 		{
@@ -4683,19 +5030,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=310;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=309;
+			atlOffset=-0.0014388561;
 		};
 		class Item157
 		{
@@ -4713,19 +5062,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=312;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=311;
+			atlOffset=-0.0014388561;
 		};
 		class Item158
 		{
@@ -4743,19 +5094,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=314;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=313;
+			atlOffset=-0.0014388561;
 		};
 		class Item159
 		{
@@ -4773,19 +5126,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=316;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=315;
+			atlOffset=-0.0014388561;
 		};
 		class Item160
 		{
@@ -4803,19 +5158,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=318;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=317;
+			atlOffset=-0.0014388561;
 		};
 		class Item161
 		{
@@ -4833,19 +5190,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=320;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=319;
+			atlOffset=-0.0014388561;
 		};
 		class Item162
 		{
@@ -4863,19 +5222,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=322;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=321;
+			atlOffset=-0.0014388561;
 		};
 		class Item163
 		{
@@ -4893,19 +5254,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=324;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=323;
+			atlOffset=-0.0014388561;
 		};
 		class Item164
 		{
@@ -4923,19 +5286,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=326;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=325;
+			atlOffset=-0.0014388561;
 		};
 		class Item165
 		{
@@ -4953,19 +5318,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=328;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=327;
+			atlOffset=-0.0014388561;
 		};
 		class Item166
 		{
@@ -4983,19 +5350,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=330;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=329;
+			atlOffset=-0.0014388561;
 		};
 		class Item167
 		{
@@ -5013,19 +5382,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=332;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=331;
+			atlOffset=-0.0014388561;
 		};
 		class Item168
 		{
@@ -5043,19 +5414,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=334;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=333;
+			atlOffset=-0.0014388561;
 		};
 		class Item169
 		{
@@ -5073,19 +5446,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=336;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=335;
+			atlOffset=-0.0014388561;
 		};
 		class Item170
 		{
@@ -5103,19 +5478,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=338;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=337;
+			atlOffset=-0.0014388561;
 		};
 		class Item171
 		{
@@ -5133,19 +5510,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=340;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=339;
+			atlOffset=-0.0014388561;
 		};
 		class Item172
 		{
@@ -5163,19 +5542,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=342;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=341;
+			atlOffset=-0.0014388561;
 		};
 		class Item173
 		{
@@ -5193,19 +5574,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=344;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=343;
+			atlOffset=-0.0014388561;
 		};
 		class Item174
 		{
@@ -5223,19 +5606,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=346;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=345;
+			atlOffset=-0.0014388561;
 		};
 		class Item175
 		{
@@ -5253,19 +5638,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=348;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=347;
+			atlOffset=-0.0014388561;
 		};
 		class Item176
 		{
@@ -5283,19 +5670,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=350;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=349;
+			atlOffset=-0.0014388561;
 		};
 		class Item177
 		{
@@ -5313,19 +5702,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=352;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=351;
+			atlOffset=-0.0014388561;
 		};
 		class Item178
 		{
@@ -5343,19 +5734,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=354;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=353;
+			atlOffset=-0.0014388561;
 		};
 		class Item179
 		{
@@ -5373,19 +5766,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=356;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=355;
+			atlOffset=-0.0014388561;
 		};
 		class Item180
 		{
@@ -5403,19 +5798,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=358;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=357;
+			atlOffset=-0.0014388561;
 		};
 		class Item181
 		{
@@ -5433,19 +5830,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=360;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=359;
+			atlOffset=-0.0014388561;
 		};
 		class Item182
 		{
@@ -5463,19 +5862,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=362;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=361;
+			atlOffset=-0.0014388561;
 		};
 		class Item183
 		{
@@ -5493,19 +5894,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=364;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=363;
+			atlOffset=-0.0014388561;
 		};
 		class Item184
 		{
@@ -5523,19 +5926,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=366;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=365;
+			atlOffset=-0.0014388561;
 		};
 		class Item185
 		{
@@ -5553,19 +5958,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=368;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=367;
+			atlOffset=-0.0014388561;
 		};
 		class Item186
 		{
@@ -5583,19 +5990,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=370;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=369;
+			atlOffset=-0.0014388561;
 		};
 		class Item187
 		{
@@ -5613,19 +6022,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=372;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=371;
+			atlOffset=-0.0014388561;
 		};
 		class Item188
 		{
@@ -5643,19 +6054,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=374;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=373;
+			atlOffset=-0.0014388561;
 		};
 		class Item189
 		{
@@ -5673,19 +6086,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=376;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=375;
+			atlOffset=-0.0014388561;
 		};
 		class Item190
 		{
@@ -5703,19 +6118,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=378;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=377;
+			atlOffset=-0.0014388561;
 		};
 		class Item191
 		{
@@ -5733,19 +6150,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=380;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=379;
+			atlOffset=-0.0014388561;
 		};
 		class Item192
 		{
@@ -5763,19 +6182,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=382;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=381;
+			atlOffset=-0.0014388561;
 		};
 		class Item193
 		{
@@ -5793,19 +6214,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=384;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=383;
+			atlOffset=-0.0014388561;
 		};
 		class Item194
 		{
@@ -5823,19 +6246,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=386;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=385;
+			atlOffset=-0.0014388561;
 		};
 		class Item195
 		{
@@ -5853,19 +6278,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=388;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=387;
+			atlOffset=-0.0014388561;
 		};
 		class Item196
 		{
@@ -5883,19 +6310,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=390;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=389;
+			atlOffset=-0.0014388561;
 		};
 		class Item197
 		{
@@ -5913,19 +6342,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=392;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=391;
+			atlOffset=-0.0014388561;
 		};
 		class Item198
 		{
@@ -5943,19 +6374,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=394;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=393;
+			atlOffset=-0.0014388561;
 		};
 		class Item199
 		{
@@ -5973,19 +6406,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=396;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=395;
+			atlOffset=-0.0014388561;
 		};
 		class Item200
 		{
@@ -6003,19 +6438,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=398;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=397;
+			atlOffset=-0.0014388561;
 		};
 		class Item201
 		{
@@ -6033,19 +6470,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=400;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=399;
+			atlOffset=-0.0014388561;
 		};
 		class Item202
 		{
@@ -6063,19 +6502,21 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=402;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=401;
+			atlOffset=-0.0014388561;
 		};
 		class Item203
 		{
@@ -6093,30 +6534,30 @@ class Mission
 						angles[]={0,4.7169838,0};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						isPlayable=1;
 					};
 					id=404;
 					type="VirtualMan_EPOCH";
+					atlOffset=-0.0014388561;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=403;
+			atlOffset=-0.0014388561;
 		};
-//=========================================================================//
-	//CUSTOM MARKERS//
 		class Item204
 		{
 			dataType="Marker";
 			position[]={14742.429,17.91,16779.35};
 			name="SpawnHeli";
 			type="Empty";
-			angle=222.67462;
-			id=2040;
+			angle=222.67438;
+			id=405;
 		};
 		class Item205
 		{
@@ -6124,8 +6565,8 @@ class Mission
 			position[]={14607.149,17.91,16632.932};
 			name="SpawnTank";
 			type="Empty";
-			angle=41.888416;
-			id=2050;
+			angle=41.888412;
+			id=406;
 		};
 		class Item206
 		{
@@ -6134,9 +6575,9 @@ class Mission
 			name="SpawnPlane";
 			type="Empty";
 			angle=162.26051;
-			id=2060;
+			id=407;
 		};
-		class Item213
+		class Item207
 		{
 			dataType="Marker";
 			position[]={14630.626,0,16765.9};
@@ -6144,12 +6585,10 @@ class Mission
 			type="Empty";
 			colorName="ColorUNKNOWN";
 			angle=132.416;
-			id=3;
+			id=408;
 			atlOffset=-17.91;
 		};
-//=========================================================================//
-	//CUSTOM OBJECTS//
-		class Item207
+		class Item208
 		{
 			dataType="Object";
 			class PositionInfo
@@ -6165,16 +6604,16 @@ class Mission
 				name="ASORVS";
 				aiRadarUsage=535822336;
 			};
-			id=2070;
+			id=409;
 			type="MapBoard_altis_F";
 		};
-		class Item208
+		class Item209
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={14622.1,17.91,16699.301};
-				angles[]={-0,0.7701326,0};
+				angles[]={0,0.7701326,0};
 			};
 			side="Empty";
 			flags=4;
@@ -6183,16 +6622,16 @@ class Mission
 				name="Ground_vehicle_repair";
 				aiRadarUsage=535822336;
 			};
-			id=2080;
+			id=410;
 			type="Land_JumpTarget_F";
 		};
-		class Item209
+		class Item210
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={14721.824,17.91,16702.674};
-				angles[]={-0,5.4823503,0};
+				angles[]={0,5.4823503,0};
 			};
 			side="Empty";
 			flags=4;
@@ -6201,16 +6640,16 @@ class Mission
 				name="Heli_vehicle_repair_1";
 				aiRadarUsage=535822336;
 			};
-			id=2090;
+			id=411;
 			type="Land_HelipadRescue_F";
 		};
-		class Item210
+		class Item211
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15170.915,17.91,16823.578};
-				angles[]={-0,2.767441,0};
+				position[]={15172.649,17.91,16824.336};
+				angles[]={0,2.767441,0};
 			};
 			side="Empty";
 			flags=4;
@@ -6219,35 +6658,32 @@ class Mission
 				name="Plane_vehicle_repair_2";
 				aiRadarUsage=535822336;
 			};
-			id=2100;
+			id=412;
 			type="Land_HelipadSquare_F";
 		};
-//=========================================================================//
-	//CUSTOM TRIGGERS//
-		//REARM&REPAIR GROUND
-		class Item211
+		class Item212
 		{
 			dataType="Trigger";
 			position[]={14622.098,17.91,16699.311};
-			angle=3.9177406;
+			angle=3.9177375;
 			class Attributes
 			{
-				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
+				condition="call{this and ((getPos (thisList select 0)) select 2 < 1)}";
 				onActivation="_handle = [(thisList select 0)] execVM ""custom\vehicle\rearmGround.sqf"";";
 				sizeA=4;
 				sizeB=4;
+				sizeC=4;
 				repeatable=1;
 				activationBy="ANYPLAYER";
 				effectTitle="RscStatic";
 			};
-			id=2110;
+			id=413;
 			type="EmptyDetectorArea10x10";
 		};
-		//REARM&REPAIR HELI
-		class Item212
+		class Item213
 		{
 			dataType="Trigger";
-			position[]={14721.755,17.91,16703.072};
+			position[]={14721.942,17.91,16702.682};
 			angle=5.4797583;
 			class Attributes
 			{
@@ -6256,20 +6692,19 @@ class Mission
 				sizeA=4;
 				sizeB=4;
 				sizeC=4;
-				isRectangle=1;
 				repeatable=1;
 				activationBy="ANYPLAYER";
+				isRectangle=1;
 				effectTitle="RscStatic";
 			};
-			id=2120;
+			id=414;
 			type="EmptyDetectorArea10x10";
 		};
-		//REARM&REPAIR PLANE
 		class Item214
 		{
 			dataType="Trigger";
-			position[]={15172.355,17.909676,16825.221};
-			angle=2.7642515;
+			position[]={15172.571,17.91,16824.371};
+			angle=2.764251;
 			class Attributes
 			{
 				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
@@ -6277,15 +6712,1103 @@ class Mission
 				sizeA=5;
 				sizeB=5;
 				sizeC=5;
-				isRectangle=1;
 				repeatable=1;
 				activationBy="ANYPLAYER";
+				isRectangle=1;
 				effectTitle="RscStatic";
 			};
-			id=2130;
+			id=415;
 			type="EmptyDetectorArea10x10";
-			atlOffset=-0.00032424927;
 		};
-//=========================================================================//
+		class Item215
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={18495.582,-1.4075165,21007.387};
+			};
+			name="Zombie_Trigger_1";
+			id=5;
+			type="RyanZM_ModuleSpawn";
+			atlOffset=80.16671;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="RyanZM_ModuleSpawn_Start";
+					expression="_this setVariable ['Start',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=5;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="RyanZM_ModuleSpawn_Type";
+					expression="_this setVariable ['Type',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=16;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="RyanZM_ModuleSpawn_HordeSize";
+					expression="_this setVariable ['HordeSize',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=25;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="RyanZM_ModuleSpawn_Frequency";
+					expression="_this setVariable ['Frequency',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=180;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="RyanZM_ModuleSpawn_ActivationRadius";
+					expression="_this setVariable ['ActivationRadius',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=600;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="RyanZM_ModuleSpawn_Delay";
+					expression="_this setVariable ['Delay',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.40000001;
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="RyanZM_ModuleSpawn_AliveAmount";
+					expression="_this setVariable ['AliveAmount',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=25;
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="RyanZM_ModuleSpawn_Activation";
+					expression="_this setVariable ['Activation',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=5;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="RyanZM_ModuleSpawn_Density";
+					expression="_this setVariable ['Density',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="RyanZM_ModuleSpawn_Type2";
+					expression="_this setVariable ['Type2',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=16;
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="RyanZM_ModuleSpawn_Type3";
+					expression="_this setVariable ['Type3',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=16;
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="RyanZM_ModuleSpawn_Type4";
+					expression="_this setVariable ['Type4',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="[]";
+						};
+					};
+				};
+				class Attribute12
+				{
+					property="RyanZM_ModuleSpawn_Randomize";
+					expression="_this setVariable ['Randomize',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute13
+				{
+					property="RyanZM_ModuleSpawn_Activation2";
+					expression="_this setVariable ['Activation2',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute14
+				{
+					property="RyanZM_ModuleSpawn_Side";
+					expression="_this setVariable ['Side',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute15
+				{
+					property="RyanZM_ModuleSpawn_TotalAmount";
+					expression="_this setVariable ['TotalAmount',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=999999;
+						};
+					};
+				};
+				class Attribute16
+				{
+					property="RyanZM_ModuleSpawn_Activation3";
+					expression="_this setVariable ['Activation3',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				nAttributes=17;
+			};
+		};
+		class Item216
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16994.748,-1.4738159,24006.971};
+			};
+			id=8;
+			type="RyanZM_ModuleSettings";
+			atlOffset=160.98801;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="RyanZM_ModuleSettings_GlowingEyes";
+					expression="_this setVariable ['GlowingEyes',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="RyanZM_ModuleSettings_Headshots";
+					expression="_this setVariable ['Headshots',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="RyanZM_ModuleSettings_ExplodingHeads";
+					expression="_this setVariable ['ExplodingHeads',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="RyanZM_ModuleSettings_Invincibility";
+					expression="_this setVariable ['Invincibility',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="RyanZM_ModuleSettings_DetectionDistance";
+					expression="_this setVariable ['DetectionDistance',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=500;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="RyanZM_ModuleSettings_ZombieScript";
+					expression="_this setVariable ['ZombieScript',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="RyanZM_ModuleSettings_DeleteBodies";
+					expression="_this setVariable ['DeleteBodies',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="RyanZM_ModuleSettings_JumpingSounds";
+					expression="_this setVariable ['JumpingSounds',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="RyanZM_ModuleSettings_Sounds";
+					expression="_this setVariable ['Sounds',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="RyanZM_ModuleSettings_Bleeding";
+					expression="_this setVariable ['Bleeding',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="RyanZM_ModuleSettings_StartingAnim";
+					expression="_this setVariable ['StartingAnim',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="RyanZM_ModuleSettings_CivilianAttacks";
+					expression="_this setVariable ['CivilianAttacks',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				nAttributes=12;
+			};
+		};
+		class Item217
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={18473.512,-0.63960266,24006.971};
+			};
+			id=9;
+			type="RyanZM_ModuleAbilities";
+			atlOffset=181.04501;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="RyanZM_ModuleAbilities_Throwing";
+					expression="_this setVariable ['Throwing',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="RyanZM_ModuleAbilities_ThrowingTankDistance";
+					expression="_this setVariable ['ThrowingTankDistance',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=50;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="RyanZM_ModuleAbilities_ThrowingTankDistanceDemons";
+					expression="_this setVariable ['ThrowingTankDistanceDemons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=100;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="RyanZM_ModuleAbilities_Roaming";
+					expression="_this setVariable ['Roaming',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="RyanZM_ModuleAbilities_Jumping";
+					expression="_this setVariable ['Jumping',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="RyanZM_ModuleAbilities_Feeding";
+					expression="_this setVariable ['Feeding',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="RyanZM_ModuleAbilities_ThrowingCarAlarms";
+					expression="_this setVariable ['ThrowingCarAlarms',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="RyanZM_ModuleAbilities_JumpingDemons";
+					expression="_this setVariable ['JumpingDemons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="RyanZM_ModuleAbilities_ThrowingTank";
+					expression="_this setVariable ['ThrowingTank',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="RyanZM_ModuleAbilities_ThrowingDistance";
+					expression="_this setVariable ['ThrowingDistance',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=100;
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="RyanZM_ModuleAbilities_ThrowingDemons";
+					expression="_this setVariable ['ThrowingDemons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				class Attribute11
+				{
+					property="RyanZM_ModuleAbilities_ThrowingDistanceDemons";
+					expression="_this setVariable ['ThrowingDistanceDemons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=150;
+						};
+					};
+				};
+				class Attribute12
+				{
+					property="RyanZM_ModuleAbilities_ThrowingTankDemons";
+					expression="_this setVariable ['ThrowingTankDemons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2;
+						};
+					};
+				};
+				nAttributes=13;
+			};
+		};
+		class Item218
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19996.42,0,24021.674};
+			};
+			id=10;
+			type="RyanZM_ModuleCustomDifficulty";
+			atlOffset=185.97;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="RyanZM_ModuleCustomDifficulty_KnockbackTank";
+					expression="_this setVariable ['KnockbackTank',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.40000001;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="RyanZM_ModuleCustomDifficulty_DamageCar";
+					expression="_this setVariable ['DamageCar',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.029999999;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="RyanZM_ModuleCustomDifficulty_Knockback";
+					expression="_this setVariable ['Knockback',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1.5;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="RyanZM_ModuleCustomDifficulty_KnockbackCar";
+					expression="_this setVariable ['KnockbackCar',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1.5;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="RyanZM_ModuleCustomDifficulty_AttackSpeed";
+					expression="_this setVariable ['AttackSpeed',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.80000001;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="RyanZM_ModuleCustomDifficulty_DamageAir";
+					expression="_this setVariable ['DamageAir',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.0099999998;
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="RyanZM_ModuleCustomDifficulty_AttackDistance";
+					expression="_this setVariable ['AttackDistance',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=2.3499999;
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="RyanZM_ModuleCustomDifficulty_DamageTank";
+					expression="_this setVariable ['DamageTank',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.0020000001;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="RyanZM_ModuleCustomDifficulty_KnockbackAir";
+					expression="_this setVariable ['KnockbackAir',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="RyanZM_ModuleCustomDifficulty_Damage";
+					expression="_this setVariable ['Damage',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.1;
+						};
+					};
+				};
+				nAttributes=10;
+			};
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=3;
+		};
+		class Links
+		{
+			items=3;
+			class Item0
+			{
+				linkID=0;
+				item0=8;
+				item1=5;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=9;
+				item1=5;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=10;
+				item1=5;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
 	};
 };
