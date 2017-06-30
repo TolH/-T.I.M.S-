@@ -4,7 +4,7 @@
 // 
 // TOWN INFESTATION CLEANING JOB
 //============================================////============================================//
-private ["_towns1","_RandomTownPosition1","_Mission_Zombie_marker1","_Missionmarker2","_Missionmarker3","_AI_COUNTER","_radius"];
+private ["_towns1","_RandomTownPosition1","_Zombie_Trigger_1_default_POS","_Mission_Zombie_marker_Town1_01","_Mission_Zombie_marker_Town1_02","_Mission_Zombie_marker_Town1_03","_Z_COUNTER","_radius","_ZCount","_ZCounter","_ZtrigPOS","_PLaround","_PLcheck"];
 //============================================////============================================//
 	//MISSION RUNNING CHECK
 		ZOMBRELLA_CORP_STARTED = 1;
@@ -14,6 +14,7 @@ private ["_towns1","_RandomTownPosition1","_Mission_Zombie_marker1","_Missionmar
 	//RANDOM TOWN SELECTION
 		_towns1 = nearestLocations [position player, ["NameVillage","NameCity","NameCityCapital"], 40000];
 		_RandomTownPosition1 = position (_towns1 select (floor (random (count _towns1))));
+		_Zombie_Trigger_1_default_POS = [18495.582, 21007.387, -1.4075165];
 //============================================////============================================//
 	//USED MARKER:
     /*
@@ -40,74 +41,134 @@ private ["_towns1","_RandomTownPosition1","_Mission_Zombie_marker1","_Missionmar
 			"Mission_Zombie_marker_Town1_02" setMarkerAlpha 1.0;
 			//
 			_Mission_Zombie_marker_Town1_03 = createMarker ["Mission_Zombie_marker_Town1_03", getMarkerPos "Mission_Zombie_marker_Town1_01"];
-			"Mission_Zombie_marker_Town1_03" setMarkerSize [0.6,0.6];
+			"Mission_Zombie_marker_Town1_03" setMarkerSize [1,1];
 			"Mission_Zombie_marker_Town1_03" setMarkerColor "ColorOrange";
 			"Mission_Zombie_marker_Town1_03" setMarkerType "MinefieldAP";
-			"Mission_Zombie_marker_Town1_03" setMarkerText "-=Infected Zone=-";
+			"Mission_Zombie_marker_Town1_03" setMarkerText "";
+			//CREATE Z_COUNTER MARKER TO COUNT AI
+			_Z_COUNTER = createMarker ["Z_COUNTER", getMarkerPos "Mission_Zombie_marker_Town1_01"];
+			"Z_COUNTER" setMarkerColor "ColorOrange";
+			"Z_COUNTER" setMarkerType "hd_dot";
 //============================================////============================================//
-		//TRIGGERS
-		_trigger_town_1_01 = [(getMarkerPos "Mission_Zombie_marker_Town1_01"), 25, 200, 1, 0, 150, 0] call BIS_fnc_findSafePos;	//_trigger_town_1_01
-	//FIND SPOT AROUND TOWN FOR ZOMBIE TRIGGERS
-		_Mission_Zombie_Trigger_marker_Town1_01 = createMarker ["Mission_Zombie_Trigger_marker_Town1_01", _trigger_town_1_01];
-		"Mission_Zombie_Trigger_marker_Town1_01" setMarkerSize [0.8,0.8];
-		"Mission_Zombie_Trigger_marker_Town1_01" setMarkerColor "ColorKhaki";
-		"Mission_Zombie_Trigger_marker_Town1_01" setMarkerType "respawn_para";
+	//TRIGGERS
 	//MOVE ZOMBIE TRIGGER TO SELECTED TOWNS (6 TOTALS, 2 PER TOWN)
-		//WAYPOINT
-		_trig01POS = getMarkerPos "Mission_Zombie_Trigger_marker_Town1_01";
-		//SPAWNER #1
-		Zombie_Trigger_1 setPos _trig01POS;
-		
+		_ZtrigPOS = getMarkerPos "Mission_Zombie_marker_Town1_01";
+		//SPAWNER #1 + FOG
+		Zombie_Trigger_1 setPos _ZtrigPOS;
+		ZOMBIE_FOG_TRIGGER setPos _ZtrigPOS;
 	//MESSAGE
 		MISSION_NOTIFICATION_MSG = "ZOMBIE_MISSION_START_NOTIFICATION"; publicVariable "MISSION_NOTIFICATION_MSG";
 		SFX_CUSTOM = "AICAPTURETOWER"; publicVariable "SFX_CUSTOM";
-		["Zombie Horde Detected! Clean them out!", 10, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
-//============================================////============================================//
-	//WAIT 12 SECONDS TO NOTIFICATION TO GO AWAY
-		uiSleep 12;
+		["Zombie Horde Test! 50 Zombies 300meters radius", 10, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 //============================================////============================================//
 	//SET MISSION VARIABLES
-		//_AiCounter = 1;							//MAIN MISSION LOOP CHECK 4 SECONDS
-		//_radius = 1250;							//COUNT AI IN THAT RADIUS AMOUNT IN METER
-
+		_ZCounter = 1;							//MAIN MISSION LOOP CHECK 4 SECONDS
+		_radius = 600;							//COUNT AI IN THAT RADIUS AMOUNT IN METER
+		_radius1 = 605;
+		_PLcheck = 0;							//PLAYER DETECTED CHECK (0=NOPLAYER 1=PLAYER DETECTED)
+		_ZFailed = 0;
+//============================================////============================================//
+	//WAIT UNTIL A PLAYER IS AROUND 600 METERS
+		while {_PLcheck isEqualTo 0} do 
+		{
+		  //
+		  _PLaround = ({alive _x AND (side _x) isEqualTo EAST AND (_x distance getMarkerPos "Mission_Zombie_marker_Town1_01" < _radius)} count allunits);
+		  uiSleep 3;
+			if (_PLaround >= 1) then 
+			{
+				//PLAYER AROUND, QUIT LOOP AND START MISSION
+				["PLAYER CHECK -TEMP-", 10, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+				_PLcheck = 1;
+			};
+		};
+		waitUntil {uiSleep 5; _PLcheck isEqualTo 1};
+//============================================////============================================//
+	//WAIT 10 SECONDS FOR A COUPLE OF ZOMBIES TO SPAWN
+	    /*	(TRIGGER SET AT 0.2)
+			0.2 x uiSleep10 = 50 Z's	*/
+		//SO WAIT 12 SECONDS TO BE SURE ALL ZOMBIES HAVE SPAWNED THEN MOVE TRIGGER TO DISABLE IT
+		uiSleep 12;
+//============================================////============================================//
+	//MOVE MARKER BACK TO ORIGINAL POSITION TO DISABLE IT AFTER IT SPAWNED 50 ZOMBIES
+		Zombie_Trigger_1 setPos _Zombie_Trigger_1_default_POS;
 //============================================////============================================//
 	//START MISSION
-/*		while {_AiCounter isEqualTo 1} do 
+		while {_ZCounter isEqualTo 1} do 
 		{
 		  //AI COUNTER FOR MISSION MARKER
-		  _AiCount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getMarkerPos "Missionmarker1" < _radius)} count allunits);
+		  _ZCount = ({alive _x AND (side _x) isEqualTo resistance AND (_x distance getMarkerPos "Mission_Zombie_marker_Town1_01" < _radius)} count allunits);
+		  _PLaround = ({alive _x AND (side _x) isEqualTo EAST AND (_x distance getMarkerPos "Mission_Zombie_marker_Town1_01" < _radius1)} count allunits);
 		  //
 		  uiSleep 4;
 		  //
-		  "AI_COUNTER" setMarkerText format ["(Ennemies left: (%1)", _AiCount];
+		  "Z_COUNTER" setMarkerText format ["	(Zombies left: (%1)", _ZCount];
 			//ADD CUSTOM STUFF HERE FOR MAIN MISSION
-			
-			//
-			//ALL TOWN HAS BEEN TAKEN BACK AND CLEANED OF THE INFECTION
-			//
-			if (_AiCount < 20) then 
+				
+			//ALL ZOMBIES HAS BEEN ELIMINATED. ENDING MISSION
+			if (_ZCount < 5) then 
 			{
-				//CHANGE AI_COUNTER MARKER
-				"AI_COUNTER" setMarkerColor "ColorOrange";
-				"AI_COUNTER" setMarkerText "The town has been taken back!";
-				_AiCounter = 0;
+				//CHANGE Z_COUNTER MARKER
+				"Z_COUNTER" setMarkerColor "ColorOrange";
+				"Z_COUNTER" setMarkerText "The town has been purified!";
+				_ZCounter = 0;
 			};
-		};*/
+			//RESET EVENT IF PLAYER GO OUT OF THE ZOMBIE TRIGGER AREA. STOP WANDERING ZOMBIE CHASING ALL AROUND MAP
+			if (_PLaround < 1) then 
+			{
+				//RESET EVENT AND WARN PLAYER
+				["GOING OUT OF MISSION AREA. RESETING ZOMBIES EVENT (CHECK)", 10, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+				_ZCounter = 0;
+				_ZFailed = 1;
+			};
+		};
 //============================================////============================================//
+	//END MISSION IF FAILED
+		if (_ZFailed isEqualTo 1) exitWith 
+		{
+			//CHANGE Z_COUNTER MARKER
+			"Z_COUNTER" setMarkerColor "ColorOrange";
+			"Z_COUNTER" setMarkerText "Zombies overun! Failed mission...";
+			//FAILED
+			["Zombie Event Failed...", 10, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
+			//DELETE ALL ALIVE ZOMBIE TO RESET TRIGGER FOR NEXT EVENT WITHIN A 800 METERS RADIUS INCASE THEY CHASED A PLAYER OUT OF THE ZONE
+			Execute_Client_SQF = "TIMS\-=ZOMBRELLA_CORP=-\Z_DEL.sqf"; publicVariable "Execute_Client_SQF";
+			[] execVM Execute_Client_SQF;
+			//WAIT OR MARKER WILL BE DELETED BEFORE THE SQF SCRIPT.
+			uiSleep 30;
+			//MOVE FOG TRIGGER BACK TO SAFE SPOT
+			ZOMBIE_FOG_TRIGGER setPos _Zombie_Trigger_1_default_POS;
+			//DELETE MARKER
+			deleteMarker "Mission_Zombie_marker_Town1_01";
+			deleteMarker "Mission_Zombie_marker_Town1_02";
+			deleteMarker "Mission_Zombie_marker_Town1_03";
+			deleteMarker "Mission_Zombie_Trigger_marker_Town1_01";
+			deleteMarker "Mission_Zombie_Trigger_marker_Town1_02";
+			deleteMarker "Z_COUNTER";
+			//MISSION ENDED
+			diag_log "-=T.I.M.S=-: Mission -ZOMBIE_INFESTATION.sqf- Ended";
+			//MISSION ENDED CHECK
+			ZOMBRELLA_CORP_STARTED = 0;
+		};
+	//WAIT UNTIL AI ELEMINATED (< 5)
+		waitUntil {uiSleep 5; _ZCounter isEqualTo 0};
+	//MESSAGE
+		MISSION_NOTIFICATION_MSG = "ZOMBIE_MISSION_START_NOTIFICATION"; publicVariable "MISSION_NOTIFICATION_MSG";
+		SFX_CUSTOM = "AICAPTURETOWER"; publicVariable "SFX_CUSTOM";
+		["Zombie Horde eliminated. -TEMP- MESSAGE END", 10, [[0,0,0,0.2],[1,1,1,0.95]]] remoteExec ["Epoch_message",-2]; // -2 targets everyone but the server
 	//WAIT X SECONDS BEFORE DELETING EVERYTHING
-		uiSleep 900;
+		uiSleep 120;
 		//uiSleep MISSION_CLEAN_TIME;
 //============================================////============================================//
 	//MISSION CLEANUP
-		//MOVE MARKERS BACK TO SAFE SPOT
-			_Zombie_Trigger_1_default_POS = [18495.582, 21007.387, -1.4075165];
-			Zombie_Trigger_1 setPos _Zombie_Trigger_1_default_POS;
+		//MOVE FOG TRIGGER BACK TO SAFE SPOT
+			ZOMBIE_FOG_TRIGGER setPos _Zombie_Trigger_1_default_POS;
 		//DELETE MARKER
 			deleteMarker "Mission_Zombie_marker_Town1_01";
 			deleteMarker "Mission_Zombie_marker_Town1_02";
 			deleteMarker "Mission_Zombie_marker_Town1_03";
 			deleteMarker "Mission_Zombie_Trigger_marker_Town1_01";
 			deleteMarker "Mission_Zombie_Trigger_marker_Town1_02";
+			deleteMarker "Z_COUNTER";
 //============================================////============================================//
 	//MISSION ENDED
 		diag_log "-=T.I.M.S=-: Mission -ZOMBIE_INFESTATION.sqf- Ended";
