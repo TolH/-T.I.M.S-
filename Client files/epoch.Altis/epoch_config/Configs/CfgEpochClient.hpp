@@ -158,13 +158,13 @@ class CfgEpochRyanZombie
 {
     zeds[] = {"EPOCH_RyanZombie_1","EPOCH_RyanZombie_2","EPOCH_RyanZombie_3","EPOCH_RyanZombie_4","EPOCH_RyanZombie_5"};
     attackDist = 1.6; //Attack Distance.
-    range = 45; //Range at which to dispose old zombies and spawn new ones within.
+    range = 150; //Range at which to dispose old zombies and spawn new ones within.
     disposeRange = 800; // distance before zombie is disposed
     smell[] = {38,0.42}; //Distance in metres up to which the zombie can smell a target. | Skill (0 - 1). 0 - Disable
     sight[] = {28,0.72}; //Zombie sight distance | Skill (0 - 1).
-    hearing[] = {108,0.68}; //Zombie hearing distance / Skill. Max FiredNear EH Limit ?
+    hearing[] = {50,0.68}; //Zombie hearing distance / Skill. Max FiredNear EH Limit ?
     memory[] = {480,0.8}; //Memory time. / Weighting. WIP - Not Used
-    reflexSpeed = 0.25; //Zombie brain will pause for this time when checking for new stimulus during each thought process. Lower number equals a more reactive zombie. (Guide Min 0.25 - Max 2.5).
+    reflexSpeed = 0.30; //Zombie brain will pause for this time when checking for new stimulus during each thought process. Lower number equals a more reactive zombie. (Guide Min 0.25 - Max 2.5).
     moans[] = {"ryanzombiesmoan1","ryanzombiesmoan2","ryanzombiesmoan3","ryanzombiesmoan4"};
     screams[] = {"ryanzombiesscream1","ryanzombiesscream2","ryanzombiesscream3","ryanzombiesscream4","ryanzombiesscream5","ryanzombiesscream6","ryanzombiesscream7","ryanzombiesscream8","ryanzombiesscream9"};
 };

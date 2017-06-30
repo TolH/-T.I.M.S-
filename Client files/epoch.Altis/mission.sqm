@@ -5,17 +5,17 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=20;
+		nextID=32;
 	};
 	class Camera
 	{
-		pos[]={14425.356,552.26239,16499.535};
-		dir[]={0.43397486,-0.79355514,0.42671606};
-		up[]={0.56586969,0.60843271,0.55640912};
-		aside[]={0.7011739,-4.3195905e-007,-0.71309644};
+		pos[]={16874.459,276.70135,19121.107};
+		dir[]={0.010274122,-0.89250654,0.45091969};
+		up[]={0.020330323,0.4510335,0.89227521};
+		aside[]={0.99974138,-1.4406396e-009,-0.022778925};
 	};
 };
 binarizationWanted=0;
@@ -92,7 +92,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=219;
+		items=220;
 		class Item0
 		{
 			dataType="Marker";
@@ -6556,7 +6556,7 @@ class Mission
 			position[]={14742.429,17.91,16779.35};
 			name="SpawnHeli";
 			type="Empty";
-			angle=222.67438;
+			angle=222.67427;
 			id=405;
 		};
 		class Item205
@@ -6725,12 +6725,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={18495.582,-1.4075165,21007.387};
+				position[]={18495.582,-1.4072266,21007.387};
 			};
 			name="Zombie_Trigger_1";
 			id=5;
 			type="RyanZM_ModuleSpawn";
-			atlOffset=80.16671;
+			atlOffset=80.167;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6786,7 +6786,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=25;
+							value=50;
 						};
 					};
 				};
@@ -6805,7 +6805,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=180;
+							value=30;
 						};
 					};
 				};
@@ -6843,7 +6843,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=0.40000001;
+							value=0.2;
 						};
 					};
 				};
@@ -6862,7 +6862,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=25;
+							value=50;
 						};
 					};
 				};
@@ -6900,7 +6900,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=0;
+							value=300;
 						};
 					};
 				};
@@ -7162,7 +7162,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=500;
+							value=50;
 						};
 					};
 				};
@@ -7238,7 +7238,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1;
+							value=3;
 						};
 					};
 				};
@@ -7667,7 +7667,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=0.80000001;
+							value=0.60000002;
 						};
 					};
 				};
@@ -7762,12 +7762,32 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=0.1;
+							value=0.0020000001;
 						};
 					};
 				};
 				nAttributes=10;
 			};
+		};
+		class Item219
+		{
+			dataType="Trigger";
+			position[]={18495.07,0.00019073486,21003.572};
+			class Attributes
+			{
+				name="ZOMBIE_FOG_TRIGGER";
+				condition="call{player in thislist;}";
+				onActivation="call{fog1 = [] execVM ""TIMS\fog\fogA.sqf""; titleText [""Entering -=Infected Zone=-"", ""PLAIN""];}";
+				onDeactivation="call{fog2 = [] execVM ""TIMS\fog\fogD.sqf""; titleText [""Leaving -=Infected Zone=-"", ""PLAIN""];}";
+				sizeA=600;
+				sizeB=600;
+				sizeC=150;
+				repeatable=1;
+				activationBy="ANYPLAYER";
+			};
+			id=25;
+			type="EmptyDetectorAreaR250";
+			atlOffset=81.218002;
 		};
 	};
 	class Connections

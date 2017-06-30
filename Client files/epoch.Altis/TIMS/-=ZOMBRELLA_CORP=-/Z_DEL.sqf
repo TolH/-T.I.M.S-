@@ -1,0 +1,1 @@
+{if(alive _x AND (side _x) isEqualTo resistance AND (_x distance getMarkerPos "Mission_Zombie_marker_Town1_01" < 650)) then {_x setDamage 1;};} forEach allUnits;

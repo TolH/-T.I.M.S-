@@ -55,12 +55,14 @@
 				type = 0;
 				idc = -1;
 				style = 48; //+ 0x800;
-				colorBackground[] = {0, 0, 0, 1};
+				colorBackground[] = {0, 0, 0, 0};
 				colorText[] = {1, 1, 1, 1};
 				font = "PuristaBold";
 				sizeEx = 0;
 				lineSpacing = 0;
-				text = "TIMS\img\icon.paa" ;
+				text = "TIMS\video\Zvideo.ogv";
+				autoplay = 1;
+				loops = 1;
 				fixedWidth = 0;
 				shadow = 1;
 				x = "SafeZoneX + (1425 / 1920) * SafeZoneW";
